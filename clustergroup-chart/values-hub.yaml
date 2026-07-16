@@ -10,11 +10,6 @@ clusterGroup:
 #  - image: registry.redhat.io/redhat/community-operator-index:v4.20
 #    name: community-operators-disconnected-hub-v4.20
 
-  scheduler:
-    mastersSchedulable: true
-#    defaultNodeSelector: type=user-node,region=east
-#    profile: HighNodeUtilization
-
   namespaces:
     - openshift-local-storage
         labels:
