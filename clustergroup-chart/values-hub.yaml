@@ -4,11 +4,11 @@ clusterGroup:
   sharedValueFiles: []
 
   # Create CatalogSource
-  indexImages: 
-  - image: registry.redhat.io/redhat/redhat-operator-index:v4.20
-    name: redhat-operators-disconnected-hub-v4.20
-  - image: registry.redhat.io/redhat/community-operator-index:v4.20
-    name: community-operators-disconnected-hub-v4.20
+#  indexImages: 
+#  - image: registry.redhat.io/redhat/redhat-operator-index:v4.20
+#    name: redhat-operators-disconnected-hub-v4.20
+#  - image: registry.redhat.io/redhat/community-operator-index:v4.20
+#    name: community-operators-disconnected-hub-v4.20
 
   scheduler:
     mastersSchedulable: true
@@ -33,31 +33,31 @@ clusterGroup:
   subscriptions: 
     - name: kubernetes-nmstate-operator
       namespace: openshift-nmstate
-      source: redhat-operators-disconnected-hub-v4.20
+      source: redhat-operators
       channel: stable
       sourceNamespace: openshift-marketplace
 
     - name: local-storage-operator
       namespace: openshift-local-storage
-      source: redhat-operators-disconnected-hub-v4.20
+      source: redhat-operators
       channel: stable
       sourceNamespace: openshift-marketplace
 
     - name: odf-operator
       namespace: openshift-storage
-      source: redhat-operators-disconnected-hub-v4.20
+      source: redhat-operators
       channel: release-4.20
       sourceNamespace: openshift-marketplace
 
     - name: advanced-cluster-management
       namespace: open-cluster-management
-      source: redhat-operators-disconnected-hub-v4.20
+      source: redhat-operators
       channel: release-2.16
       sourceNamespace: openshift-marketplace
 
     - name: quay-operator
       namespace: openshift-operators
-      source: redhat-operators-disconnected-hub-v4.20
+      source: redhat-operators
       channel: stable-3.17
       sourceNamespace: openshift-marketplace
 
@@ -70,11 +70,11 @@ clusterGroup:
     namespace: default
     path: applications/lso
   
-  - name: odf
-    namespace: default
-    path: applications/odf
-    extraValueFiles:
-      - $patternref/hub01-values-files/values-odf-hub01.yaml
+#  - name: odf
+#    namespace: default
+#    path: applications/odf
+#    extraValueFiles:
+#      - $patternref/hub01-values-files/values-odf-hub01.yaml
 
   - name: acm
     namespace: default
@@ -148,7 +148,7 @@ clusterGroup:
     # This is the maximum timeout of all the jobs (1h)
     activeDeadlineSeconds: 3600
     # By default we run this every 10minutes
-    schedule: "*/5 * * * *"
+    schedule: ""
     # Schedule used to trigger the vault unsealing (if explicitely enabled)
     # Set to run every 5 minutes in order for load-secrets to succeed within
     # a reasonable amount of time (it waits up to 15 mins)
