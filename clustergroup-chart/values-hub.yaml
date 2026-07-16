@@ -143,11 +143,11 @@ clusterGroup:
     # This is the maximum timeout of all the jobs (1h)
     activeDeadlineSeconds: 3600
     # By default we run this every 10minutes
-    schedule: ""
+    schedule: "0 0 31 2 *"
     # Schedule used to trigger the vault unsealing (if explicitely enabled)
     # Set to run every 5 minutes in order for load-secrets to succeed within
     # a reasonable amount of time (it waits up to 15 mins)
-    insecureUnsealVaultInsideClusterSchedule: ""
+    insecureUnsealVaultInsideClusterSchedule: "0 0 31 2 *"
     # Increase ansible verbosity with '-v' or '-vv..'
     verbosity: "-vv"
     # -- Optional extra arguments for every ansible-playbook invocation (imperative jobs, vault unseal, auto-approve installplans). Each list entry is one argv token. Empty by default.
