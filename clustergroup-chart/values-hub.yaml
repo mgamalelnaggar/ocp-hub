@@ -152,7 +152,7 @@ clusterGroup:
     # Schedule used to trigger the vault unsealing (if explicitely enabled)
     # Set to run every 5 minutes in order for load-secrets to succeed within
     # a reasonable amount of time (it waits up to 15 mins)
-    insecureUnsealVaultInsideClusterSchedule: "*/5 * * * *"
+    insecureUnsealVaultInsideClusterSchedule: ""
     # Increase ansible verbosity with '-v' or '-vv..'
     verbosity: "-vv"
     # -- Optional extra arguments for every ansible-playbook invocation (imperative jobs, vault unseal, auto-approve installplans). Each list entry is one argv token. Empty by default.
