@@ -1,0 +1,180 @@
+clusterGroup:
+  name: hub
+  targetCluster: in-cluster
+  sharedValueFiles: []
+
+  # Create CatalogSource
+  indexImages: 
+  - image: registry.redhat.io/redhat/redhat-operator-index:v4.20
+    name: redhat-operators-disconnected-hub-v4.20
+  - image: registry.redhat.io/redhat/community-operator-index:v4.20
+    name: community-operators-disconnected-hub-v4.20
+
+  scheduler:
+    mastersSchedulable: true
+#    defaultNodeSelector: type=user-node,region=east
+#    profile: HighNodeUtilization
+
+  namespaces:
+    - openshift-local-storage
+        labels:
+          openshift.io/cluster-monitoring: "true"
+    - openshift-storage
+    - open-cluster-management
+    - openshift-operators-redhat
+        labels:
+          openshift.io/cluster-monitoring: "true"
+    - openshift-logging
+    - quay-operator
+    - openshift-nmstate
+        labels:
+          openshift.io/cluster-monitoring: "true"    
+
+  subscriptions: 
+    - name: kubernetes-nmstate-operator
+      namespace: openshift-nmstate
+      source: redhat-operators-disconnected-hub-v4.20
+      channel: stable
+      sourceNamespace: openshift-marketplace
+
+    - name: local-storage-operator
+      namespace: openshift-local-storage
+      source: redhat-operators-disconnected-hub-v4.20
+      channel: stable
+      sourceNamespace: openshift-marketplace
+
+    - name: odf-operator
+      namespace: openshift-storage
+      source: redhat-operators-disconnected-hub-v4.20
+      channel: release-4.20
+      sourceNamespace: openshift-marketplace
+
+    - name: advanced-cluster-management
+      namespace: open-cluster-management
+      source: redhat-operators-disconnected-hub-v4.20
+      channel: release-2.16
+      sourceNamespace: openshift-marketplace
+
+    - name: quay-operator
+      namespace: openshift-operators
+      source: redhat-operators-disconnected-hub-v4.20
+      channel: stable-3.17
+      sourceNamespace: openshift-marketplace
+
+  applications: 
+  - name: nmstate
+    namespace: default
+    path: applications/nmstate
+
+  - name: lso
+    namespace: default
+    path: applications/lso
+  
+  - name: odf
+    namespace: default
+    path: applications/odf
+    extraValueFiles:
+      - $patternref/hub01-values-files/values-odf-hub01.yaml
+
+  - name: acm
+    namespace: default
+    path: applications/acm
+
+  - name: quay
+    namespace: default
+    path: applications/quay
+
+
+
+
+
+  argoCD:
+    initContainers: []
+    env: []
+    rbac: {}
+    volumes: []
+    volumeMounts: []
+    configManagementPlugins: []
+    # resource tracking can be set to annotation, label, or annotation+label
+    resourceTrackingMethod: annotation
+    resourceHealthChecks:
+      # Adding health checks to argocd to prevent pvc resources
+      # that aren't bound state from blocking deployments
+      # https://www.github.com/argoproj/argo-cd/issues/12840 seems to be related
+      - kind: PersistentVolumeClaim
+        check: |
+          hs = {}
+          if obj.status ~= nil then
+            if obj.status.phase ~= nil then
+              if obj.status.phase == "Pending" then
+                hs.status = "Healthy"
+                hs.message = obj.status.phase
+                return hs
+              elseif obj.status.phase == "Bound" then
+                hs.status = "Healthy"
+                hs.message = obj.status.phase
+                return hs
+              end
+            end
+          end
+          hs.status = "Progressing"
+          hs.message = "Waiting for PVC"
+          return hs
+
+    resourceActions: []
+    resourceExclusions: |
+      - apiGroups:
+        - tekton.dev
+        kinds:
+        - TaskRun
+        - PipelineRun
+
+  imperative:
+    jobs: []
+    image: quay.io/validatedpatterns/imperative-container:v1
+    ansibleDevMode:
+      # -- When true, run an init container before imperative playbooks that can install collections and optionally write ansible.cfg into the cloned repo (/git/repo).
+      enabled: false
+      requirementsFile: "requirements.yml"
+      requirementsContent: ""
+      ansibleCfgFile: "ansible.cfg"
+      ansibleCfgContent: ""
+    namespace: "imperative"
+    # configmap name in the namespace that will contain all helm values
+    valuesConfigMap: "helm-values-configmap"
+    cronJobName: "imperative-cronjob"
+    jobName: "imperative-job"
+    imagePullPolicy: Always
+    # This is the maximum timeout of all the jobs (1h)
+    activeDeadlineSeconds: 3600
+    # By default we run this every 10minutes
+    schedule: "*/5 * * * *"
+    # Schedule used to trigger the vault unsealing (if explicitely enabled)
+    # Set to run every 5 minutes in order for load-secrets to succeed within
+    # a reasonable amount of time (it waits up to 15 mins)
+    insecureUnsealVaultInsideClusterSchedule: "*/5 * * * *"
+    # Increase ansible verbosity with '-v' or '-vv..'
+    verbosity: "-vv"
+    # -- Optional extra arguments for every ansible-playbook invocation (imperative jobs, vault unseal, auto-approve installplans). Each list entry is one argv token. Empty by default.
+    extraPlaybookArgs: []
+    serviceAccountCreate: true
+    # service account to be used to run the cron pods
+    serviceAccountName: imperative-sa
+    clusterRoleName: imperative-cluster-role
+    clusterRoleYaml: ""
+    roleName: imperative-role
+    roleYaml: ""
+    adminServiceAccountCreate: true
+    adminServiceAccountName: imperative-admin-sa
+    adminClusterRoleName: imperative-admin-cluster-role
+    # -- Namespace where the Vault pod runs. Used to grant pods/exec RBAC on OCP 4.22+ (Kubernetes 1.35+).
+    #vaultNamespace: "vault"
+
+  extraObjects: {}
+
+
+
+# Depends on the value of 'vault_hub' ansible variable used
+# during the installation
+#secretsBase:
+#  key: secret/data/hub

@@ -1,0 +1,23 @@
+storageSystem:
+  inventory:
+    nodeJobLabelSelector: 'node-role.kubernetes.io/worker='
+    useSpecificNodes: true # true/false to label a specific set of nodes to be part of ODF
+    nodes: # At least specify three nodes
+      - nodeA
+      - nodeB
+      - nodeC
+  osd:
+    count: 5
+network:
+  odf-cluster:
+    master: "stor.556"
+      ipam:
+        range: "200.1.136.0/24"
+        exclude: "[200.1.136.0/27]"
+  odf-public:  
+    master: "stor.557"
+      ipam:
+        range: "200.1.137.0/24"
+        exclude: "[200.1.137.0/27]"
+job:
+  image: image-registry.openshift-image-registry.svc:5000/openshift/cli:latest

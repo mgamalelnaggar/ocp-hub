@@ -1,0 +1,23 @@
+global:
+  singleArgoCD: false
+  extraValueFiles: []
+  pattern: hub
+  localClusterDomain: <tbd>
+  hubClusterDomain: <tbd>
+  vpArgoNamespace: openshift-gitops
+  secretLoader:
+    disabled: false
+  secretStore:
+    #backend: "vault"
+    backend: "kubernetes"
+  targetRevision: main
+  options:
+    useCSV: false
+    syncPolicy: Automatic
+    installPlanApproval: Automatic
+    applicationRetryLimit: 20
+main:
+  clusterGroupName: hub
+  multiSourceConfig:
+    enabled: true
+    clusterGroupChartVersion: "0.9.*"
