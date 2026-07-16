@@ -6,7 +6,7 @@ global:
   hubClusterDomain: <tbd>
   vpArgoNamespace: openshift-gitops
   secretLoader:
-    disabled: false
+    disabled: true
   secretStore:
     #backend: "vault"
     backend: "kubernetes"
