@@ -2,8 +2,8 @@ global:
   singleArgoCD: false
   extraValueFiles: []
   pattern: hub
-  localClusterDomain: <tbd>
-  hubClusterDomain: <tbd>
+  localClusterDomain: "apps.snomgdcluster01.localdomain"
+  hubClusterDomain: "apps.snomgdcluster01.localdomain"
   vpArgoNamespace: openshift-gitops
   secretLoader:
     disabled: true
