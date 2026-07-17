@@ -1,0 +1,124 @@
+clusterGroup:
+  name: hub
+  targetCluster: in-cluster
+  sharedValueFiles: []
+
+  namespaces:
+    - openshift-local-storage
+    - openshift-storage
+    - open-cluster-management
+    - openshift-operators-redhat
+    - openshift-logging
+    - quay-operator
+    - openshift-nmstate
+ 
+
+  argoCD:
+    initContainers: []
+    env: []
+    rbac: {}
+    volumes: []
+    volumeMounts: []
+    configManagementPlugins: []
+    # resource tracking can be set to annotation, label, or annotation+label
+    resourceTrackingMethod: annotation
+    resourceHealthChecks:
+      # Adding health checks to argocd to prevent pvc resources
+      # that aren't bound state from blocking deployments
+      # https://www.github.com/argoproj/argo-cd/issues/12840 seems to be related
+      - kind: PersistentVolumeClaim
+        check: |
+          hs = {}
+          if obj.status ~= nil then
+            if obj.status.phase ~= nil then
+              if obj.status.phase == "Pending" then
+                hs.status = "Healthy"
+                hs.message = obj.status.phase
+                return hs
+              elseif obj.status.phase == "Bound" then
+                hs.status = "Healthy"
+                hs.message = obj.status.phase
+                return hs
+              end
+            end
+          end
+          hs.status = "Progressing"
+          hs.message = "Waiting for PVC"
+          return hs
+
+    resourceActions: []
+    resourceExclusions: |
+      - apiGroups:
+        - tekton.dev
+        kinds:
+        - TaskRun
+        - PipelineRun
+
+  subscriptions:
+    kubernetes-nmstate-operator:
+      name: kubernetes-nmstate-operator
+      namespace: openshift-nmstate
+      source: redhat-operators
+      channels: ["stable"]
+      versions: '4.20.*'
+      sourceNamespace: openshift-marketplace
+
+    local-storage-operator:
+      name: local-storage-operator
+      namespace: openshift-local-storage
+      source: redhat-operators
+      channels: ["stable"]
+      versions: '4.20.*'
+      sourceNamespace: openshift-marketplace
+    
+    odf-operator:
+      name: odf-operator
+      namespace: openshift-storage
+      source: redhat-operators
+      channels: ["release-4.20"]
+      versions: '4.20.*'
+      sourceNamespace: openshift-marketplace
+
+    advanced-cluster-management:
+      name: advanced-cluster-management
+      namespace: open-cluster-management
+      source: redhat-operators
+      channels: release-2.16
+      version: '2.16.*'
+      sourceNamespace: openshift-marketplace
+
+    quay-operator:
+      name: quay-operator
+      namespace: openshift-operators
+      source: redhat-operators
+      channels: ["stable-3.17"]
+      version: '3.17.*'
+      sourceNamespace: openshift-marketplace
+
+  applications: 
+    nmstate:
+      name: nmstate
+      namespace: default
+      path: applications/nmstate
+
+    lso:
+      name: lso
+      namespace: default
+      path: applications/lso
+
+#    odf:
+#      name: odf
+#      namespace: default
+#      path: applications/odf
+#      extraValueFiles:
+#        - $patternref/hub01-values-files/values-odf-hub01.yaml
+    acm:
+      name: acm
+      namespace: default
+      path: applications/acm
+
+    quay:
+      name: quay
+      namespace: default
+      path: applications/quay
+
