@@ -65,7 +65,7 @@ clusterGroup:
     nmstate:
       name: nmstate
       namespace: default
-      path: applications/nmstate
+      path: $patternref/applications/nmstate
 
     lso:
       name: lso
