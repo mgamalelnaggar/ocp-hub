@@ -1,3 +1,21 @@
+global:
+  singleArgoCD: false
+  extraValueFiles: []
+  pattern: hub
+  localClusterDomain: "snomgdcluster01.localdomain"
+  hubClusterDomain: "snomgdcluster01.localdomain"
+  vpArgoNamespace: openshift-gitops
+  secretLoader:
+    disabled: true
+  secretStore:
+    backend: "kubernetes"
+  targetRevision: main
+  options:
+    autoApproveManualInstallPlans: false
+    useCSV: false
+    syncPolicy: Automatic
+    installPlanApproval: Automatic
+    applicationRetryLimit: 20
 clusterGroup:
   name: hub
   targetCluster: in-cluster
