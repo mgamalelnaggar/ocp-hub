@@ -1,0 +1,19 @@
+apiVersion: "k8s.cni.cncf.io/v1"
+kind: NetworkAttachmentDefinition
+metadata:
+  annotations:
+    argocd.argoproj.io/sync-wave: "-1"
+  name: odf-public
+  namespace: {{ .Values.odf.namespace }}
+spec:
+  config: '{
+    "cniVersion": "0.3.1",
+    "type": "macvlan",
+    "master": {{ .Values.network.odf-public.master }},
+    "mode": "bridge",
+    "ipam": {
+      "type": "whereabouts",
+      "range": {{ .Values.network.odf-public.ipam.range }},
+      "exclude": {{ .Values.network.odf-public.ipam.exclude }}
+    }
+  }'
