@@ -18,6 +18,14 @@ global:
     autoApproveManualInstallPlans: true
     applicationRetryLimit: 20
 
+  imperative:
+    jobs: []
+    image: quay.io/validatedpatterns/imperative-container:v1
+
+
+
+
+
 clusterGroup:
   name: hub
   targetCluster: in-cluster
