@@ -4,7 +4,7 @@ keywords:
 - pattern
 name: clustergroup
 version: 0.9.56
-#home: https://github.com/validatedpatterns/clustergroup-chart
+home: https://github.com/mgamalelnaggar/ocp-hub/clustergroup
 #maintainers:
 #  - name: Validated Patterns Team
 #    email: validatedpatterns@googlegroups.com
