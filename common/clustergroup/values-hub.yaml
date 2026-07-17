@@ -88,5 +88,20 @@ clusterGroup:
       namespace: default
       path: applications/quay
       
-  argoCD: {} 
+argoCD:
+    resourceTrackingMethod: annotation
+    resourceHealthChecks: []
+    resourceActions: []
+    rbac: {}
+    env: []
+    initContainers: []
+    volumeMounts: []
+    volumes: []
+    configManagementPlugins: []
+    resourceExclusions: |
+      - apiGroups:
+        - tekton.dev
+        kinds:
+        - TaskRun
+        - PipelineRun
 
