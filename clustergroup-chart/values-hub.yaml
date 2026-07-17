@@ -62,31 +62,31 @@ clusterGroup:
       sourceNamespace: openshift-marketplace
 
   applications: 
-  nmstate:
-    name: nmstate
-    namespace: default
-    path: applications/nmstate
+    nmstate:
+      name: nmstate
+      namespace: default
+      path: applications/nmstate
 
-  lso:
-    name: lso
-    namespace: default
-    path: applications/lso
+    lso:
+      name: lso
+      namespace: default
+      path: applications/lso
 
-#  odf:
-#    name: odf
-#    namespace: default
-#    path: applications/odf
-#    extraValueFiles:
-#      - $patternref/hub01-values-files/values-odf-hub01.yaml
-  acm:
-    name: acm
-    namespace: default
-    path: applications/acm
+#    odf:
+#      name: odf
+#      namespace: default
+#      path: applications/odf
+#      extraValueFiles:
+#        - $patternref/hub01-values-files/values-odf-hub01.yaml
+    acm:
+      name: acm
+      namespace: default
+      path: applications/acm
 
-  quay:
-    name: quay
-    namespace: default
-    path: applications/quay
+    quay:
+      name: quay
+      namespace: default
+      path: applications/quay
 
 
 
