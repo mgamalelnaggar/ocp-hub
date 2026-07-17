@@ -125,7 +125,7 @@ Default always defined valueFiles to be included in Applications but with a pref
 Helper function to generate AppProject from a map object
 Called from common/clustergroup/templates/plumbing/projects.yaml
 */}}
-{{- define "clustergroup.template.plumbing.projects.map" -}}
+{{- define "clustergroup.templates.plumbing.projects.map" -}}
 {{- $projects := index . 0 }}
 {{- $namespace := index . 1 }}
 {{- $enabled := index . 2 }}
@@ -217,7 +217,7 @@ metadata:
   name: {{ $k }}
   {{- if ne $v nil }}
   labels:
-    argocd.argoproj.io/managed-by: {{ include "clustergroup.template.argocdnamespace" $root }}
+    argocd.argoproj.io/managed-by: {{ include "clustergroup.templates.argocdnamespace" $root }}
     {{- if $v.labels }}
     {{- range $key, $value := $v.labels }} {{- /* We loop here even though the map has always just one key */}}
     {{ $key }}: {{ $value | default "" | quote }}
@@ -226,7 +226,7 @@ metadata:
   {{- include "clustergroup.annotations" $v.annotations | nindent 2 }}
   {{- else }}
   labels:
-    argocd.argoproj.io/managed-by: {{ include "clustergroup.template.argocdnamespace" $root }}
+    argocd.argoproj.io/managed-by: {{ include "clustergroup.templates.argocdnamespace" $root }}
   {{- end }}
 spec:
 {{- end }}{{- /* if not disabled */}}
@@ -284,7 +284,7 @@ spec:
   {{- end }}{{- /* if not disabled */}}
   {{- end }}{{- /* End range $k, $v = $ns */}}
 {{- end }}{{- /* End of if operatorGroupExcludes */}}
-{{- end }} {{- /* End define  "clustergroup.template.core.operatorgroup.map" */}}
+{{- end }} {{- /* End define  "clustergroup.templates.core.operatorgroup.map" */}}
 
 {{/*
 Renders annotations from a given context
@@ -325,10 +325,10 @@ false
 {{- /*
   Helper function to generate argocd namespace name
 */ -}}
-{{- define "clustergroup.template.argocdnamespace" -}}
+{{- define "clustergroup.templates.argocdnamespace" -}}
 {{- if .Values.global.singleArgoCD }}
 {{- .Values.global.vpArgoNamespace -}}
 {{- else }}
 {{- .Values.global.pattern }}-{{ .Values.clusterGroup.name -}}
 {{- end }}{{- /* if .singleArgoCD */}}
-{{- end }} {{- /* End define  "clustergroup.template.argocdnamespace" */}}
+{{- end }} {{- /* End define  "clustergroup.templates.argocdnamespace" */}}
