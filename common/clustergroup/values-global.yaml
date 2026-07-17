@@ -3,8 +3,8 @@ global:
   repoURL: https://github.com/mgamalelnaggar/ocp-hub.git
   extraValueFiles: []
   pattern: hub
-  localClusterDomain: "snomgdcluster01.localdomain"
-  hubClusterDomain: "snomgdcluster01.localdomain"
+  localClusterDomain: snomgdcluster01.localdomain
+  hubClusterDomain: snomgdcluster01.localdomain
   vpArgoNamespace: openshift-gitops
   secretLoader:
     disabled: true
@@ -12,9 +12,9 @@ global:
     backend: "kubernetes"
   targetRevision: main
   options:
-    useCSV: false
-    syncPolicy: Automatic
-    installPlanApproval: Automatic
+    syncPolicy: "Automatic"
+    #installPlanApproval: Automatic
+    autoApproveManualInstallPlans: true
     applicationRetryLimit: 20
 main:
   clusterGroupName: hub
