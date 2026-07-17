@@ -1,5 +1,0 @@
-apiVersion: v2
-name: lso-config
-description: A Helm chart to configure LSO
-type: application
-version: 1.0.0
