@@ -13,7 +13,7 @@ metadata:
   annotations:
     argocd.argoproj.io/compare-options: IgnoreExtraneous
 spec:
-  {{- if and (hasKey $.Values.clusterGroup.argoCD "resourceHealthChecks") (not (empty $.Values.clusterGroup.argoCD.resourceHealthChecks)) }}
+  {{- if and (hasKey (default dict $.Values.clusterGroup.argoCD) "resourceHealthChecks") (not (empty $.Values.clusterGroup.argoCD.resourceHealthChecks)) }}
   resourceHealthChecks: 
 {{- toYaml $.Values.clusterGroup.argoCD.resourceHealthChecks | nindent 2 }}
 
