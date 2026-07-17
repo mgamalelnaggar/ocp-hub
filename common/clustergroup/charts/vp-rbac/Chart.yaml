@@ -1,0 +1,7 @@
+apiVersion: v2
+description: A Helm chart to manage serviceAccounts, roles and rolebindings
+keywords:
+- pattern
+- rbac
+name: vp-rbac
+version: 0.1.2
