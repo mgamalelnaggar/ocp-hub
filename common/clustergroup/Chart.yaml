@@ -4,12 +4,12 @@ keywords:
 - pattern
 name: clustergroup
 version: 0.9.56
-home: https://github.com/validatedpatterns/clustergroup-chart
-maintainers:
-  - name: Validated Patterns Team
-    email: validatedpatterns@googlegroups.com
-icon: https://validatedpatterns.io/images/validated-patterns.png
-dependencies:
-  - name: vp-rbac
-    version: "0.1.*"
-    repository: "https://charts.validatedpatterns.io"
+#home: https://github.com/validatedpatterns/clustergroup-chart
+#maintainers:
+#  - name: Validated Patterns Team
+#    email: validatedpatterns@googlegroups.com
+#icon: https://validatedpatterns.io/images/validated-patterns.png
+#dependencies:
+#  - name: vp-rbac
+#    version: "0.1.*"
+#    repository: "https://charts.validatedpatterns.io"
