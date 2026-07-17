@@ -23,7 +23,7 @@ spec:
 {{- toYaml $.Values.clusterGroup.argoCD.resourceActions | nindent 2 }}
 
   {{- end }}
-  resourceTrackingMethod: {{ $.Values.clusterGroup.argoCD.resourceTrackingMethod }}
+  resourceTrackingMethod: {{ coalesce (and (hasKey $.Values.clusterGroup "argoCD") $.Values.clusterGroup.argoCD.resourceTrackingMethod) "annotation" }}
   applicationInstanceLabelKey: argocd.argoproj.io/instance
   applicationSet:
     resources:
