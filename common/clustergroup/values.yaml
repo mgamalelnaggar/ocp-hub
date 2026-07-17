@@ -31,7 +31,7 @@ clusterGroup:
     - openshift-logging
     - quay-operator
     - openshift-nmstate
- 
+
 
   argoCD:
     initContainers: []
@@ -141,3 +141,36 @@ clusterGroup:
       name: quay
       namespace: default
       path: applications/quay
+
+
+
+
+  imperative:
+    jobs: []
+    image: quay.io/validatedpatterns/imperative-container:v1
+    ansibleDevMode:
+      enabled: false
+      requirementsFile: "requirements.yml"
+      requirementsContent: ""
+      ansibleCfgFile: "ansible.cfg"
+      ansibleCfgContent: ""
+    namespace: "imperative"
+    valuesConfigMap: "helm-values-configmap"
+    cronJobName: "imperative-cronjob"
+    jobName: "imperative-job"
+    imagePullPolicy: Always
+    activeDeadlineSeconds: 60
+    schedule: "0 0 31 2 *"
+    insecureUnsealVaultInsideClusterSchedule: "0 0 31 2 *"
+    verbosity: ""
+    extraPlaybookArgs: []
+    serviceAccountCreate: true
+    serviceAccountName: imperative-sa
+    clusterRoleName: imperative-cluster-role
+    clusterRoleYaml: ""
+    roleName: imperative-role
+    roleYaml: ""
+    adminServiceAccountCreate: true
+    adminServiceAccountName: imperative-admin-sa
+    adminClusterRoleName: imperative-admin-cluster-role
+    vaultNamespace: "vault"
