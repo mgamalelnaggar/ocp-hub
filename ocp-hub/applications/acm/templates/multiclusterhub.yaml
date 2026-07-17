@@ -40,7 +40,7 @@ spec:
         enabled: true
         name: volsync
       - configOverrides: {}
-        enabled: false
+        enabled: true
         name: cluster-backup
       - configOverrides: {}
         enabled: false
