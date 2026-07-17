@@ -18,7 +18,7 @@ spec:
 {{- toYaml $.Values.clusterGroup.argoCD.resourceHealthChecks | nindent 2 }}
 
   {{- end }}
-  {{- if and (hasKey $.Values.clusterGroup.argoCD "resourceActions") (not (empty $.Values.clusterGroup.argoCD.resourceActions)) }}
+  {{- if and (hasKey (default dict $.Values.clusterGroup.argoCD) "resourceActions") (not (empty $.Values.clusterGroup.argoCD.resourceActions)) }}
   resourceActions: 
 {{- toYaml $.Values.clusterGroup.argoCD.resourceActions | nindent 2 }}
 
