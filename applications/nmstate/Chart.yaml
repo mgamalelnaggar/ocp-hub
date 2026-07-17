@@ -1,5 +1,0 @@
-apiVersion: v2
-name: nmstate-config
-description: A Helm chart to configure NMState
-type: application
-version: 1.0.0
