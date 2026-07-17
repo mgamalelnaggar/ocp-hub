@@ -23,7 +23,45 @@ global:
   imperative:
     jobs: []
     image: quay.io/validatedpatterns/imperative-container:v1
-
+    ansibleDevMode:
+      # -- When true, run an init container before imperative playbooks that can install collections and optionally write ansible.cfg into the cloned repo (/git/repo).
+      enabled: false
+      # -- Path under the cloned pattern repo for ansible-galaxy -r (written from requirementsContent when set).
+      requirementsFile: "requirements.yml"
+      # -- Inline requirements.yml; when non-empty, written to requirementsFile before galaxy install.
+      requirementsContent: ""
+      # -- Path under the cloned pattern repo for optional injected ansible.cfg (written from ansibleCfgContent when set).
+      ansibleCfgFile: "ansible.cfg"
+      # -- Inline ansible.cfg; when non-empty, written to ansibleCfgFile before ansible-galaxy (so galaxy and playbooks honor collections_path, etc.).
+      ansibleCfgContent: ""
+    namespace: "imperative"
+    # configmap name in the namespace that will contain all helm values
+    valuesConfigMap: "helm-values-configmap"
+    cronJobName: "imperative-cronjob"
+    jobName: "imperative-job"
+    imagePullPolicy: Always
+    # This is the maximum timeout of all the jobs (1h)
+    activeDeadlineSeconds: 3600
+    # By default we run this every 10minutes
+    schedule: "*/10 * * * *"
+    # Schedule used to trigger the vault unsealing (if explicitely enabled)
+    # Set to run every 5 minutes in order for load-secrets to succeed within
+    # a reasonable amount of time (it waits up to 15 mins)
+    insecureUnsealVaultInsideClusterSchedule: "*/5 * * * *"
+    # Increase ansible verbosity with '-v' or '-vv..'
+    verbosity: ""
+    # -- Optional extra arguments for every ansible-playbook invocation (imperative jobs, vault unseal, auto-approve installplans). Each list entry is one argv token. Empty by default.
+    extraPlaybookArgs: []
+    serviceAccountCreate: true
+    # service account to be used to run the cron pods
+    serviceAccountName: imperative-sa
+    clusterRoleName: imperative-cluster-role
+    clusterRoleYaml: ""
+    roleName: imperative-role
+    roleYaml: ""
+    adminServiceAccountCreate: true
+    adminServiceAccountName: imperative-admin-sa
+    adminClusterRoleName: imperative-admin-cluster-role
 
 
 
