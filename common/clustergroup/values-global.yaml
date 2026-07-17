@@ -16,8 +16,3 @@ global:
     #installPlanApproval: Automatic
     autoApproveManualInstallPlans: true
     applicationRetryLimit: 20
-main:
-  clusterGroupName: hub
-  multiSourceConfig:
-    enabled: true
-    clusterGroupChartVersion: "0.9.*"
