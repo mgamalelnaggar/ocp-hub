@@ -108,7 +108,7 @@ clusterGroup:
 
     quay-operator:
       name: quay-operator
-      namespace: openshift-operators
+      namespace: openshift-operators-redhat
       source: redhat-operators
       channel: "stable-3.11"
       #version: '3.11.*'
