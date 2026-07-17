@@ -1,7 +1,7 @@
 global:
   singleArgoCD: false
   repoURL: https://github.com/mgamalelnaggar/ocp-hub.git
-  multiSourceRepoUrl: https://github.com/mgamalelnaggar/ocp-hub.git
+  originRepo: https://github.com/mgamalelnaggar/ocp-hub.git
   extraValueFiles: 
     - values-hub.yaml
   pattern: hub
