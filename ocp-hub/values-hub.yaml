@@ -1,0 +1,90 @@
+clusterGroup:
+  name: hub
+  targetCluster: in-cluster
+  sharedValueFiles: []
+
+  # Create CatalogSource
+#  indexImages: 
+#  - image: registry.redhat.io/redhat/redhat-operator-index:v4.20
+#    name: redhat-operators-disconnected-hub-v4.20
+#  - image: registry.redhat.io/redhat/community-operator-index:v4.20
+#    name: community-operators-disconnected-hub-v4.20
+
+  namespaces:
+    - openshift-local-storage:
+        labels:
+          openshift.io/cluster-monitoring: "true"
+    - openshift-storage
+    - open-cluster-management
+    - openshift-operators-redhat:
+        labels:
+          openshift.io/cluster-monitoring: "true"
+    - openshift-logging
+    - quay-operator
+    - openshift-nmstate:
+        labels:
+          openshift.io/cluster-monitoring: "true"    
+
+  subscriptions:
+    kubernetes-nmstate-operator:
+      name: kubernetes-nmstate-operator
+      namespace: openshift-nmstate
+      source: redhat-operators
+      channel: stable
+      sourceNamespace: openshift-marketplace
+
+    local-storage-operator:
+      name: local-storage-operator
+      namespace: openshift-local-storage
+      source: redhat-operators
+      channel: stable
+      sourceNamespace: openshift-marketplace
+    
+    odf-operator:
+      name: odf-operator
+      namespace: openshift-storage
+      source: redhat-operators
+      channel: release-4.20
+      sourceNamespace: openshift-marketplace
+
+    advanced-cluster-management:
+      name: advanced-cluster-management
+      namespace: open-cluster-management
+      source: redhat-operators
+      channel: release-2.16
+      sourceNamespace: openshift-marketplace
+
+    quay-operator:
+      name: quay-operator
+      namespace: openshift-operators
+      source: redhat-operators
+      channel: stable-3.17
+      sourceNamespace: openshift-marketplace
+
+  applications: 
+    nmstate:
+      name: nmstate
+      namespace: default
+      path: $patternref/applications/nmstate
+
+    lso:
+      name: lso
+      namespace: default
+      path: applications/lso
+
+#    odf:
+#      name: odf
+#      namespace: default
+#      path: applications/odf
+#      extraValueFiles:
+#        - $patternref/hub01-values-files/values-odf-hub01.yaml
+    acm:
+      name: acm
+      namespace: default
+      path: applications/acm
+
+    quay:
+      name: quay
+      namespace: default
+      path: applications/quay
+
