@@ -12,8 +12,9 @@ global:
     backend: "kubernetes"
   targetRevision: main
   options:
+    useCSV: false
     syncPolicy: "Automatic"
-    #installPlanApproval: Automatic
+    installPlanApproval: Automatic
     autoApproveManualInstallPlans: true
     applicationRetryLimit: 20
 
