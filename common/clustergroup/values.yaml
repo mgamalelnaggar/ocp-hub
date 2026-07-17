@@ -79,7 +79,7 @@ clusterGroup:
       name: kubernetes-nmstate-operator
       namespace: openshift-nmstate
       source: redhat-operators
-      channels: ["stable"]
+      channels: [ "stable" ]
       versions: '4.18.*'
       sourceNamespace: openshift-marketplace
 
@@ -87,7 +87,7 @@ clusterGroup:
       name: local-storage-operator
       namespace: openshift-local-storage
       source: redhat-operators
-      channels: ["stable"]
+      channels: [ "stable" ]
       versions: '4.18.*'
       sourceNamespace: openshift-marketplace
     
@@ -95,7 +95,7 @@ clusterGroup:
       name: odf-operator
       namespace: openshift-storage
       source: redhat-operators
-      channels: ["release-4.20"]
+      channels: [ "release-4.18" ]
       versions: '4.18.*'
       sourceNamespace: openshift-marketplace
 
@@ -103,7 +103,7 @@ clusterGroup:
       name: advanced-cluster-management
       namespace: open-cluster-management
       source: redhat-operators
-      channels: release-2.13
+      channels: [ "release-2.13" ]
       version: '2.13.*'
       sourceNamespace: openshift-marketplace
 
@@ -111,7 +111,7 @@ clusterGroup:
       name: quay-operator
       namespace: openshift-operators
       source: redhat-operators
-      channels: ["stable-3.11"]
+      channels: [ "stable-3.11" ]
       version: '3.11.*'
       sourceNamespace: openshift-marketplace
 
