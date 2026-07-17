@@ -1,6 +1,5 @@
 global:
   singleArgoCD: false
-  repoURL: https://github.com/mgamalelnaggar/ocp-hub.git
   extraValueFiles: []
   pattern: hub
   localClusterDomain: "snomgdcluster01.localdomain"
@@ -19,5 +18,5 @@ global:
 main:
   clusterGroupName: hub
   multiSourceConfig:
-    enabled: true
+    enabled: false
     clusterGroupChartVersion: "0.9.*"
