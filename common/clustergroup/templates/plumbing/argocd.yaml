@@ -55,7 +55,7 @@ spec:
           memory: 128Mi
   initialSSHKnownHosts: {}
   rbac:
-  {{- if $.Values.clusterGroup.argoCD.rbac }}
+  {{- if and (hasKey (default dict $.Values.clusterGroup.argoCD) "rbac") $.Values.clusterGroup.argoCD.rbac }}
     {{- toYaml $.Values.clusterGroup.argoCD.rbac | nindent 4 }}
   {{- else }}
     defaultPolicy: role:readonly
