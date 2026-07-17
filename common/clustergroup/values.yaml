@@ -79,8 +79,9 @@ clusterGroup:
       name: kubernetes-nmstate-operator
       namespace: openshift-nmstate
       source: redhat-operators
-      channel: "stable"                 # Fixed: Singular string
+      channel: "stable"
       sourceNamespace: openshift-marketplace
+      serviceAccountName: nmstat-sa
 
     local-storage-operator:
       name: local-storage-operator
@@ -88,6 +89,7 @@ clusterGroup:
       source: redhat-operators
       channel: "stable"
       sourceNamespace: openshift-marketplace
+      serviceAccountName: lso-sa
       #csv: "4.18-202607031140"
     
     odf-operator:
