@@ -10,7 +10,7 @@ global:
   secretStore:
     backend: "kubernetes"
   targetRevision: main
-  options:
+  Options:
     useCSV: false
     syncPolicy: Automatic
     installPlanApproval: Automatic
