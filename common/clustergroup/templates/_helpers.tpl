@@ -162,7 +162,7 @@ status: {}
   Helper function to generate AppProject from a list object.
   Called from common/clustergroup/templates/plumbing/projects.yaml
 */}}
-{{- define "clustergroup.template.plumbing.projects.list" -}}
+{{- define "clustergroup.templates.plumbing.projects.list" -}}
 {{- $projects := index . 0 }}
 {{- $namespace := index . 1 }}
 {{- $enabled := index . 2 }}
@@ -202,7 +202,7 @@ status: {}
   2 - Cluster group name from .Values.clusterGroup.name
   Called from common/clustergroup/templates/core/namespaces.yaml
 */}}
-{{- define "clustergroup.template.core.namespaces.map" -}}
+{{- define "clustergroup.templates.core.namespaces.map" -}}
 {{- $ns := index . 0 }}
 {{- $patternName := index . 1 }}
 {{- $clusterGroupName := index . 2 }}
@@ -240,7 +240,7 @@ spec:
   1 - The operatorExcludes section from .Values.clusterGroup.operatorgroupExcludes
   Called from common/clustergroup/templates/core/operatorgroup.yaml
 */ -}}
-{{- define "clustergroup.template.core.operatorgroup.map" -}}
+{{- define "clustergroup.templates.core.operatorgroup.map" -}}
 {{- $ns := index . 0 }}
 {{- $operatorgroupExcludes := index . 1 }}
 {{- if or (empty $operatorgroupExcludes) (not (has . $operatorgroupExcludes)) }}
