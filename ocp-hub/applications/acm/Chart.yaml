@@ -1,5 +1,0 @@
-apiVersion: v2
-name: acm-config
-description: A Helm chart to configure RHACM
-type: application
-version: 1.0.0
