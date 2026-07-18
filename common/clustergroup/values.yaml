@@ -27,7 +27,7 @@ clusterGroup:
     - openshift-local-storage
     - openshift-storage
     - open-cluster-management
-    - openshift-operators-redhat
+    - openshift-operators
     - openshift-logging
     - quay-operator
     - openshift-nmstate
