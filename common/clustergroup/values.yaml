@@ -90,7 +90,7 @@ clusterGroup:
       channel: "stable"
       sourceNamespace: openshift-marketplace
       serviceAccountName: lso-sa
-      #csv: "4.18-202607031140"
+      csv: "4.18-202607031140"
     
     odf-operator:
       name: odf-operator
