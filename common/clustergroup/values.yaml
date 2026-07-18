@@ -79,45 +79,40 @@ clusterGroup:
       name: kubernetes-nmstate-operator
       namespace: openshift-nmstate
       source: redhat-operators
-      channels: ["stable"]              # Fixed: Must be a YAML array/list
-      serviceAccount:
-        name: olm-installer-sa          # Fixed: Map to spec.serviceAccount.name
+      channels: ["stable"]              
+      serviceAccountName:  olm-installer-sa          
       sourceNamespace: openshift-marketplace
 
     local-storage-operator:
       name: local-storage-operator
       namespace: openshift-local-storage
       source: redhat-operators
-      channels: ["stable"]              # Fixed: Must be a YAML array/list
-      serviceAccount:
-        name: olm-installer-sa
+      channels: ["stable"]             
+      serviceAccountName: olm-installer-sa
       sourceNamespace: openshift-marketplace
     
     odf-operator:
       name: odf-operator
       namespace: openshift-storage
       source: redhat-operators
-      channels: ["release-4.18"]        # Fixed: Must be a YAML array/list
-      serviceAccount:
-        name: olm-installer-sa
+      channels: ["release-4.18"]        
+      serviceAccountName: olm-installer-sa
       sourceNamespace: openshift-marketplace
 
     advanced-cluster-management:
       name: advanced-cluster-management
       namespace: open-cluster-management
       source: redhat-operators
-      channels: ["release-2.16"]        # Fixed: Converted from string to array
-      serviceAccount:
-        name: olm-installer-sa
+      channels: ["release-2.16"]       
+      serviceAccountName: olm-installer-sa
       sourceNamespace: openshift-marketplace
 
     quay-operator:
       name: quay-operator
       namespace: openshift-operators
       source: redhat-operators
-      channels: ["stable-3.17"]         # Fixed: Must be a YAML array/list
-      serviceAccount:
-        name: olm-installer-sa
+      channels: ["stable-3.17"]         
+      serviceAccountName: olm-installer-sa
       sourceNamespace: openshift-marketplace
 
 
