@@ -38,7 +38,7 @@ clusterGroup:
     - openshift-quay: {}
 
     - open-cluster-management
-    - openshift-logging
+    - openshift-logging:
         targetNamespaces: []
     - quay-operator
     - openshift-nmstate
