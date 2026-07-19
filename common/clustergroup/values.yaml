@@ -96,6 +96,7 @@ clusterGroup:
       channel: "stable-4.18"
       source: redhat-operators
       sourceNamespace: openshift-marketplace
+      csv: 4.18.24-rhodf
 
     advanced-cluster-management:
       name: advanced-cluster-management
