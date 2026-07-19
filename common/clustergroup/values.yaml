@@ -39,8 +39,10 @@ clusterGroup:
 
     - open-cluster-management
     - openshift-logging
+        targetNamespaces: []
     - quay-operator
     - openshift-nmstate
+
 
 
   argoCD:
@@ -128,6 +130,14 @@ clusterGroup:
       channel: "stable-6.4"
       source: redhat-operators
       sourceNamespace: openshift-marketplace
+   
+   
+   logging-operator:
+      name: loogging-operator
+      namespace: openshift-logging
+      channel: "stable-6.4"
+      source: redhat-operators
+      sourceNamespace: openshift-marketplace     
 
 
 # OLMv1 way  
