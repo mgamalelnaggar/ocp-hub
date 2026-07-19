@@ -24,14 +24,13 @@ clusterGroup:
   sharedValueFiles: []
 
   namespaces:
-# 1. Loki / Global Operators
+  # 1. Loki / Global Operators
     - openshift-operators-redhat:
         targetNamespaces: []
 
     # 2. OpenShift Data Foundation
-    - openshift-storage:
-        targetNamespaces: []
-
+    - openshift-storage
+    
     # 3. Local Storage Operator
     - openshift-local-storage
 
@@ -101,12 +100,12 @@ clusterGroup:
       source: redhat-operators
       sourceNamespace: openshift-marketplace
 
-#    odf-operator:
-#      name: odf-operator
-#      namespace: openshift-storage
-#      channel: "stable-4.18"
-#      source: redhat-operators
-#      sourceNamespace: openshift-marketplace
+    odf-operator:
+      name: odf-operator
+      namespace: openshift-storage
+      channel: "stable-4.18"
+      source: redhat-operators
+      sourceNamespace: openshift-marketplace
 #      csv: 4.18.24-rhodf
 
 #    advanced-cluster-management:
