@@ -32,6 +32,9 @@ clusterGroup:
     - openshift-logging
     - quay-operator
     - openshift-nmstate
+  operatorgroupExcludes:
+    - openshift-operators-redhat
+    - openshift-storage
 
 
   argoCD:
