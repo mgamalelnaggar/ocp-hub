@@ -7,15 +7,15 @@ global:
   hubClusterDomain: snomgdcluster01.localdomain
   vpArgoNamespace: openshift-gitops
   secretLoader:
-    disabled: true
+    disabled: True
   secretStore:
     backend: "kubernetes"
   targetRevision: main
   options:
-    useCSV: true
+    useCSV: True
     syncPolicy: Automatic
     installPlanApproval: Automatic
-    autoApproveManualInstallPlans: true
+    autoApproveManualInstallPlans: True
     applicationRetryLimit: 20
 
 clusterGroup:
