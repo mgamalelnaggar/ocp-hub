@@ -33,7 +33,7 @@ clusterGroup:
         targetNamespaces: []
 
     # 3. Local Storage Operator
-    - openshift-local-storage:
+    - openshift-local-storage
 
     # 4. Standard scoped operators
     - openshift-quay: {}
