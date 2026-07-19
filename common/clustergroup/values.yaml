@@ -191,6 +191,10 @@ clusterGroup:
       namespace: default
       path: applications/quay
 
+#    loki:
+#      name: loki
+#      namespace: default
+#      path: applications/loki
 
 
 
