@@ -181,10 +181,10 @@ clusterGroup:
 #      path: applications/odf
 #      extraValueFiles:
 #        - $patternref/hub01-values-files/values-odf-hub01.yaml
-    acm:
-      name: acm
-      namespace: default
-      path: applications/acm
+#    acm:
+#      name: acm
+#      namespace: default
+#      path: applications/acm
 
     quay:
       name: quay
