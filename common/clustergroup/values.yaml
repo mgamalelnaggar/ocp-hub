@@ -29,7 +29,7 @@ clusterGroup:
         targetNamespaces: []
 
     # 2. OpenShift Data Foundation
-    - openshift-storage
+    #- openshift-storage
     
     # 3. Local Storage Operator
     - openshift-local-storage
