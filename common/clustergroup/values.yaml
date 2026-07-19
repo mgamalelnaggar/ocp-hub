@@ -100,12 +100,12 @@ clusterGroup:
       source: redhat-operators
       sourceNamespace: openshift-marketplace
 
-    openshift-data-foundation-operator:
-      name: open-data-foundation-operator
-      namespace: openshift-storage
-      channel: "stable-4.18"
-      source: redhat-operators
-      sourceNamespace: openshift-marketplace
+#    odf-operator:
+#      name: openshift-data-foundation-operator
+#      namespace: openshift-storage
+#      channel: "stable-4.18"
+#      source: redhat-operators
+#      sourceNamespace: openshift-marketplace
 #      csv: 4.18.24-rhodf
 
 #    advanced-cluster-management:
