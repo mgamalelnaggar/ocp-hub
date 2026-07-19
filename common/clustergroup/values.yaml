@@ -29,12 +29,10 @@ clusterGroup:
     - open-cluster-management
     - openshift-operators
     - openshift-operators-redhat
+        targetNamespaces: []
     - openshift-logging
     - quay-operator
     - openshift-nmstate
-  operatorgroupExcludes:
-    - openshift-operators-redhat
-    - openshift-storage
 
 
   argoCD:
