@@ -29,7 +29,7 @@ clusterGroup:
     - open-cluster-management
     - openshift-operators
     - openshift-operators-redhat
-        targetNamespaces: []
+        operatorGroup: false
     - openshift-logging
     - quay-operator
     - openshift-nmstate
