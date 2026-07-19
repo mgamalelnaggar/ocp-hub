@@ -115,7 +115,7 @@ clusterGroup:
     loki-operator:
       name: loki-operator
       namespace: openshift-operators
-      channel: "stable"
+      channel: "stable-6.0"
       source: redhat-operators
       sourceNamespace: openshift-marketplace
 
