@@ -24,12 +24,22 @@ clusterGroup:
   sharedValueFiles: []
 
   namespaces:
-    - openshift-local-storage
-    - openshift-storage
-    - open-cluster-management
-    - openshift-operators
-    - openshift-operators-redhat
+# 1. Loki / Global Operators
+    - openshift-operators-redhat:
         operatorGroup: false
+
+    # 2. OpenShift Data Foundation
+    - openshift-storage:
+        targetNamespaces: []
+
+    # 3. Local Storage Operator
+    - openshift-local-storage:
+        targetNamespaces: []
+
+    # 4. Standard scoped operators
+    - openshift-quay: {}
+
+    - open-cluster-management
     - openshift-logging
     - quay-operator
     - openshift-nmstate
