@@ -29,7 +29,7 @@ clusterGroup:
         targetNamespaces: []
 
     # 2. OpenShift Data Foundation
-    #- openshift-storage
+    - openshift-storage
     
     # 3. Local Storage Operator
     - openshift-local-storage
@@ -131,7 +131,7 @@ clusterGroup:
       channel: "stable-6.4"
       source: redhat-operators
       sourceNamespace: openshift-marketplace
-   
+
    
    logging-operator:
       name: logging-operator
