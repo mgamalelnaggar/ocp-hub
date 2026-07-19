@@ -4,7 +4,7 @@ metadata:
   name: quay-enterprise
   namespace: openshift-operators
 spec:
-  configBundleSecret: quay-registry-config-bundle-secret
+  #configBundleSecret: quay-registry-config-bundle-secret
   components:
     - managed: true
       kind: clair
