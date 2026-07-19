@@ -75,89 +75,88 @@ clusterGroup:
         - PipelineRun
 
   subscriptions:
+
     kubernetes-nmstate-operator:
       name: kubernetes-nmstate-operator
       namespace: openshift-nmstate
+      channel: "stable"
       source: redhat-operators
-      channels: ["stable"]              
-      serviceAccountName:  "olm-installer-sa"
       sourceNamespace: openshift-marketplace
 
     local-storage-operator:
       name: local-storage-operator
       namespace: openshift-local-storage
+      channel: "stable" 
       source: redhat-operators
-      channels: ["stable"]             
-      serviceAccountName: "olm-installer-sa"
       sourceNamespace: openshift-marketplace
-    
+
     odf-operator:
       name: odf-operator
       namespace: openshift-storage
+      channel: "release-4.18"
       source: redhat-operators
-      channels: ["release-4.18"]        
-      serviceAccountName: olm-installer-sa
       sourceNamespace: openshift-marketplace
 
     advanced-cluster-management:
       name: advanced-cluster-management
       namespace: open-cluster-management
+      channel: "release-2.16"
       source: redhat-operators
-      channels: ["release-2.16"]       
-      serviceAccountName: olm-installer-sa
       sourceNamespace: openshift-marketplace
 
     quay-operator:
       name: quay-operator
       namespace: openshift-operators
+      channel: "stable-3.17"
       source: redhat-operators
-      channels: ["stable-3.17"]         
-      serviceAccountName: olm-installer-sa
       sourceNamespace: openshift-marketplace
 
 
-#  subscriptions:
-#    kubernetes-nmstate-operator:
+
+
+# OLMv1 way  
+#     kubernetes-nmstate-operator:
 #      name: kubernetes-nmstate-operator
 #      namespace: openshift-nmstate
 #      source: redhat-operators
-#      channel: "stable"
+#      channels: ["stable"]              
+#      serviceAccountName:  "olm-installer-sa"
 #      sourceNamespace: openshift-marketplace
-#      serviceAccountName: nmstat-sa
-
-#   local-storage-operator:
+#
+#
+#    local-storage-operator:
 #      name: local-storage-operator
 #      namespace: openshift-local-storage
 #      source: redhat-operators
-#      channel: "stable"
+#      channels: ["stable"]             
+#      serviceAccountName: "olm-installer-sa"
 #      sourceNamespace: openshift-marketplace
-#      serviceAccountName: lso-sa
-#      csv: "4.18-202607031140"
-    
+#    
 #    odf-operator:
 #      name: odf-operator
 #      namespace: openshift-storage
 #      source: redhat-operators
-#      channel: "release-4.18"
+#      channels: ["release-4.18"]        
+#      serviceAccountName: olm-installer-sa
 #      sourceNamespace: openshift-marketplace
-#      serviceAccountName: odf-sa
-
+#
+#
 #    advanced-cluster-management:
-#     name: advanced-cluster-management
+#      name: advanced-cluster-management
 #      namespace: open-cluster-management
 #      source: redhat-operators
-#      channel: "release-2.13"
+#      channels: ["release-2.16"]       
+#      serviceAccountName: olm-installer-sa
 #      sourceNamespace: openshift-marketplace
-#      serviceAccountName: acm-sa
-
+#
+#
 #    quay-operator:
 #      name: quay-operator
-#      namespace: openshift-operators-redhat
+#      namespace: openshift-operators
 #      source: redhat-operators
-#      channel: "stable-3.11"
-      #version: '3.11.*'
-#      sourceNamespace: openshift-marketplace
-#      serviceAccountName: quay-sa
+#      channels: ["stable-3.17"]         
+#      serviceAccountName: olm-installer-sa
+#      sourceNamespace: openshift-marketplace   
 
   applications: 
     nmstate:
