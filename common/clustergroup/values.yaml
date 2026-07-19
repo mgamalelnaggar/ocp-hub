@@ -133,7 +133,7 @@ clusterGroup:
    
    
    logging-operator:
-      name: loogging-operator
+      name: logging-operator
       namespace: openshift-logging
       channel: "stable-6.4"
       source: redhat-operators
