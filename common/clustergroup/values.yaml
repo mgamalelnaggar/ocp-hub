@@ -26,7 +26,7 @@ clusterGroup:
   namespaces:
 # 1. Loki / Global Operators
     - openshift-operators-redhat:
-        operatorGroup: false
+        targetNamespaces: []
 
     # 2. OpenShift Data Foundation
     - openshift-storage:
@@ -34,7 +34,6 @@ clusterGroup:
 
     # 3. Local Storage Operator
     - openshift-local-storage:
-        targetNamespaces: []
 
     # 4. Standard scoped operators
     - openshift-quay: {}
