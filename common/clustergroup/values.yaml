@@ -28,6 +28,7 @@ clusterGroup:
     - openshift-storage
     - open-cluster-management
     - openshift-operators
+    - openshift-operators-redhat
     - openshift-logging
     - quay-operator
     - openshift-nmstate
@@ -114,8 +115,8 @@ clusterGroup:
 
     loki-operator:
       name: loki-operator
-      namespace: openshift-operators
-      channel: "stable-6.0"
+      namespace: openshift-operators-redhat
+      channel: "stable-6.4"
       source: redhat-operators
       sourceNamespace: openshift-marketplace
 
