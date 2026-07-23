@@ -70,8 +70,8 @@ clusterGroup:
       sourceNamespace: openshift-marketplace
 
    
-    cluster-logging-operator:
-      name: cluster-logging
+    logging-operator:
+      name: cluster-logging-operator
       namespace: openshift-logging
       channel: "stable-6.4"
       source: redhat-operators
