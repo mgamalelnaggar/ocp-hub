@@ -1,8 +1,7 @@
 global:
   singleArgoCD: false
   repoURL: https://github.com/mgamalelnaggar/ocp-hub.git
-  extraValueFiles: 
-    - '$patternref/values-logging.yaml'
+  extraValueFiles: []
   pattern: hub
   localClusterDomain: snomgdcluster01.localdomain
   hubClusterDomain: snomgdcluster01.localdomain
@@ -41,8 +40,8 @@ clusterGroup:
 
     - open-cluster-management: {}
     
-#    - openshift-logging:
-#        targetNamespaces: []
+    - openshift-logging:
+        targetNamespaces: []
     
     - openshift-nmstate: {}
 
@@ -71,12 +70,12 @@ clusterGroup:
       sourceNamespace: openshift-marketplace
 
    
-#    logging-operator:
-#      name: cluster-logging
-#      namespace: openshift-logging
-#      channel: "stable-6.4"
-#      source: redhat-operators
-#      sourceNamespace: openshift-marketplace
+    logging-operator:
+      name: cluster-logging
+      namespace: openshift-logging
+      channel: "stable-6.4"
+      source: redhat-operators
+      sourceNamespace: openshift-marketplace
 #      csv: cluster-logging.v6.4.6
 
 
