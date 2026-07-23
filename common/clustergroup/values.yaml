@@ -71,7 +71,7 @@ clusterGroup:
 
    
     logging-operator:
-      name: logging-operator
+      name: cluster-logging
       namespace: openshift-logging
       channel: "stable-6.4"
       source: redhat-operators
