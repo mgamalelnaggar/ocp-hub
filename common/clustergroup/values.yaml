@@ -40,8 +40,8 @@ clusterGroup:
 
     - open-cluster-management: {}
     
-    - openshift-logging:
-        targetNamespaces: []
+#    - openshift-logging:
+#        targetNamespaces: []
     
     - openshift-nmstate: {}
 
