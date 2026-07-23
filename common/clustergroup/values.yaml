@@ -2,7 +2,7 @@ global:
   singleArgoCD: false
   repoURL: https://github.com/mgamalelnaggar/ocp-hub.git
   extraValueFiles: 
-    - values-logging.yaml
+    - $pattern/values-logging.yaml
   pattern: hub
   localClusterDomain: snomgdcluster01.localdomain
   hubClusterDomain: snomgdcluster01.localdomain
