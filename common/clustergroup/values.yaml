@@ -75,7 +75,8 @@ clusterGroup:
       namespace: openshift-logging
       channel: "stable-6.4"
       source: redhat-operators
-      sourceNamespace: openshift-marketplace     
+      sourceNamespace: openshift-marketplace
+      csv: cluster-logging.v6.4.6
 
 
 #######################  ArgoCD Applications  #####################################
