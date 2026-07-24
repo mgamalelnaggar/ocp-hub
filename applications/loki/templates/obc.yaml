@@ -1,13 +1,13 @@
 apiVersion: objectbucket.io/v1alpha1
 kind: ObjectBucketClaim
 metadata:
-  name: {{ $.Values.loki.s3-bucket-name }}
+  name: {{ index .Values.loki."s3-bucket-name" }}
   namespace: openshift-logging
   labels:
     app: noobaa
     bucket-provisioner: openshift-storage.noobaa.io-obc
     noobaa-domain: openshift-storage.noobaa.io
 spec:
-  generateBucketName: {{ $.Values.loki.s3-bucket-name }}
+  generateBucketName: {{ index .Values.loki."s3-bucket-name" }}
   objectBucketName: obc-openshift-logging-loki-bucket-odf
   storageClassName: openshift-storage.noobaa.io
