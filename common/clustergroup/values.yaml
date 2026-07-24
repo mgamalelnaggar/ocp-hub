@@ -166,10 +166,7 @@ clusterGroup:
     image: quay.io/validatedpatterns/imperative-container:v1
     ansibleDevMode:
       enabled: false
-      requirementsFile: "requirements.yml"
-      requirementsContent: ""
-      ansibleCfgFile: "ansible.cfg"
-      ansibleCfgContent: ""
+
     namespace: "imperative"
     valuesConfigMap: "helm-values-configmap"
     cronJobName: "imperative-cronjob"
