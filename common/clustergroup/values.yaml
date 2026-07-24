@@ -76,7 +76,7 @@ clusterGroup:
       sourceNamespace: openshift-marketplace 
 
     odf-operator:
-      name: openshift-data-foundation-operator
+      name: odf-operator
       namespace: openshift-storage
       channel: "stable-4.18"
       source: redhat-operators
