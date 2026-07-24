@@ -7,17 +7,17 @@ spec:
   limits:
     global:
       retention:
-        days: {{ .Values.loki.limits.global.retention.days | default '10' }}
+        days: {{ .Values.loki.limits.global.retention.days | default 10 }}
     tenants:
       application:
         retention:
-          days: { .Values.loki.limits.tenants.application.retention.days | default '3' }}
+          days: {{ .Values.loki.limits.tenants.application.retention.days | default 3 }}
       audit:
         retention:
-          days: { .Values.loki.limits.tenants.audit.retention.days | default '7' }}
+          days: {{ .Values.loki.limits.tenants.audit.retention.days | default 7 }}
       infrastructure:
         retention:
-          days: { .Values.loki.limits.tenants.infrastructure.retention.days | default '7' }}
+          days: {{ .Values.loki.limits.tenants.infrastructure.retention.days | default 7 }}
   size: {{ .Values.loki.size }} 
   storage:
     schemas:
