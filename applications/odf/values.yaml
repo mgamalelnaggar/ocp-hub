@@ -9,17 +9,17 @@ odf:
     odfcluster:
       master:
       ipam:
-        range:
-        exclude:
+        range: [192.168.100.0/24]
+        exclude: []
     odfpublic:
       master:
       ipam:
-        range:
-        exclude:        
+        range: [192.168.110.0/24]
+        exclude: []
   osd:
     pvc:
       storage: 2Ti
-    count: 
+    count: 1
 
   storageClass:
     name: ocs-storagecluster-ceph-rgw
