@@ -1,1 +1,27 @@
+loki:
+  # S3 bucket name on ODF
+  s3-bucket-name: "loki-bucket-odf"
 
+  # S3 secret to be created for loki to save its files
+  s3-secret-name: "loki-s3-secret"
+
+  # ODF storage class name to host loki files
+  storage-class-name: "infra"
+
+  # Loki size
+  size: 1x.medium
+  limits: {}
+  #limits:
+  #  global:
+  #    retention:
+  #      days: 10
+  #  tenants:
+  #    application:
+  #      retention:
+  #        days: 3
+  #    audit:
+  #      retention:
+  #        days: 7
+  #    infrastructure:
+  #      retention:
+  #        days: 7
