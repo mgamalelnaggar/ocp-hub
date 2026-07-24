@@ -24,21 +24,25 @@ clusterGroup:
 
 ############### Namespaces for Operators ######################
   namespaces:
-  # 1. Loki / Global Operators
+    # Loki / Global Operators
     - openshift-operators-redhat:
         targetNamespaces: []
-
-    # 2. OpenShift Data Foundation
+    
+    # UI plugin for logging
+    - openshift-cluster-observability-operator:
+        targetNamespaces: []
+    
+    # OpenShift Data Foundation
     - openshift-storage: {}
     
-    # 3. Local Storage Operator
+    # Local Storage Operator
     - openshift-local-storage: {}
 
-    # 4. Standard scoped operators
+    # Standard scoped operators
     - openshift-quay: {}
 
     - open-cluster-management: {}
-    
+
     - openshift-logging:
         targetNamespaces: []
     
@@ -64,6 +68,13 @@ clusterGroup:
       source: redhat-operators
       sourceNamespace: openshift-marketplace
 
+    cluster-observability-operator:
+      name: cluster-observability-operator
+      namespace: openshift-cluster-observability-operator
+      channel: "stable"
+      source: redhat-operators
+      sourceNamespace: openshift-marketplace 
+      
     loki-operator:
       name: loki-operator
       namespace: openshift-operators-redhat
@@ -80,12 +91,7 @@ clusterGroup:
       sourceNamespace: openshift-marketplace
 #      csv: cluster-logging.v6.4.6
 
-    cluster-observability-operator:
-      name: cluster-observability-operator
-      namespace: openshift-cluster-observability-operator
-      channel: "stable"
-      source: redhat-operators
-      sourceNamespace: openshift-marketplace      
+     
       
 #######################  ArgoCD Applications  #####################################
   applications: 
