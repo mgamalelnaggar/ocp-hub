@@ -1,5 +1,5 @@
 quay:
-  namespace: quay-enterprise
+  #namespace: quay-enterprise # not needed. get from global values file
   configBundleSecret:
     deploy: true
     name: quay-init-config-bundle-secret
