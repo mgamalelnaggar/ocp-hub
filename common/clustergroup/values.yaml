@@ -44,6 +44,9 @@ clusterGroup:
     
     - openshift-nmstate: {}
 
+    - openshift-cluster-observability-operator:
+        targetNamespaces: []
+
 ###################### Operators Subscriptions ########################
   subscriptions:
 
@@ -77,7 +80,13 @@ clusterGroup:
       sourceNamespace: openshift-marketplace
 #      csv: cluster-logging.v6.4.6
 
-
+    cluster-observability-operator:
+      name: cluster-observability-operator
+      namespace: openshift-cluster-observability-operator
+      channel: "stable"
+      source: redhat-operators
+      sourceNamespace: openshift-marketplace      
+      
 #######################  ArgoCD Applications  #####################################
   applications: 
     nmstate:
