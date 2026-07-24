@@ -8,31 +8,31 @@ spec:
   mirroring:
     enabled: true
 {{- end }}
-#  resources: 
-#    mon:
-#      requests:
-#        cpu: {{ .Values.odf.mon.requests.cpu | squote }}
-#        memory: {{ .Values.odf.mon.requests.memory }}
-#    mds:
-#      requests:
-#        cpu: {{ .Values.odf.mds.requests.cpu | squote }}
-#        memory: {{ .Values.odf.mds.requests.memory }}
-#    mgr:
-#      requests:
-#        cpu: {{ .Values.odf.mgr.requests.cpu | squote }}
-#        memory: {{ .Values.odf.mgr.requests.memory }}
-#    noobaa-core:
-#      requests:
-#        cpu: {{ .Values.odf.noobaacore.requests.cpu | squote }}
-#        memory: {{ .Values.odf.noobaacore.requests.memory }}
-#    noobaa-db:
-#      requests:
-#        cpu: {{ .Values.odf.noobaadb.requests.cpu | squote }}
-#        memory: {{ .Values.odf.noobaadb.requests.memory }}
+  resources: 
+    mon:
+      requests:
+        cpu: {{ .Values.odf.mon.requests.cpu | default 1 | squote }}
+        memory: {{ .Values.odf.mon.requests.memory | default 2Gi}}
+    mds:
+      requests:
+        cpu: {{ .Values.odf.mds.requests.cpu | default 3 | squote }}
+        memory: {{ .Values.odf.mds.requests.memory | default 8Gi }}
+    mgr:
+      requests:
+        cpu: {{ .Values.odf.mgr.requests.cpu | default 1 | squote }}
+        memory: {{ .Values.odf.mgr.requests.memory | default 3Gi }}
+    noobaa-core:
+      requests:
+        cpu: {{ .Values.odf.noobaacore.requests.cpu | default 1 | squote }}
+        memory: {{ .Values.odf.noobaacore.requests.memory | default 4Gi }}
+    noobaa-db:
+      requests:
+        cpu: {{ .Values.odf.noobaadb.requests.cpu | default 1 | squote }}
+        memory: {{ .Values.odf.noobaadb.requests.memory | default 4Gi }}
   storageDeviceSets:
   - name: ocs-deviceset-localblock
     config: {}
-    count: {{ .Values.storageSystem.osd.count }}
+    count: {{ .Values.odf.osd.count }}
     replica: 1
     resources: {}
 #      requests:
@@ -43,7 +43,6 @@ spec:
     dataPVCTemplate:
       metadata: {}
       spec:
-        storageClassName: {{ .Values.global.datacenter.storageClassName }}
         accessModes:
         - ReadWriteOnce
         volumeMode: Block
