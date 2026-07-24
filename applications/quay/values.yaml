@@ -17,16 +17,8 @@ quay:
       size: 50Gi # Default and minimum size is 50 Gi
 
 job:
-
   #image: registry.redhat.io/openshift4/ose-cli-rhel9:v4.20
-  resources:
-    requests:
-      cpu: 50m
-      memory: 128Mi
-    limits:
-      cpu: 500m
-      memory: 256Mi
-
+  
 quay_config: {}
 
 # Object Storage configuration - using NooBaa MCG
