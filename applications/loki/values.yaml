@@ -10,6 +10,9 @@ loki:
 
   # Loki size
   size: 1x.medium
+
+  #jobimage:
+  
   limits: {}
   #limits:
   #  global:
