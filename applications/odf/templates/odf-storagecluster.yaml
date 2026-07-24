@@ -12,7 +12,7 @@ spec:
     mon:
       requests:
         cpu: {{ .Values.odf.mon.requests.cpu | default 1 | squote }}
-        memory: {{ .Values.odf.mon.requests.memory | default 2Gi}}
+        memory: {{ .Values.odf.mon.requests.memory | default 2Gi }}
     mds:
       requests:
         cpu: {{ .Values.odf.mds.requests.cpu | default 3 | squote }}
