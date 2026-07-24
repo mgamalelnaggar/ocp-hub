@@ -24,11 +24,11 @@ spec:
       - effectiveDate: '2023-10-15'
         version: v13
     secret:
-      name: {{ $.Values.loki.s3-secret-name }}
+      name: {{ index .Values.loki."s3-secret-name" }}
       type: s3
     tls:
       caName: openshift-service-ca.crt
-  storageClassName: {{ $.Values.loki.storage-class-name }}
+  storageClassName: {{ index .Values.loki."storage-class-name" }}
   template: {}
   tenants:
     mode: openshift-logging
