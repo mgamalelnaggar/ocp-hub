@@ -167,12 +167,12 @@ clusterGroup:
       namespace: default
       path: applications/lso
 
-#    odf:
-#      name: odf
-#      namespace: default
-#      path: applications/odf
-#      extraValueFiles:
-#        - $patternref/hub01-values-files/values-odf-hub01.yaml
+    odf:
+      name: odf
+      namespace: default
+      path: applications/odf
+      extraValueFiles:
+        - $patternref/hub01-values-files/values-odf-hub01.yaml
 
     acm:
       name: acm
