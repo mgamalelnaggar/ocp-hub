@@ -93,6 +93,3 @@ rbac:
       roleRef:
         kind: ClusterRole
         name: label-storage-nodes
-
-#job:
-#  image: image-registry.openshift-image-registry.svc:5000/openshift/cli:latest
