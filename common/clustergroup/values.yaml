@@ -75,67 +75,67 @@ clusterGroup:
       source: redhat-operators
       sourceNamespace: openshift-marketplace 
 
-    odf-operator:
-      name: odf-operator
-      namespace: openshift-storage
-      channel: "stable-4.18"
-      source: redhat-operators
-      sourceNamespace: openshift-marketplace
-#      csv: 4.18.20-rhodf
-    cephcsi-operator:
-      name: cephcsi-operator
-      namespace: openshift-storage
-      channel: "stable-4.18"
-      source: redhat-operators
-      sourceNamespace: openshift-marketplace
-    mcg-operator:
-      name: mcg-operator
-      namespace: openshift-storage
-      channel: "stable-4.18"
-      source: redhat-operators
-      sourceNamespace: openshift-marketplace  
-    ocs-client-operator:
-      name: ocs-client-operator
-      namespace: openshift-storage
-      channel: "stable-4.18"
-      source: redhat-operators
-      sourceNamespace: openshift-marketplace    
-    ocs-operator:
-      name: ocs-operator
-      namespace: openshift-storage
-      channel: "stable-4.18"
-      source: redhat-operators
-      sourceNamespace: openshift-marketplace 
-    odf-csi-addons-operator:
-      name: odf-csi-addons-operator
-      namespace: openshift-storage
-      channel: "stable-4.18"
-      source: redhat-operators
-      sourceNamespace: openshift-marketplace       
-    odf-dependencies:
-      name: odf-dependencies
-      namespace: openshift-storage
-      channel: "stable-4.18"
-      source: redhat-operators
-      sourceNamespace: openshift-marketplace 
-    odf-prometheus-operator:
-      name: odf-prometheus-operator
-      namespace: openshift-storage
-      channel: "stable-4.18"
-      source: redhat-operators
-      sourceNamespace: openshift-marketplace 
-    recipe:
-      name: recipe
-      namespace: openshift-storage
-      channel: "stable-4.18"
-      source: redhat-operators
-      sourceNamespace: openshift-marketplace 
-    rook-ceph-operator:
-      name: rook-ceph-operator
-      namespace: openshift-storage
-      channel: "stable-4.18"
-      source: redhat-operators
-      sourceNamespace: openshift-marketplace 
+#    odf-operator:
+#      name: odf-operator
+#      namespace: openshift-storage
+#      channel: "stable-4.18"
+#      source: redhat-operators
+#      sourceNamespace: openshift-marketplace
+##      csv: 4.18.20-rhodf
+#    cephcsi-operator:
+#      name: cephcsi-operator
+#      namespace: openshift-storage
+#      channel: "stable-4.18"
+#      source: redhat-operators
+#      sourceNamespace: openshift-marketplace
+#    mcg-operator:
+#      name: mcg-operator
+#      namespace: openshift-storage
+#      channel: "stable-4.18"
+#      source: redhat-operators
+#      sourceNamespace: openshift-marketplace  
+#    ocs-client-operator:
+#      name: ocs-client-operator
+#      namespace: openshift-storage
+#      channel: "stable-4.18"
+#      source: redhat-operators
+#      sourceNamespace: openshift-marketplace    
+#    ocs-operator:
+#      name: ocs-operator
+#      namespace: openshift-storage
+#      channel: "stable-4.18"
+#      source: redhat-operators
+#      sourceNamespace: openshift-marketplace 
+#    odf-csi-addons-operator:
+#      name: odf-csi-addons-operator
+#      namespace: openshift-storage
+#      channel: "stable-4.18"
+#      source: redhat-operators
+#      sourceNamespace: openshift-marketplace       
+#    odf-dependencies:
+#      name: odf-dependencies
+#      namespace: openshift-storage
+#      channel: "stable-4.18"
+#      source: redhat-operators
+#      sourceNamespace: openshift-marketplace 
+#    odf-prometheus-operator:
+#      name: odf-prometheus-operator
+#      namespace: openshift-storage
+#      channel: "stable-4.18"
+#      source: redhat-operators
+#      sourceNamespace: openshift-marketplace 
+#    recipe:
+#      name: recipe
+#      namespace: openshift-storage
+#      channel: "stable-4.18"
+#      source: redhat-operators
+#      sourceNamespace: openshift-marketplace 
+#    rook-ceph-operator:
+#      name: rook-ceph-operator
+#      namespace: openshift-storage
+#      channel: "stable-4.18"
+#      source: redhat-operators
+#      sourceNamespace: openshift-marketplace 
       
       
     loki-operator:
