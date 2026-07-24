@@ -132,6 +132,11 @@ clusterGroup:
 #      namespace: default
 #      path: applications/logging
 
+#    monitoring:
+#      name: monitoring
+#      namespace: default
+#      path: applications/monitoring
+
 #########################  ArgoCD instance  #######################################
   argoCD:
     initContainers: []
@@ -188,8 +193,8 @@ clusterGroup:
     jobName: "imperative-job"
     imagePullPolicy: Always
     activeDeadlineSeconds: 60
-    schedule: "0 0 31 2 *"
-    insecureUnsealVaultInsideClusterSchedule: "0 0 31 2 *"
+    schedule: "*/5 * * * *"
+    insecureUnsealVaultInsideClusterSchedule: "*/5 * * * *"
     verbosity: ""
     extraPlaybookArgs: []
     serviceAccountCreate: true
