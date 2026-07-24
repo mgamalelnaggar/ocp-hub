@@ -1,0 +1,15 @@
+alertmanagerMain:
+  volumeClaimTemplate:
+    spec:
+      resources:
+        requests:
+          storage: 50Gi
+
+prometheusK8s:
+  retention: 7d
+  volumeClaimTemplate:
+    spec:
+      storageClassName: infra
+      resources:
+        requests:
+          storage: 200Gi
