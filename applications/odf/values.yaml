@@ -25,17 +25,16 @@ odf:
     name: ocs-storagecluster-ceph-rgw
     objectStoreName: ocs-storagecluster-cephobjectstore
 
-  resources: 
-    mon:
-      requests: {}
-    mds:
-      requests: {}
-    mgr:
-      requests: {}
-    noobaa-core:
-      requests: {}
-    noobaa-db:
-      requests: {} 
+  mon:
+    requests: {}
+  mds:
+    requests: {}
+  mgr:
+    requests: {}
+  noobaa-core:
+    requests: {}
+  noobaa-db:
+    requests: {} 
 
 route:
   name: s3-rgw
