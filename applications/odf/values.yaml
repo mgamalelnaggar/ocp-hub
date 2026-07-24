@@ -58,7 +58,10 @@ objectStorage:
     failureDomain: host
   gateway:
     instances: 2
-
+  resources:
+    requests: {}
+    limits: {}  
+    
 #Define the odf storageSystem parameters
 
 storageSystem:
