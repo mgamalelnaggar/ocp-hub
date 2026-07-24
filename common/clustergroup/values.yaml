@@ -75,13 +75,13 @@ clusterGroup:
       source: redhat-operators
       sourceNamespace: openshift-marketplace 
 
-    odf-operator:
-      name: odf-operator
-      namespace: openshift-storage
-      channel: "stable-4.18"
-      source: redhat-operators
-      sourceNamespace: openshift-marketplace
-      csv: 4.18.20-rhodf
+#    odf-operator:
+#      name: odf-operator
+#      namespace: openshift-storage
+#      channel: "stable-4.18"
+#      source: redhat-operators
+#      sourceNamespace: openshift-marketplace
+#      csv: 4.18.20-rhodf
      
     loki-operator:
       name: loki-operator
