@@ -42,10 +42,10 @@ spec:
     resources:
       requests:
         cpu: {{ .Values.objectStorage.resources.requests.cpu | default 1 | squote }}
-        memory: {{ .Values.objectStorage.resources.requests.memory | default 4Gi | squote }}
+        memory: {{ .Values.objectStorage.resources.requests.memory | default "4Gi" | squote }}
       limits:
         cpu: {{ .Values.objectStorage.resources.limits.cpu | default 2 | squote }}
-        memory: {{ .Values.objectStorage.resources.limits.memory | default 6Gi | squote }}
+        memory: {{ .Values.objectStorage.resources.limits.memory | default "6Gi" | squote }}
   metadataPool:
     erasureCoded:
       codingChunks: 0
