@@ -11,7 +11,7 @@ loki:
   # Loki size
   size: 1x.medium
 
-  #jobimage:
+  jobimage: quay.io/validatedpatterns/imperative-container:v1
   
   limits: {}
   #limits:
