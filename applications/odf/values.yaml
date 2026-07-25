@@ -31,9 +31,9 @@ odf:
     requests: {}
   mgr:
     requests: {}
-  noobaa-core:
+  noobaacore:
     requests: {}
-  noobaa-db:
+  noobaadb:
     requests: {} 
 
 route:
