@@ -13,18 +13,14 @@ loki:
 
   jobimage: quay.io/validatedpatterns/imperative-container:v1
   
-  limits: {}
-  #limits:
-  #  global:
-  #    retention:
-  #      days: 10
-  #  tenants:
-  #    application:
-  #      retention:
-  #        days: 3
-  #    audit:
-  #      retention:
-  #        days: 7
-  #    infrastructure:
-  #      retention:
-  #        days: 7
+  
+  limits:
+    global:
+      retention: {}
+    tenants:
+      application:
+        retention: {}
+      audit:
+        retention: {}
+      infrastructure:
+        retention: {}
