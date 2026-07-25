@@ -158,45 +158,61 @@ clusterGroup:
 #######################  ArgoCD Applications  #####################################
   applications: 
     nmstate:
+      disabled: false
       name: nmstate
       namespace: default
       path: applications/nmstate
+      extraValueFiles: []
 
     lso:
+      disabled: false
       name: lso
       namespace: default
       path: applications/lso
+      extraValueFiles: []
 
     odf:
+      disabled: false
       name: odf
       namespace: default
       path: applications/odf
+      extraValueFiles: []
 
 
     acm:
+      disabled: false
       name: acm
       namespace: default
       path: applications/acm
+      extraValueFiles: []
 
     quay:
+      disabled: false
       name: quay
       namespace: default
       path: applications/quay
+      extraValueFiles: []
 
     loki:
+      disabled: false
       name: loki
       namespace: default
       path: applications/loki
+      extraValueFiles: []
 
     logging:
+      disabled: false
       name: logging
       namespace: default
       path: applications/logging
+      extraValueFiles: []
 
     monitoring:
+      disabled: false
       name: monitoring
       namespace: default
       path: applications/monitoring
+      extraValueFiles: []
 
 #########################  ArgoCD instance  #######################################
   argoCD:
