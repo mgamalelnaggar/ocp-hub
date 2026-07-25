@@ -7,23 +7,34 @@ odf:
 # To create multus NADs
   network:
     odfcluster:
-      master:
+      master: ens5.10
       ipam:
-        range:
-        exclude:
+        range: [192.168.100.0/24]
+        exclude: []
     odfpublic:
-      master:
+      master: ens5.11
       ipam:
-        range:
-        exclude:        
+        range: [192.168.110.0/24]
+        exclude: []
   osd:
     pvc:
       storage: 2Ti
-    count: 
+    count: 1
 
   storageClass:
     name: ocs-storagecluster-ceph-rgw
     objectStoreName: ocs-storagecluster-cephobjectstore
+
+  mon:
+    requests: {}
+  mds:
+    requests: {}
+  mgr:
+    requests: {}
+  noobaacore:
+    requests: {}
+  noobaadb:
+    requests: {} 
 
 route:
   name: s3-rgw
@@ -46,7 +57,10 @@ objectStorage:
     failureDomain: host
   gateway:
     instances: 2
-
+  resources:
+    requests: {}
+    limits: {}  
+    
 #Define the odf storageSystem parameters
 
 storageSystem:
@@ -93,3 +107,5 @@ rbac:
       roleRef:
         kind: ClusterRole
         name: label-storage-nodes
+job:
+  image: quay.io/validatedpatterns/imperative-container:v1
