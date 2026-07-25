@@ -35,9 +35,11 @@ spec:
     count: {{ .Values.odf.osd.count }}
     replica: 1
     resources: {}
-#      requests:
-#        cpu: {{ .Values.odf.osd.requests.cpu | squote }}
-#        memory: {{ .Values.odf.osd.requests.memory }}
+{{/*
+    requests:
+      cpu: {{ .Values.odf.osd.requests.cpu | squote }}
+      memory: {{ .Values.odf.osd.requests.memory }}
+*/}}
     placement: {}
     preparePlacement: {}
     dataPVCTemplate:
@@ -51,7 +53,6 @@ spec:
           requests:
             storage: '1'
       status: {}
-#    portable: true
   arbiter: {}
   enableCephTools: true
   encryption:
