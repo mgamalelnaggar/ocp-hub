@@ -11,10 +11,10 @@ data:
         spec:
           resources:
             requests:
-              storage: {{ .Values.alertmanager.volumeClaimTemplate.spec.resources.requests.storage | default 50Gi }}
+              storage: {{ .Values.alertmanager.volumeClaimTemplate.spec.resources.requests.storage | default "50Gi" }}
           storageClassName: infra
     prometheusK8s:
-      retention: {{ .Values.prometheusK8s.retention | default 7d }}
+      retention: {{ .Values.prometheusK8s.retention | default "7d" }}
       volumeClaimTemplate:
         metadata:
           name: prometheus-claim
@@ -22,5 +22,5 @@ data:
           storageClassName: infra
           resources:
             requests:
-              storage: {{ .Values.prometheusK8s.volumeClaimTemplate.spec.resources.requests.storage | default 200Gi }}
+              storage: {{ .Values.prometheusK8s.volumeClaimTemplate.spec.resources.requests.storage | default "200Gi" }}
 
