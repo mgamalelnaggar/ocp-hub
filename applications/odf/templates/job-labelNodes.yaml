@@ -9,7 +9,7 @@ spec:
   template:
     spec:
       containers:
-      - image: {{ .Values.job.image | default $.Values.clusterGroup.imperative.image }}
+      - image: {{ .Values.job.image | default $.Values.global.image }}
         command:
         - /bin/bash
         - -c
