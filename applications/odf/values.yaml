@@ -107,3 +107,5 @@ rbac:
       roleRef:
         kind: ClusterRole
         name: label-storage-nodes
+job:
+  image: {}
