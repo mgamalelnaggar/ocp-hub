@@ -1,0 +1,20 @@
+global:
+  singleArgoCD: false
+  repoURL: https://github.com/mgamalelnaggar/ocp-hub.git
+  pattern: hub
+  localClusterDomain: snomgdcluster01.localdomain
+  hubClusterDomain: snomgdcluster01.localdomain
+  vpArgoNamespace: openshift-gitops
+  secretLoader:
+    disabled: True
+  secretStore:
+    backend: "kubernetes"
+  targetRevision: main
+  options:
+    useCSV: True
+    syncPolicy: Automatic
+    installPlanApproval: Automatic
+    autoApproveManualInstallPlans: True
+    applicationRetryLimit: 20
+
+
