@@ -1,5 +1,4 @@
 global:
-  image: quay.io/validatedpatterns/imperative-container:v1
   singleArgoCD: false
   repoURL: https://github.com/mgamalelnaggar/ocp-hub.git
   pattern: hub
