@@ -5,18 +5,6 @@ metadata:
   namespace: openshift-logging 
 spec:
   managementState: Managed
-  collector:
-    tolerations:
-    - effect: NoSchedule
-      key: node-role.kubernetes.io/infra
-      value: reserved
-    - effect: NoExecute
-      key: node-role.kubernetes.io/infra
-      value: reserved
-    - effect: NoSchedule
-      key: high-throughput
-      value: "true"
-      operator: Equal
   serviceAccount:
     name: logging-collector 
   outputs:
@@ -33,39 +21,7 @@ spec:
       ca:
         key: service-ca.crt
         configMapName: openshift-service-ca.crt
-  - name: vitria-rsyslog-riyadh
-    syslog:
-      rfc: RFC5424
-      url: 'udp://10.54.7.80:19514'
-    type: syslog
-  - name: vitria-rsyslog-jeddah
-    syslog:
-      rfc: RFC5424
-      url: 'udp://10.56.7.80:19514'
-    type: syslog
-  - name: siem
-    syslog:
-      rfc: RFC5424
-      url: 'udp://10.28.7.199:514'
-    type: syslog
   pipelines:
-  - name: vitra-rsyslog-pipline
-    filterRefs:
-    - cluster-labels
-    inputRefs:
-    - audit
-    - infrastructure
-    - application
-    outputRefs:
-    - vitria-rsyslog-riyadh
-    - vitria-rsyslog-jeddah
-  - name: siem-rsyslog-pipline
-    filterRefs:
-    - cluster-labels
-    inputRefs:
-    - audit
-    outputRefs:
-    - siem
   - name: lokistack
     filterRefs:
     - cluster-labels
