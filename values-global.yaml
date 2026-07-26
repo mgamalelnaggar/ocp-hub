@@ -14,7 +14,7 @@ global:
     useCSV: True
     syncPolicy: Automatic
     installPlanApproval: Automatic
-    autoApproveManualInstallPlans: True
+    autoApproveManualInstallPlans: false
     applicationRetryLimit: 20
 
 
