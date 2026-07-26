@@ -5,52 +5,56 @@ clusterGroup:
 
 ############### Namespaces for Operators ######################
   namespaces:
-    # Loki / Global Operators
+    # Loki / Global Operators. Allnamespaces scoped operator
     - openshift-operators-redhat:
         disabled: false
         targetNamespaces: []
         labels:
           openshift.io/cluster-monitoring: "true"
     
-    # UI plugin for logging
+    # UI plugin for logging. Allnamespaces scoped operator
     - openshift-cluster-observability-operator:
         disabled: false
         targetNamespaces: []
         labels:
           openshift.io/cluster-monitoring: "true"
     
-    # OpenShift Data Foundation
+    # OpenShift Data Foundation. Standard scoped operators
     - openshift-storage: 
         disabled: false
         labels:
           openshift.io/cluster-monitoring: "true"
     
-    # Local Storage Operator
+    # Local Storage Operator. Standard scoped operators
     - openshift-local-storage: 
         disabled: false
         labels:
           openshift.io/cluster-monitoring: "true"
 
-    # Standard scoped operators
+    # Quay Operator. Standard scoped operators
     - openshift-quay: 
         disabled: false
         labels:
           openshift.io/cluster-monitoring: "true"
+    - quay-enterprise:
+        disabled: false
+        labels:
+          openshift.io/cluster-monitoring: "true"    
 
-    # RHACM Operator
+    # RHACM Operator. Standard scoped operators
     - open-cluster-management: 
         disabled: false
         labels:
           openshift.io/cluster-monitoring: "true"
 
-    # Logging Operator
+    # Logging Operator. Allnamespaces scoped operator
     - openshift-logging:
         disabled: false
         targetNamespaces: []
         labels:
           openshift.io/cluster-monitoring: "true"
     
-    # NMState Operator
+    # NMState Operator. Standard scoped operators
     - openshift-nmstate: 
         disabled: true
         labels:
@@ -108,7 +112,6 @@ clusterGroup:
       source: redhat-operators
       sourceNamespace: openshift-marketplace
       installPlanApproval: Automatic #Manual
-      
       csv: odf-operator.v4.20.13-rhodf
     
     cephcsi-operator:
@@ -118,6 +121,8 @@ clusterGroup:
       source: redhat-operators
       sourceNamespace: openshift-marketplace
       installPlanApproval: Automatic #Manual
+      csv: cephcsi-operator.v4.20.13-rhodf
+      
     mcg-operator:
       name: mcg-operator
       namespace: openshift-storage
@@ -125,6 +130,8 @@ clusterGroup:
       source: redhat-operators
       sourceNamespace: openshift-marketplace
       installPlanApproval: Automatic #Manual
+      csv: mcg-operator.v4.20.13-rhodf
+      
     ocs-client-operator:
       name: ocs-client-operator
       namespace: openshift-storage
@@ -132,6 +139,8 @@ clusterGroup:
       source: redhat-operators
       sourceNamespace: openshift-marketplace   
       installPlanApproval: Automatic #Manual
+      csv: ocs-client-operator.v4.20.13-rhodf
+      
     ocs-operator:
       name: ocs-operator
       namespace: openshift-storage
@@ -139,6 +148,8 @@ clusterGroup:
       source: redhat-operators
       sourceNamespace: openshift-marketplace 
       installPlanApproval: Automatic #Manual
+      csv: ocs-operator.v4.20.13-rhodf
+      
     odf-csi-addons-operator:
       name: odf-csi-addons-operator
       namespace: openshift-storage
@@ -146,6 +157,8 @@ clusterGroup:
       source: redhat-operators
       sourceNamespace: openshift-marketplace  
       installPlanApproval: Automatic #Manual
+      csv: odf-csi-addons-operator.v4.20.13-rhodf
+      
     odf-dependencies:
       name: odf-dependencies
       namespace: openshift-storage
@@ -153,6 +166,8 @@ clusterGroup:
       source: redhat-operators
       sourceNamespace: openshift-marketplace 
       installPlanApproval: Automatic #Manual
+      csv: odf-dependencies.v4.20.13-rhodf
+      
     odf-prometheus-operator:
       name: odf-prometheus-operator
       namespace: openshift-storage
@@ -160,6 +175,7 @@ clusterGroup:
       source: redhat-operators
       sourceNamespace: openshift-marketplace 
       installPlanApproval: Automatic #Manual
+      csv: odf-prometheus-operator.v4.20.13-rhodf
       
 # Loki Operator      
     loki-operator:
