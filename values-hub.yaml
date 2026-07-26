@@ -7,44 +7,52 @@ clusterGroup:
   namespaces:
     # Loki / Global Operators
     - openshift-operators-redhat:
+        disabled: false
         targetNamespaces: []
         labels:
           openshift.io/cluster-monitoring: "true"
     
     # UI plugin for logging
     - openshift-cluster-observability-operator:
+        disabled: false
         targetNamespaces: []
         labels:
           openshift.io/cluster-monitoring: "true"
     
     # OpenShift Data Foundation
     - openshift-storage: 
+        disabled: false
         labels:
           openshift.io/cluster-monitoring: "true"
     
     # Local Storage Operator
     - openshift-local-storage: 
+        disabled: false
         labels:
           openshift.io/cluster-monitoring: "true"
 
     # Standard scoped operators
     - openshift-quay: 
+        disabled: false
         labels:
           openshift.io/cluster-monitoring: "true"
 
     # RHACM Operator
     - open-cluster-management: 
+        disabled: false
         labels:
           openshift.io/cluster-monitoring: "true"
 
     # Logging Operator
     - openshift-logging:
+        disabled: false
         targetNamespaces: []
         labels:
           openshift.io/cluster-monitoring: "true"
     
     # NMState Operator
     - openshift-nmstate: 
+        disabled: false
         labels:
           openshift.io/cluster-monitoring: "true"
 
