@@ -29,9 +29,6 @@ clusterGroup:
     
     - openshift-nmstate: {}
 
-    - openshift-cluster-observability-operator:
-        targetNamespaces: []
-
 ###################### Operators Subscriptions ########################
   subscriptions:
 
