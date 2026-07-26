@@ -18,6 +18,7 @@ quay:
 
 job:
   #image: registry.redhat.io/openshift4/ose-cli-rhel9:v4.20
+  image: quay.io/validatedpatterns/imperative-container:v1
   
 quay_config: {}
 
