@@ -52,7 +52,7 @@ clusterGroup:
     
     # NMState Operator
     - openshift-nmstate: 
-        disabled: false
+        disabled: true
         labels:
           openshift.io/cluster-monitoring: "true"
 
@@ -71,7 +71,7 @@ clusterGroup:
 
 # NMstate Operator    
     kubernetes-nmstate-operator:
-      disabled: false
+      disabled: true
       name: kubernetes-nmstate-operator
       namespace: openshift-nmstate
       channel: "stable"
@@ -203,7 +203,7 @@ clusterGroup:
 #######################  ArgoCD Applications  #####################################
   applications: 
     nmstate:
-      disabled: false
+      disabled: true
       name: nmstate
       namespace: default
       path: applications/nmstate
