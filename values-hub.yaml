@@ -153,7 +153,7 @@ clusterGroup:
       extraValueFiles: []
 
     odf:
-      disabled: true
+      disabled: false
       name: odf
       namespace: default
       path: applications/odf
