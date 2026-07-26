@@ -61,6 +61,7 @@ clusterGroup:
 
 # TALM operator
     openshift-topology-aware-lifecycle-manager:
+      disabled: false
       name: topology-aware-lifecycle-manager
       namespace: openshift-operators
       channel: "stable"
@@ -70,6 +71,7 @@ clusterGroup:
 
 # NMstate Operator    
     kubernetes-nmstate-operator:
+      disabled: false
       name: kubernetes-nmstate-operator
       namespace: openshift-nmstate
       channel: "stable"
@@ -79,6 +81,7 @@ clusterGroup:
 
 # LSO Operator
     local-storage-operator:
+      disabled: false
       name: local-storage-operator
       namespace: openshift-local-storage
       channel: "stable" 
@@ -88,6 +91,7 @@ clusterGroup:
 
 # Cluster Observability Operator. Needed mainly for Logging UI
     cluster-observability-operator:
+      disabled: false
       name: cluster-observability-operator
       namespace: openshift-cluster-observability-operator
       channel: "stable"
@@ -97,6 +101,7 @@ clusterGroup:
 
 # All sub-ODF subscriptions for ODF operator to get installed
     odf-operator:
+      disabled: false
       name: odf-operator
       namespace: openshift-storage
       channel: "stable-4.20"
@@ -158,6 +163,7 @@ clusterGroup:
       
 # Loki Operator      
     loki-operator:
+      disabled: false
       name: loki-operator
       namespace: openshift-operators-redhat
       channel: "stable-6.4"
@@ -166,6 +172,7 @@ clusterGroup:
 
 # Logging Operator   
     logging-operator:
+      disabled: false
       name: cluster-logging
       namespace: openshift-logging
       channel: "stable-6.4"
@@ -176,6 +183,7 @@ clusterGroup:
 
 # RHACM Operator
     advanced-cluster-management:
+      disabled: false
       name: advanced-cluster-management
       namespace: open-cluster-management
       channel: "release-2.16"
@@ -185,6 +193,7 @@ clusterGroup:
 
 # Quay Operator
     quay-operator:
+      disabled: false
       name: quay-operator
       namespace: openshift-operators
       source: redhat-operators
