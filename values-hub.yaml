@@ -96,7 +96,7 @@ clusterGroup:
       sourceNamespace: openshift-marketplace
       installPlanApproval: Automatic #Manual
       
-      csv: odf-operator.v4.18.20-rhodf
+      csv: odf-operator.v4.20.13-rhodf
     
     cephcsi-operator:
       name: cephcsi-operator
