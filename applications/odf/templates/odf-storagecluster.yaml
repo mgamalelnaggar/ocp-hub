@@ -74,12 +74,15 @@ spec:
     cephToolbox: {}
   mirroring: {}
   monDataDirHostPath: /var/lib/rook
+  
+{{/* network config in case of multus. Not needed for Hub
   network:
     connections:
       encryption: {}
-    multiClusterService: {}
+    multiClusterService: {}    
     provider: multus
     selectors:
       cluster: openshift-storage/odf-cluster
       public: openshift-storage/odf-public
+*/}}      
   nodeTopologies: {}
