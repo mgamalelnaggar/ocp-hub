@@ -8,26 +8,45 @@ clusterGroup:
     # Loki / Global Operators
     - openshift-operators-redhat:
         targetNamespaces: []
+        labels:
+          openshift.io/cluster-monitoring: "true"
     
     # UI plugin for logging
     - openshift-cluster-observability-operator:
         targetNamespaces: []
+        labels:
+          openshift.io/cluster-monitoring: "true"
     
     # OpenShift Data Foundation
-    - openshift-storage: {}
+    - openshift-storage: 
+        labels:
+          openshift.io/cluster-monitoring: "true"
     
     # Local Storage Operator
-    - openshift-local-storage: {}
+    - openshift-local-storage: 
+        labels:
+          openshift.io/cluster-monitoring: "true"
 
     # Standard scoped operators
-    - openshift-quay: {}
+    - openshift-quay: 
+        labels:
+          openshift.io/cluster-monitoring: "true"
 
-    - open-cluster-management: {}
+    # RHACM Operator
+    - open-cluster-management: 
+        labels:
+          openshift.io/cluster-monitoring: "true"
 
+    # Logging Operator
     - openshift-logging:
         targetNamespaces: []
+        labels:
+          openshift.io/cluster-monitoring: "true"
     
-    - openshift-nmstate: {}
+    # NMState Operator
+    - openshift-nmstate: 
+        labels:
+          openshift.io/cluster-monitoring: "true"
 
 ###################### Operators Subscriptions ########################
   subscriptions:
