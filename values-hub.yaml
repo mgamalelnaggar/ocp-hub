@@ -69,7 +69,7 @@ clusterGroup:
       channel: "stable-4.18"
       source: redhat-operators
       sourceNamespace: openshift-marketplace
-      csv: 4.18.14-rhodf
+      csv: 4.18.20-rhodf
     cephcsi-operator:
       name: cephcsi-operator
       namespace: openshift-storage
