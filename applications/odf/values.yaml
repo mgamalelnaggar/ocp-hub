@@ -4,18 +4,6 @@ odf:
   externalUrl: "https://s3-rgw-openshift-storage"
   enable_mirroring: false
 
-# To create multus NADs
-  network:
-    odfcluster:
-      master: ens5.10
-      ipam:
-        range: [192.168.100.0/24]
-        exclude: []
-    odfpublic:
-      master: ens5.11
-      ipam:
-        range: [192.168.110.0/24]
-        exclude: []
   osd:
     pvc:
       storage: 2Ti
