@@ -1,8 +1,8 @@
 acm:
   # In disconnected mode ONLY
   disconnected: false
-  registryurl:
-  cabundle:
+  quayregistryurl:
+  quaycabundle:
 
   
   fsstorageclass:
