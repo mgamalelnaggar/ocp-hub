@@ -1,11 +1,15 @@
 acm:
   # In disconnected mode ONLY
   disconnected: false
+  
+  # Quay-enterprise details
   quayregistryurl:
   quaycabundle:
 
-  
+  # From ODF fs-storage-class
   fsstorageclass:
+  
+  # To udate AgentService
   osimages:
     - cpuArchitecture: "x86_64"
       openshiftVersion: "4.20"
