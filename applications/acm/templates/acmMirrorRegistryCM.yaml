@@ -11,7 +11,7 @@ metadata:
     app: assisted-service
 data:
   # Add the mirror registry SSL certificate chain up to the CA itself.
-  ca-bundle.crt: {{ .Values.acm.cabundle }}
+  ca-bundle.crt: {{ .Values.acm.quaycabundle }}
   
   # The registries.conf field has been populated using the registries.conf file found in "/etc/containers/registries.conf" on each node.
   # Replace <registry.example.com:8443> with the mirror registry's address.
@@ -21,66 +21,66 @@ data:
       prefix = ""
       location = "quay.io/openshift-release-dev"
       [[registry.mirror]]
-        location = "{{ .Valsues.acm.registryurl }}/openshift-release-dev"
+        location = "{{ .Valsues.acm.quayregistryurl }}/openshift-release-dev"
         pull-from-mirror = "digest-only"
     [[registry]]
       prefix = ""
       location = "quay.io/openshift-release-dev/ocp-release"
       [[registry.mirror]]
-        location = "{{ .Valsues.acm.registryurl }}/openshift-release-dev/ocp-release"
+        location = "{{ .Valsues.acm.quayregistryurl }}/openshift-release-dev/ocp-release"
         pull-from-mirror = "digest-only"
     [[registry]]
       prefix = ""
       location = "quay.io/openshift-release-dev/ocp-v4.0-art-dev"
       [[registry.mirror]]
-        location = "{{ .Valsues.acm.registryurl }}/openshift-release-dev/ocp-v4.0-art-dev"
+        location = "{{ .Valsues.acm.quayregistryurl }}/openshift-release-dev/ocp-v4.0-art-dev"
         pull-from-mirror = "digest-only"
     [[registry]]
       prefix = ""
       location = "registry.redhat.io/multicluster-engine"
       [[registry.mirror]]
-        location = "{{ .Valsues.acm.registryurl }}/multicluster-engine"
+        location = "{{ .Valsues.acm.quayregistryurl }}/multicluster-engine"
         pull-from-mirror = "digest-only"
     [[registry]]
       prefix = ""
       location = "registry.redhat.io/odf4"
       [[registry.mirror]]
-        location = "{{ .Valsues.acm.registryurl }}/odf4"
+        location = "{{ .Valsues.acm.quayregistryurl }}/odf4"
         pull-from-mirror = "digest-only"
     [[registry]]
       prefix = ""
       location = "registry.redhat.io/openshift4"
       [[registry.mirror]]
-        location = "{{ .Valsues.acm.registryurl }}/openshift4"
+        location = "{{ .Valsues.acm.quayregistryurl }}/openshift4"
         pull-from-mirror = "digest-only"
     [[registry]]
       prefix = ""
       location = "registry.redhat.io/rhacm2"
       [[registry.mirror]]
-        location = {{ .Valsues.acm.registryurl }}/rhacm2"
+        location = "{{ .Valsues.acm.quayregistryurl }}/rhacm2"
         pull-from-mirror = "digest-only"
     [[registry]]
       prefix = ""
       location = "registry.redhat.io/rhceph"
       [[registry.mirror]]
-        location = "{{ .Valsues.acm.registryurl }}/rhceph"
+        location = "{{ .Valsues.acm.quayregistryurl }}/rhceph"
         pull-from-mirror = "digest-only"
     [[registry]]
       prefix = ""
       location = "registry.redhat.io/rhel8"
       [[registry.mirror]]
-        location = "{{ .Valsues.acm.registryurl }}/rhel8"
+        location = "{{ .Valsues.acm.quayregistryurl }}/rhel8"
         pull-from-mirror = "digest-only"
     [[registry]]
       prefix = ""
       location = "registry.redhat.io/rhel9"
       [[registry.mirror]]
-        location = "{{ .Valsues.acm.registryurl }}/rhel9"
+        location = "{{ .Valsues.acm.quayregistryurl }}/rhel9"
         pull-from-mirror = "digest-only"
     [[registry]]
       prefix = ""
       location = "registry.redhat.io/ubi8"
       [[registry.mirror]]
-        location = "{{ .Valsues.acm.registryurl }}/ubi8"
+        location = "{{ .Valsues.acm.quayregistryurl }}/ubi8"
         pull-from-mirror = "tag-only"
 {{-end }}
