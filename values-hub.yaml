@@ -2,6 +2,9 @@ clusterGroup:
   name: hub
   targetCluster: in-cluster
   sharedValueFiles: []
+  disconnected: false
+  indeximages: 
+  - <registry.example.com:8443>/openshift-marketplace/redhat-operators-disconnected:<version>
 
 ############### Namespaces for Operators ######################
   namespaces:
