@@ -1,1 +1,13 @@
 
+# Add more pipelines as needed. Follow below example. loki-stack is added bydefault.
+
+pipelines:[]
+#  - name: lokistack
+#    filterRefs:
+#    - cluster-labels
+#    inputRefs:
+#    - infrastructure
+#    - application
+#    - audit
+#    outputRefs:
+#    - lokistack-out
