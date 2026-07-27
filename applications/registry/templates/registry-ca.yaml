@@ -1,0 +1,11 @@
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: custom-ca-bundle
+  namespace: openshift-config
+data:
+  {{- range $key, $cert := .Values.registryCerts }}
+  {{ $key | quote }}: |-
+    {{- $cert | nindent 4 }}
+  {{- end }}
