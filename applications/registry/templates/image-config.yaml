@@ -1,3 +1,4 @@
+{{- .Values.disconnected }}
 ---
 apiVersion: config.openshift.io/v1
 kind: Image
@@ -8,3 +9,4 @@ metadata:
 spec:
   additionalTrustedCA:
     name: registry-ca
+{{-end }}
