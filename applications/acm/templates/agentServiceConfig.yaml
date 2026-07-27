@@ -28,8 +28,11 @@ spec:
     resources:
       requests:
         storage: 100Gi
+{{- if .Values.acm.disconnected }}        
   mirrorRegistryRef:
     name: mirror-registry-config
+{{- end }}
+
 {{- if .Values.acm.osimages }}
 osImages:
   {{- range $img := .Values.acm.osimages }}
