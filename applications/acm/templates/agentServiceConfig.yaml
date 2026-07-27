@@ -8,21 +8,18 @@ metadata:
     argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
 spec:
   databaseStorage:
-    storageClassName:  {{ .Values.acm.fsstorageclass }}
     accessModes:
       - ReadWriteOnce
     resources:
       requests:
         storage: 20Gi
   filesystemStorage:
-    storageClassName:  {{ .Values.acm.fsstorageclass }}
     accessModes:
       - ReadWriteOnce
     resources:
       requests:
         storage: 20Gi
   imageStorage:
-    storageClassName:  {{ .Values.acm.fsstorageclass }}
     accessModes:
       - ReadWriteOnce
     resources:
