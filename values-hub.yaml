@@ -276,14 +276,6 @@ clusterGroup:
       path: applications/odf
       extraValueFiles: []
 
-
-    acm:
-      disabled: false
-      name: acm
-      namespace: default
-      path: applications/acm
-      extraValueFiles: []
-
     quay:
       disabled: false
       name: quay
@@ -311,6 +303,14 @@ clusterGroup:
       namespace: default
       path: applications/monitoring
       extraValueFiles: []
+
+# Enable acm after all above applications get created. Specially ODF and Quay.
+    acm:
+      disabled: true
+      name: acm
+      namespace: default
+      path: applications/acm
+      extraValueFiles: []      
 
 #########################  ArgoCD instance  #######################################
   argoCD:
