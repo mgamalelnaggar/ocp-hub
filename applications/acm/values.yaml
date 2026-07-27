@@ -1,4 +1,5 @@
 acm:
+  disconnected: false
   registryurl:
   cabundle:
   fsstorageclass:
