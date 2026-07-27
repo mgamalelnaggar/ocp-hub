@@ -12,7 +12,7 @@ clusterGroup:
   #    image: <registry.example.com:8443>/openshift-marketplace/community-operators-disconnected:<version>
 
 
-  extraObjects:
+  extraObjects: {}
     #### Apply configuration to disable default operator hub.
     #### Used in disconnected mode ONLY
     
