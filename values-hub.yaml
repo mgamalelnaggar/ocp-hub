@@ -9,6 +9,19 @@ clusterGroup:
     - name: community-operators-disconnected
       image: <registry.example.com:8443>/openshift-marketplace/community-operators-disconnected:<version>
 
+
+  extraObjects:
+    # Apply configuration to disable default operator hub.
+    # Used in disconnected mode ONLY
+    
+    #disable-operatorhub-sources:
+    #  apiVersion: config.openshift.io/v1
+    #  kind: OperatorHub
+    #  metadata:
+    #    name: cluster
+    #  spec:
+    #    disableAllDefaultSources: true
+
 ############### Namespaces for Operators ######################
   namespaces:
     # Loki / Global Operators. Allnamespaces scoped operator
