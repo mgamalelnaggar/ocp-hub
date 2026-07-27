@@ -5,21 +5,19 @@ metadata:
   namespace: openshift-monitoring
 data:
   config.yaml: |
-    enableUserWorkload: true
+    enableUserWorkload: false
     alertmanagerMain:
       volumeClaimTemplate:
         spec:
           resources:
             requests:
               storage: {{ .Values.alertmanager.volumeClaimTemplate.spec.resources.requests.storage | default "50Gi" }}
-          storageClassName: infra
     prometheusK8s:
       retention: {{ .Values.prometheusK8s.retention | default "7d" }}
       volumeClaimTemplate:
         metadata:
           name: prometheus-claim
         spec:
-          storageClassName: infra
           resources:
             requests:
               storage: {{ .Values.prometheusK8s.volumeClaimTemplate.spec.resources.requests.storage | default "200Gi" }}
