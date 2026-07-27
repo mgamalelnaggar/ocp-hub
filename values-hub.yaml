@@ -81,10 +81,16 @@ clusterGroup:
         labels:
           openshift.io/cluster-monitoring: "true"
 
+    # OSUS operator
+    - openshift-update-service:
+        disabled: false
+        labels:
+          openshift.io/cluster-monitoring: "true"
+
 ###################### Operators Subscriptions ########################
   subscriptions:
 
-# TALM operator
+# TALM Operator
     openshift-topology-aware-lifecycle-manager:
       disabled: false
       name: topology-aware-lifecycle-manager
@@ -94,6 +100,16 @@ clusterGroup:
       sourceNamespace: openshift-marketplace
       installPlanApproval: Automatic #Manual
 
+# Update Source Operator
+    openshift-update-service:
+      disabled: false
+      name: cincinnati-operator
+      namespace: openshift-operators
+      channel: "stable"
+      source: redhat-operators
+      sourceNamespace: openshift-marketplace
+      installPlanApproval: Automatic #Manual
+      
 # NMstate Operator    
     kubernetes-nmstate-operator:
       disabled: true
