@@ -4,8 +4,10 @@ clusterGroup:
   sharedValueFiles: []
   disconnected: false
   indeximages: 
-    name: redhat-operators-disconnected
-    image: <registry.example.com:8443>/openshift-marketplace/redhat-operators-disconnected:<version>
+    - name: redhat-operators-disconnected
+      image: <registry.example.com:8443>/openshift-marketplace/redhat-operators-disconnected:<version>
+    - name: community-operators-disconnected
+      image: <registry.example.com:8443>/openshift-marketplace/community-operators-disconnected:<version>
 
 ############### Namespaces for Operators ######################
   namespaces:
