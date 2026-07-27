@@ -1,0 +1,42 @@
+---
+apiVersion: agent-install.openshift.io/v1beta1
+kind: AgentServiceConfig
+metadata:
+  name: agent
+  annotations:
+    argocd.argoproj.io/sync-wave: "-10"
+    argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
+spec:
+  databaseStorage:
+    storageClassName:  {{ .Values.acm.fsstorageclass }}
+    accessModes:
+      - ReadWriteOnce
+    resources:
+      requests:
+        storage: 20Gi
+  filesystemStorage:
+    storageClassName:  {{ .Values.acm.fsstorageclass }}
+    accessModes:
+      - ReadWriteOnce
+    resources:
+      requests:
+        storage: 20Gi
+  imageStorage:
+    storageClassName:  {{ .Values.acm.fsstorageclass }}
+    accessModes:
+      - ReadWriteOnce
+    resources:
+      requests:
+        storage: 100Gi
+  mirrorRegistryRef:
+    name: mirror-registry-config
+{{- if .Values.acm.osimages }}
+osImages:
+  {{- range $img := .Values.acm.osimages }}
+  - cpuArchitecture: {{ $img.cpuArchitecture | quote }}
+    openshiftVersion: {{ $img.openshiftVersion | quote }}
+    rootFSUrl: {{ $img.rootFSUrl | quote }}
+    url: {{ $img.url | quote }}
+    version: {{ $img.version | quote }}
+  {{- end }}
+{{- end }}
