@@ -6,7 +6,7 @@ acm:
   quayregistryurl:
   quaycabundle:
   
-  # To udate AgentService
+  # To update AgentService
   osimages:
     - cpuArchitecture: "x86_64"
       openshiftVersion: "4.20"
@@ -14,3 +14,4 @@ acm:
       rootFSUrl: "http://<http-server-address:port>/rhcos-4.20.0-x86_64-live-rootfs.x86_64.img"
       url: "http://<http-server-address:port>/rhcos-4.20.0-x86_64-live-iso.x86_64.iso"
       version: "9.6.20250530-0"
+  # Add new entries for new versions
