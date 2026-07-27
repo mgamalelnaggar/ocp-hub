@@ -1,3 +1,4 @@
+{{- if .Values.acm.disconnected }}
 ---
 apiVersion: v1
 kind: ConfigMap
@@ -82,3 +83,4 @@ data:
       [[registry.mirror]]
         location = "{{ .Valsues.acm.registryurl }}/ubi8"
         pull-from-mirror = "tag-only"
+{{-end }}
