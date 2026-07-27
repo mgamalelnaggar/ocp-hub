@@ -1,3 +1,4 @@
+{{- .Values.disconnected }}
 ---
 apiVersion: v1
 kind: ConfigMap
@@ -9,3 +10,6 @@ data:
   {{ .host | replace ":" ".." | quote }}: |-
     {{- .cert | nindent 4 }}
   {{- end }}
+
+
+{{-end }}
