@@ -31,3 +31,6 @@ spec:
     - audit
     outputRefs:
     - lokistack-out
+{{- if .Values.pipelines }}
+{{- toYaml .Values.pipelines | nindent 4 }}
+{{- end }}
