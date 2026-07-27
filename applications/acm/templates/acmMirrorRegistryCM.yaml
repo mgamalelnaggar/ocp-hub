@@ -5,7 +5,7 @@ kind: ConfigMap
 metadata:
   name: mirror-registry-config
   annotations:
-    argocd.argoproj.io/sync-wave: "-30"
+    argocd.argoproj.io/sync-wave: "-10"
   namespace: multicluster-engine
   labels:
     app: assisted-service
