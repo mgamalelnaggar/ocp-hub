@@ -5,9 +5,6 @@ acm:
   # Quay-enterprise details
   quayregistryurl:
   quaycabundle:
-
-  # From ODF fs-storage-class
-  fsstorageclass:
   
   # To udate AgentService
   osimages:
