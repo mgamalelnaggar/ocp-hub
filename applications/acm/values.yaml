@@ -1,7 +1,10 @@
 acm:
+  # In disconnected mode ONLY
   disconnected: false
   registryurl:
   cabundle:
+
+  
   fsstorageclass:
   osimages:
     - cpuArchitecture: "x86_64"
