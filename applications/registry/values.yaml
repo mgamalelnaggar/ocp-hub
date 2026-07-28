@@ -1,6 +1,0 @@
-registries:
-  - host: "registry.example.com:8443"
-    cert: |
-      -----BEGIN CERTIFICATE-----
-      MIIGcjCCBFqgAwIBAgIFICIE...
-      -----END CERTIFICATE-----
