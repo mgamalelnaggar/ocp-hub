@@ -97,3 +97,16 @@ rbac:
         name: label-storage-nodes
 job:
   image: quay.io/validatedpatterns/imperative-container:v1
+
+network:
+  multus: true
+  odfpublic:
+    master:
+    ipam:
+      range: []
+      exclude: []
+  odfcluster:
+    master:
+    ipam:
+      range: []
+      exclude: []
