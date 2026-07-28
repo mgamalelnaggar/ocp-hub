@@ -255,15 +255,7 @@ clusterGroup:
       installPlanApproval: Automatic #Manual
 #######################  ArgoCD Applications  #####################################
   applications: 
-    
-    registry:
-      # Enable only in disconnected environments.
-      disabled: true
-      name: registry
-      namespace: default
-      path: applications/registry
-      extraValueFiles: []
-    
+   
     nmstate:
       disabled: true
       name: nmstate
