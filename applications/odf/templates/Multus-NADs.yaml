@@ -18,4 +18,24 @@ spec:
       "exclude": {{ .Values.network.odfpublic.ipam.exclude }}
     }
   }'
+---
+apiVersion: "k8s.cni.cncf.io/v1"
+kind: NetworkAttachmentDefinition
+metadata:
+  annotations:
+    argocd.argoproj.io/sync-wave: "-1"
+  name: odf-cluster
+  namespace: {{ .Values.odf.namespace }}
+spec:
+  config: '{
+    "cniVersion": "0.3.1",
+    "type": "macvlan",
+    "master": {{ .Values.network.odfcluster.master }},
+    "mode": "bridge",
+    "ipam": {
+      "type": "whereabouts",
+      "range": {{ .Values.network.odfcluster.ipam.range }},
+      "exclude": {{ .Values.network.odfcluster.ipam.exclude }}
+    }
+  }'  
 {{-end }}
