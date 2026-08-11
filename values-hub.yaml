@@ -104,8 +104,8 @@ clusterGroup:
     openshift-update-service:
       disabled: false
       name: cincinnati-operator
-      namespace: openshift-operators
-      channel: "stable"
+      namespace: openshift-update-service
+      channel: "v1"
       source: redhat-operators
       sourceNamespace: openshift-marketplace
       installPlanApproval: Automatic #Manual
