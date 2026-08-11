@@ -75,11 +75,11 @@ spec:
   mirroring: {}
   monDataDirHostPath: /var/lib/rook
   
-{{- if Values.network.multus }}
+{{- if .Values.network.multus }}
   network:
     provider: multus
     selectors:
       cluster: openshift-storage/odf-cluster
       public: openshift-storage/odf-public
-{{-end }}
+{{- end }}
   nodeTopologies: {}
