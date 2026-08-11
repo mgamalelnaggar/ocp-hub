@@ -86,13 +86,15 @@ clusterGroup:
         disabled: false
         labels:
           openshift.io/cluster-monitoring: "true"
-
+#######################################################################
+operatorgroupExcludes:
+    - openshift-operators
 ###################### Operators Subscriptions ########################
   subscriptions:
 
 # TALM Operator
     openshift-topology-aware-lifecycle-manager:
-      disabled: true
+      disabled: false
       name: topology-aware-lifecycle-manager
       namespace: openshift-operators
       channel: "stable"
