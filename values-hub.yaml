@@ -95,7 +95,7 @@ clusterGroup:
       disabled: false
       name: topology-aware-lifecycle-manager
       namespace: openshift-operators
-      channel: "stable"
+      channel: "v1"
       source: redhat-operators
       sourceNamespace: openshift-marketplace
       installPlanApproval: Automatic #Manual
