@@ -95,7 +95,7 @@ job:
   image: quay.io/validatedpatterns/imperative-container:v1
 
 network:
-  multus: true
+  multus: false
   odfpublic:
     master:
     ipam:
