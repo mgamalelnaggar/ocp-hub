@@ -92,10 +92,10 @@ clusterGroup:
 
 # TALM Operator
     openshift-topology-aware-lifecycle-manager:
-      disabled: false
+      disabled: true
       name: topology-aware-lifecycle-manager
       namespace: openshift-operators
-      channel: "v1"
+      channel: "stable"
       source: redhat-operators
       sourceNamespace: openshift-marketplace
       installPlanApproval: Automatic #Manual
