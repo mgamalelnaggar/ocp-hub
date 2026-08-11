@@ -58,13 +58,6 @@ storageSystem:
     #nodes:
     #- 
     #- 
-  deploy: false
-  name: ocs-storagecluster-storagesystem
-  namespace: openshift-storage
-  spec:
-    kind: storagecluster.ocs.openshift.io/v1
-    name: ocs-storagecluster
-    namespace: ""
 
 #RoleBasedAccessControl
 
