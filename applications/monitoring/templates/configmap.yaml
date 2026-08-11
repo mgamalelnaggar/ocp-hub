@@ -11,7 +11,7 @@ data:
         spec:
           resources:
             requests:
-              storage: {{ .Values.alertmanager.volumeClaimTemplate.spec.resources.requests.storage | default "50Gi" }}
+              storage: {{ .Values.alertmanagerMain.volumeClaimTemplate.spec.resources.requests.storage | default "50Gi" }}
     prometheusK8s:
       retention: {{ .Values.prometheusK8s.retention | default "7d" }}
       volumeClaimTemplate:
