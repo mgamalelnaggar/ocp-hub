@@ -77,7 +77,7 @@ clusterGroup:
     
     # NMState Operator. Standard scoped operators
     - openshift-nmstate: 
-        disabled: true
+        disabled: false
         labels:
           openshift.io/cluster-monitoring: "true"
 
@@ -112,7 +112,7 @@ clusterGroup:
       
 # NMstate Operator    
     kubernetes-nmstate-operator:
-      disabled: true
+      disabled: false
       name: kubernetes-nmstate-operator
       namespace: openshift-nmstate
       channel: "stable"
