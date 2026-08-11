@@ -259,7 +259,7 @@ clusterGroup:
   applications: 
    
     nmstate:
-      disabled: true
+      disabled: false
       name: nmstate
       namespace: default
       path: applications/nmstate
