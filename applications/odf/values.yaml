@@ -58,7 +58,7 @@ storageSystem:
     #nodes:
     #- 
     #- 
-  deploy: true
+  deploy: false
   name: ocs-storagecluster-storagesystem
   namespace: openshift-storage
   spec:
