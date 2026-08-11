@@ -55,6 +55,9 @@ storageSystem:
   inventory:
     nodeJobLabelSelector: 'node-role.kubernetes.io/master='
     useSpecificNodes: false # true/false to label a specific set of nodes to be part of ODF
+    #nodes:
+    #- 
+    #- 
   deploy: true
   name: ocs-storagecluster-storagesystem
   namespace: openshift-storage
