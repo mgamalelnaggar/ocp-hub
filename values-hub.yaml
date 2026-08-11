@@ -4,7 +4,7 @@ clusterGroup:
   sharedValueFiles: []
 
   ##### Used in disconnected mode ONLY
-  disconnected: false
+  #disconnected: false
   #indeximages: 
   #  - name: redhat-operators-disconnected
   #    image: <registry.example.com:8443>/openshift-marketplace/redhat-operators-disconnected:<version>
