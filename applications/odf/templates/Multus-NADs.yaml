@@ -1,4 +1,4 @@
-{{-if .Values.network.multus }}
+{{- if .Values.network.multus }}
 apiVersion: "k8s.cni.cncf.io/v1"
 kind: NetworkAttachmentDefinition
 metadata:
@@ -38,4 +38,4 @@ spec:
       "exclude": {{ .Values.network.odfcluster.ipam.exclude }}
     }
   }'  
-{{-end }}
+{{- end }}
