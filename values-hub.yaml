@@ -87,7 +87,7 @@ clusterGroup:
         labels:
           openshift.io/cluster-monitoring: "true"
 #######################################################################
-operatorgroupExcludes:
+  operatorgroupExcludes:
     - openshift-operators
 ###################### Operators Subscriptions ########################
   subscriptions:
