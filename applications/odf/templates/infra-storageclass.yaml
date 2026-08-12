@@ -3,6 +3,8 @@ kind: CephBlockPool
 metadata:
   name: infra
   namespace: openshift-storage
+  annotations:
+    argocd.argoproj.io/sync-wave: "3"
 spec:
   mirroring: {}
   compressionMode: none
@@ -24,6 +26,8 @@ apiVersion: storage.k8s.io/v1
 kind: StorageClass
 metadata:
   name: infra
+  annotations:
+    argocd.argoproj.io/sync-wave: "5"
 parameters:
   clusterID: openshift-storage
   csi.storage.k8s.io/controller-expand-secret-name: rook-csi-rbd-provisioner
