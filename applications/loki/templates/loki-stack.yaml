@@ -3,6 +3,8 @@ kind: LokiStack
 metadata:
   name: logging-loki 
   namespace: openshift-logging
+  annotations:
+    argocd.argoproj.io/sync-wave: "11"
 spec:
   limits:
     global:
