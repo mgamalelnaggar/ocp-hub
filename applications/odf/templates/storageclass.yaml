@@ -5,6 +5,7 @@ kind: StorageClass
 metadata:
   annotations:
     description: Provides RWO Filesystem volumes, and RWO and RWX Block volumes
+    argocd.argoproj.io/sync-wave: "5"
   name: ocs-storagecluster-ceph-rbd
 parameters:
   clusterID: openshift-storage
@@ -28,6 +29,7 @@ kind: StorageClass
 metadata:
   annotations:
     description: Provides RWO and RWX Filesystem volumes
+    argocd.argoproj.io/sync-wave: "5"
   name: ocs-storagecluster-cephfs
 parameters:
   clusterID: openshift-storage
@@ -47,6 +49,7 @@ kind: StorageClass
 metadata:
   annotations:
     description: Provides Object Bucket Claims (OBCs)
+    argocd.argoproj.io/sync-wave: "5"
   name: openshift-storage.noobaa.io
 parameters:
   bucketclass: noobaa-default-bucket-class
