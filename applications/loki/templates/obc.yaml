@@ -3,6 +3,8 @@ kind: ObjectBucketClaim
 metadata:
   name: {{ index .Values.loki "s3-bucket-name" }}
   namespace: openshift-logging
+  annotations:
+    argocd.argoproj.io/sync-wave: "5"
   labels:
     app: noobaa
     bucket-provisioner: openshift-storage.noobaa.io-obc
