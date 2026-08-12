@@ -152,70 +152,7 @@ clusterGroup:
       sourceNamespace: openshift-marketplace
       installPlanApproval: Automatic #Manual
       #csv: odf-operator.v4.20.15-rhodf
-    
-#    cephcsi-operator:
-#      name: cephcsi-operator
-#      namespace: openshift-storage
-#      channel: "stable-4.20"
-#      source: redhat-operators
-#      sourceNamespace: openshift-marketplace
-#      installPlanApproval: Automatic #Manual
-      #csv: cephcsi-operator.v4.20.15-rhodf
-      
-#    mcg-operator:
-#      name: mcg-operator
-#      namespace: openshift-storage
-#      channel: "stable-4.20"
-#      source: redhat-operators
-#      sourceNamespace: openshift-marketplace
-#     installPlanApproval: Automatic #Manual
-#      #csv: mcg-operator.v4.20.15-rhodf
-#      
-#    ocs-client-operator:
-#      name: ocs-client-operator
-#     namespace: openshift-storage
-#      channel: "stable-4.20"
-#      source: redhat-operators
-#      sourceNamespace: openshift-marketplace   
-#      installPlanApproval: Automatic #Manual
-#      #csv: ocs-client-operator.v4.20.15-rhodf
-#      
-#    ocs-operator:
-#     name: ocs-operator
-#      namespace: openshift-storage
-#      channel: "stable-4.20"
-#     source: redhat-operators
-#      sourceNamespace: openshift-marketplace 
-#      installPlanApproval: Automatic #Manual
-#      #csv: ocs-operator.v4.20.15-rhodf
-#      
-#   odf-csi-addons-operator:
-#     name: odf-csi-addons-operator
-#      namespace: openshift-storage
-#     channel: "stable-4.20"
-#     source: redhat-operators
-#     sourceNamespace: openshift-marketplace  
-#     installPlanApproval: Automatic #Manual
-#     #csv: odf-csi-addons-operator.v4.20.15-rhodf
-#     
-#    odf-dependencies:
-#     name: odf-dependencies
-#      namespace: openshift-storage
-#     channel: "stable-4.20"
-#     source: redhat-operators
-#     sourceNamespace: openshift-marketplace 
-#     installPlanApproval: Automatic #Manual
-#     #csv: odf-dependencies.v4.20.15-rhodf
-#     
-#   odf-prometheus-operator:
-#      name: odf-prometheus-operator
-#      namespace: openshift-storage
-#      channel: "stable-4.20"
-#     source: redhat-operators
-#     sourceNamespace: openshift-marketplace 
-#      installPlanApproval: Automatic #Manual
-#     #csv: odf-prometheus-operator.v4.20.15-rhodf
-      
+         
 # Loki Operator      
     loki-operator:
       disabled: false
@@ -319,7 +256,16 @@ clusterGroup:
   argoCD:
     initContainers: []
     env: []
-    rbac: {}
+    rbac: 
+      defaultPolicy: role:readonly
+      scopes: '[groups, email]'
+      policy: |-
+        g, system:cluster-admins, role:admin
+        g, cluster-admins, role:admin
+        g, admin, role:admin
+        g, ocpadmin, role:admin
+        #g, <username>, role:admin
+    
     volumes: []
     volumeMounts: []
     configManagementPlugins: []
