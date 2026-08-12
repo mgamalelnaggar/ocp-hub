@@ -10,12 +10,12 @@ spec:
   config: '{
     "cniVersion": "0.3.1",
     "type": "macvlan",
-    "master": {{ .Values.network.odfpublic.master }},
+    "master": "{{ .Values.network.odfpublic.master }}",
     "mode": "bridge",
     "ipam": {
       "type": "whereabouts",
-      "range": {{ .Values.network.odfpublic.ipam.range }},
-      "exclude": {{ .Values.network.odfpublic.ipam.exclude }}
+      "range": "{{ .Values.network.odfpublic.ipam.range }}",
+      "exclude": {{ .Values.network.odfpublic.ipam.exclude | toJson }}
     }
   }'
 ---
@@ -30,12 +30,12 @@ spec:
   config: '{
     "cniVersion": "0.3.1",
     "type": "macvlan",
-    "master": {{ .Values.network.odfcluster.master }},
+    "master": "{{ .Values.network.odfcluster.master }}",
     "mode": "bridge",
     "ipam": {
       "type": "whereabouts",
-      "range": {{ .Values.network.odfcluster.ipam.range }},
-      "exclude": {{ .Values.network.odfcluster.ipam.exclude }}
+      "range": "{{ .Values.network.odfcluster.ipam.range }}",
+      "exclude": {{ .Values.network.odfcluster.ipam.exclude | toJson }}
     }
   }'  
 {{- end }}
