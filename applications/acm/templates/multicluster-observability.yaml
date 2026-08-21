@@ -4,7 +4,11 @@ kind: MultiClusterObservability
 metadata:
   name: observability
   annotations:
-    mco-disable-alerting="true"
+    argocd.argoproj.io/sync-wave: "11"
+{{- if .Values.acm.observability.annotations }}
+{{- range $annot := .Values.acm.observability.annotations }}
+    $annot
+{{- end }}
 spec:
   observabilityAddonSpec: {}
   storageConfig:
