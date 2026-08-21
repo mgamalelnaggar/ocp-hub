@@ -23,5 +23,5 @@ acm:
     jobimage: quay.io/validatedpatterns/imperative-container:v1
     storageclass: infra
     annotations:
-      mco-disable-alerting="true"
+      mco-disable-alerting: "true"
       
