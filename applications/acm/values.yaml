@@ -1,6 +1,7 @@
 acm:
   # In disconnected mode ONLY
   disconnected: false
+  catalogsource: "redhat-operators"
   
   # Quay-enterprise details
   quayregistryurl:
@@ -21,3 +22,5 @@ acm:
     enabled: true
     jobimage: quay.io/validatedpatterns/imperative-container:v1
     storageclass: infra
+    annotations:
+      
