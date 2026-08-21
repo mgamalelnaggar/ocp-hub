@@ -20,3 +20,4 @@ acm:
   observability:
     enabled: true
     jobimage: quay.io/validatedpatterns/imperative-container:v1
+    storageclass: infra
