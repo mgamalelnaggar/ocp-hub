@@ -86,6 +86,10 @@ clusterGroup:
         disabled: false
         labels:
           openshift.io/cluster-monitoring: "true"
+
+    # RHACM observability
+    - open-cluster-management-observability:
+        disabled: false
 #######################################################################
   operatorgroupExcludes:
     - openshift-operators
