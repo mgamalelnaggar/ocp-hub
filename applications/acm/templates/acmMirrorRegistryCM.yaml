@@ -83,4 +83,4 @@ data:
       [[registry.mirror]]
         location = "{{ .Valsues.acm.quayregistryurl }}/ubi8"
         pull-from-mirror = "tag-only"
-{{-end }}
+{{- end }}
