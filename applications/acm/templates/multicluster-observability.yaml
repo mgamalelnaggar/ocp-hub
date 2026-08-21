@@ -6,13 +6,14 @@ metadata:
   annotations:
     argocd.argoproj.io/sync-wave: "11"
 {{- if .Values.acm.observability.annotations }}
-{{- range $annot := .Values.acm.observability.annotations }}
-    $annot
+{{- toYaml .Values.acm.observability.annotations | nindent 4 }}
 {{- end }}
 spec:
   observabilityAddonSpec: {}
   storageConfig:
-    storageClass: infra
+    {{- if .Values.acm.observability.storageclass }}
+    storageClass: {{ .Values.acm.observability.storageclass }}
+    {{- end }}
     metricObjectStorage:
       name: thanos-object-storage
       key: thanos.yaml
