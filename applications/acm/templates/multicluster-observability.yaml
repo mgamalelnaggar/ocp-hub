@@ -10,13 +10,11 @@ metadata:
 {{- end }}
 spec:
 # All below values are the default values
+  instanceSize: {{ .Values.acm.observability.instansesize | default Default}}
   enableDownsampling: true
   imagePullPolicy: Always
-  imagePullSecret: "multiclusterhub-operator-pull-secret"
-  observabilityAddonSpec: 
-    enableMetrics: true
-    interval: 300s
-    #workers:
+  imagePullSecret: multiclusterhub-operator-pull-secret
+  observabilityAddonSpec: {}
   storageConfig:
     {{- if .Values.acm.observability.storageclass }}
     storageClass: {{ .Values.acm.observability.storageclass }}
