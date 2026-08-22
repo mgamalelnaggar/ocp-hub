@@ -11,10 +11,12 @@ metadata:
 spec:
   observabilityAddonSpec: {}
   storageConfig:
-    {{- if .Values.acm.observability.storageclass }}
-    storageClass: {{ .Values.acm.observability.storageclass }}
-    {{- end }}
     metricObjectStorage:
       name: thanos-object-storage
       key: thanos.yaml
+  advanced:
+    retentionConfig:
+      retentionResolutionRaw: 30d
+      retentionResolution1h: 365d
+      retentionInLocal: 48h
 {{- end }}
