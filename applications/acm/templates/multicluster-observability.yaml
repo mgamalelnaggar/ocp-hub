@@ -35,7 +35,7 @@ spec:
       blockDuration: 2h
       deleteDelay: 48h
       retentionInLocal: 24h
-      retentionResolutionRaw: 365d
-      retentionResolution5m: 365d
-      retentionResolution1h: 365d
+      retentionResolutionRaw: 30d
+      retentionResolution5m: 180d
+      retentionResolution1h: 0d
 {{- end }}
