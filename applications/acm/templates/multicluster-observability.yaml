@@ -9,14 +9,33 @@ metadata:
 {{- toYaml .Values.acm.observability.annotations | nindent 4 }}
 {{- end }}
 spec:
-  observabilityAddonSpec: {}
+# All below values are the default values
+  enableDownsampling: true
+  imagePullPolicy: Always
+  imagePullSecret: "multiclusterhub-operator-pull-secret"
+  observabilityAddonSpec: 
+    enableMetrics: true
+    interval: 300s
+    #workers:
   storageConfig:
+    {{- if .Values.acm.observability.storageclass }}
+    storageClass: {{ .Values.acm.observability.storageclass }}
+    {{- end }}
+    storeStorageSize: 10Gi
     metricObjectStorage:
       name: thanos-object-storage
       key: thanos.yaml
+    writeStorage: []
+    alertmanagerStorageSize: 1Gi
+    compactStorageSize: 100Gi
+    receiveStorageSize: 100Gi
+    ruleStorageSize: 1Gi
   advanced:
     retentionConfig:
-      retentionResolutionRaw: 30d
+      blockDuration: 2h
+      deleteDelay: 48h
+      retentionInLocal: 24h
+      retentionResolutionRaw: 365d
+      retentionResolution5m: 365d
       retentionResolution1h: 365d
-      retentionInLocal: 48h
 {{- end }}
