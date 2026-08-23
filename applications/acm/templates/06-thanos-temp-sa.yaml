@@ -1,3 +1,4 @@
+{{- if .Values.acm.observability.enabled }}
 ---
 apiVersion: v1
 kind: ServiceAccount
@@ -38,3 +39,4 @@ subjects:
   - kind: ServiceAccount
     name: thanos-tmp-sa
     namespace: open-cluster-management-observability
+{{- end }}
