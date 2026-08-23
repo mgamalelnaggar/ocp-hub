@@ -76,7 +76,8 @@ spec:
     cephToolbox: {}
   mirroring: {}
   monDataDirHostPath: /var/lib/rook
-  
+  multiCloudGateway:
+    reconcileStrategy: manage #manage or ignore
 {{- if .Values.network.multus }}
   network:
     provider: multus
