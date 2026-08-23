@@ -15,7 +15,8 @@ spec:
     "ipam": {
       "type": "whereabouts",
       "range": "{{ .Values.network.odfpublic.ipam.range }}",
-      "exclude": {{ .Values.network.odfpublic.ipam.exclude | toJson }}
+      "exclude": {{ .Values.network.odfpublic.ipam.exclude | toJson }},
+      "routes": [{"dst":""}]
     }
   }'
 ---
