@@ -76,7 +76,6 @@ spec:
     cephRBDMirror:
       daemonCount: 1
     cephToolbox: {}
-  mirroring: {}
   monDataDirHostPath: /var/lib/rook
   multiCloudGateway:
     reconcileStrategy: manage #manage or ignore
