@@ -5,6 +5,7 @@ metadata:
   namespace: open-cluster-management
   annotations:
     argocd.argoproj.io/sync-wave: "-10"
+    argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
     {{- if .Values.acm.disconnected }}
     installer.open-cluster-management.io/mce-subscription-spec: '{"source": "{{ .Values.acm.catalogsource | default "redhat-operators-disconnected" }}", "installPlanApproval": "Automatic"}'
     installer.open-cluster-management.io/oadp-subscription-spec: '{"source": "{{ .Values.acm.catalogsource | default "redhat-operators-disconnected" }}", "installPlanApproval": "Automatic"}'
