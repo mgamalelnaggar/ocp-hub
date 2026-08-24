@@ -24,4 +24,7 @@ acm:
     jobimage: quay.io/validatedpatterns/imperative-container:v1
     annotations:
       mco-disable-alerting: "true"
-      
+    retentionInLocal: 24h
+    retentionResolutionRaw: 30d
+    retentionResolution5m: 180d
+    retentionResolution1h: 0d
