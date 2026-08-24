@@ -63,7 +63,9 @@ spec:
   flexibleScaling: true
   managedResources:
     cephBlockPools: {}
-    cephCluster: {}
+    cephCluster: 
+      cleanupPolicy:
+        wipeDevicesFromOtherClusters: true
     cephConfig: {}
     cephDashboard: {}
     cephFilesystems: {}
