@@ -27,7 +27,7 @@ spec:
     alertmanagerStorageSize: 1Gi
     compactStorageSize: 100Gi
     receiveStorageSize: 100Gi
-    ruleStorageSize: 1Gi
+    ruleStorageSize: 30Gi
   advanced:
     retentionConfig:
       blockDuration: 2h
