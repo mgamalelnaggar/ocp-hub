@@ -10,7 +10,7 @@ metadata:
 {{- end }}
 spec:
 # All below values are the default values
-  instanceSize: {{ .Values.acm.observability.instansesize | default Default}}
+  instanceSize: {{ .Values.acm.observability.instansesize | default default}}
   enableDownsampling: true
   imagePullPolicy: Always
   imagePullSecret: multiclusterhub-operator-pull-secret
