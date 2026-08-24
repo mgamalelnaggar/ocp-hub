@@ -20,7 +20,7 @@ acm:
 
   observability:
     enabled: true
-    instansesize: Default
+    instansesize: default
     jobimage: quay.io/validatedpatterns/imperative-container:v1
     annotations:
       mco-disable-alerting: "true"
