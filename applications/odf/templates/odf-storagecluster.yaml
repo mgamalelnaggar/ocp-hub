@@ -35,17 +35,7 @@ spec:
   - name: ocs-deviceset-localblock
     config: {}
     count: {{ .Values.odf.osd.count }}
-    replica: 1
-    resources: {}
-{{/*
-    requests:
-      cpu: {{ .Values.odf.osd.requests.cpu | squote }}
-      memory: {{ .Values.odf.osd.requests.memory }}
-*/}}
-    placement: {}
-    preparePlacement: {}
     dataPVCTemplate:
-      metadata: {}
       spec:
         accessModes:
         - ReadWriteOnce
@@ -54,7 +44,6 @@ spec:
         resources:
           requests:
             storage: '1'
-      status: {}
   arbiter: {}
   enableCephTools: true
   encryption:
@@ -62,20 +51,9 @@ spec:
   externalStorage: {}
   flexibleScaling: true
   managedResources:
-    cephBlockPools: {}
     cephCluster: 
       cleanupPolicy:
         wipeDevicesFromOtherClusters: true
-    cephConfig: {}
-    cephDashboard: {}
-    cephFilesystems: {}
-    cephNonResilientPools:
-      count: 1
-    cephObjectStoreUsers: {}
-    cephObjectStores: {}
-    cephRBDMirror:
-      daemonCount: 1
-    cephToolbox: {}
   monDataDirHostPath: /var/lib/rook
   multiCloudGateway:
     reconcileStrategy: manage #manage or ignore
