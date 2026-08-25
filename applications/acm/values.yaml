@@ -6,6 +6,9 @@ acm:
   # Quay-enterprise details
   quayregistryurl:
   quaycabundle:
+
+  clusterimagesetname: openshift-v4.20.30-mirror
+  releaseimage: <quayregistryurl>/redhat/openshift/release-images@sha256:...
   
   # To update AgentService
   osimages:
