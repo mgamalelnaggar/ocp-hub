@@ -19,6 +19,9 @@ spec:
       requests:
         cpu: {{ .Values.odf.mds.requests.cpu | default 3 | squote }}
         memory: {{ .Values.odf.mds.requests.memory | default "8Gi" }}
+      limits:
+        cpu: {{ .Values.odf.mds.requests.cpu | default 3 | squote }}
+        memory: {{ .Values.odf.mds.requests.memory | default "8Gi" }}     
     mgr:
       requests:
         cpu: {{ .Values.odf.mgr.requests.cpu | default 1 | squote }}
