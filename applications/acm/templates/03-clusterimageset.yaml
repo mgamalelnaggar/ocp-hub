@@ -1,0 +1,6 @@
+apiVersion: hive.openshift.io/v1
+kind: ClusterImageSet
+metadata:
+  name: openshift-v4.18.13-mirror
+spec:
+  releaseImage: {{ .Values.acm.releaseimage }}
