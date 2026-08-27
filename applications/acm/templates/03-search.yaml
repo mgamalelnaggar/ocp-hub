@@ -1,0 +1,8 @@
+apiVersion: search.open-cluster-management.io/v1alpha1
+kind: Search
+metadata:
+  annotations:
+spec:
+  dbStorage:
+    size: 10Gi
+    storageClassName: ocs-storagecluster-ceph-rbd  
