@@ -1,6 +1,9 @@
 apiVersion: hive.openshift.io/v1
 kind: ClusterImageSet
 metadata:
+  annotations:
+    argocd.argoproj.io/sync-wave: "-5"
+    argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
   name: {{ .Values.acm.clusterimagesetname }}
 spec:
   releaseImage: {{ .Values.acm.releaseimage }}
