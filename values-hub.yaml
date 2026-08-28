@@ -239,7 +239,7 @@ clusterGroup:
       namespace: default
       path: applications/logging
       extraValueFiles: 
-        - /hub-app-values/logging-clf.yaml
+        - /hub-app-values/values-logging-clf.yaml
 
     monitoring:
       disabled: true
@@ -254,8 +254,14 @@ clusterGroup:
       name: acm
       namespace: default
       path: applications/acm
-      extraValueFiles: []      
-
+      extraValueFiles: []
+    post-config:
+      disabled: true
+      name: post-config
+      namespace: default
+      path: applications/post-config
+      extraValueFiles: 
+        - /hub-app-values/values-post-config.yaml
 #########################  ArgoCD instance  #######################################
   argoCD:
     initContainers: []
