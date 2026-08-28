@@ -239,7 +239,7 @@ clusterGroup:
       namespace: default
       path: applications/logging
       extraValueFiles: 
-        - /hub-app-values/looging-clf.yaml
+        - /hub-app-values/logging-clf.yaml
 
     monitoring:
       disabled: true
