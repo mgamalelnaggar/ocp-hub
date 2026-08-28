@@ -13,7 +13,7 @@ subjects:
     name: policy-ocp-etcd-backup
   - apiGroup: policy.open-cluster-management.io
     kind: Policy
-    name: 
+    name: policy-htpasswd-idp
   - apiGroup: policy.open-cluster-management.io
     kind: Policy
     name: 
