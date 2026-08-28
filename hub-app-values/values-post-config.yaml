@@ -1,1 +1,3 @@
-etcdbkpnfs: '<ip address>'
+etcd:
+  etcdbkpnfs: '<ip address>'
+  image: ""
