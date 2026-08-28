@@ -98,7 +98,7 @@ clusterGroup:
 
 # TALM Operator
     openshift-topology-aware-lifecycle-manager:
-      disabled: false
+      disabled: true
       name: topology-aware-lifecycle-manager
       namespace: openshift-operators
       channel: "stable"
@@ -108,7 +108,7 @@ clusterGroup:
 
 # Update Source Operator
     openshift-update-service:
-      disabled: false
+      disabled: true
       name: cincinnati-operator
       namespace: openshift-update-service
       channel: "v1"
@@ -118,7 +118,7 @@ clusterGroup:
       
 # NMstate Operator    
     kubernetes-nmstate-operator:
-      disabled: false
+      disabled: true
       name: kubernetes-nmstate-operator
       namespace: openshift-nmstate
       channel: "stable"
@@ -128,7 +128,7 @@ clusterGroup:
 
 # LSO Operator
     local-storage-operator:
-      disabled: false
+      disabled: true
       name: local-storage-operator
       namespace: openshift-local-storage
       channel: "stable" 
@@ -138,7 +138,7 @@ clusterGroup:
 
 # Cluster Observability Operator. Needed mainly for Logging UI
     cluster-observability-operator:
-      disabled: false
+      disabled: true
       name: cluster-observability-operator
       namespace: openshift-cluster-observability-operator
       channel: "stable"
@@ -148,7 +148,7 @@ clusterGroup:
 
 # All sub-ODF subscriptions for ODF operator to get installed
     odf-operator:
-      disabled: false
+      disabled: true
       name: odf-operator
       namespace: openshift-storage
       channel: "stable-4.20"
@@ -178,7 +178,7 @@ clusterGroup:
 
 # RHACM Operator
     advanced-cluster-management:
-      disabled: false
+      disabled: true
       name: advanced-cluster-management
       namespace: open-cluster-management
       channel: "release-2.17"
@@ -188,7 +188,7 @@ clusterGroup:
 
 # Quay Operator
     quay-operator:
-      disabled: false
+      disabled: true
       name: quay-operator
       namespace: openshift-operators
       source: redhat-operators
@@ -199,35 +199,35 @@ clusterGroup:
   applications: 
    
     nmstate:
-      disabled: false
+      disabled: true
       name: nmstate
       namespace: default
       path: applications/nmstate
       extraValueFiles: []
 
     lso:
-      disabled: false
+      disabled: true
       name: lso
       namespace: default
       path: applications/lso
       extraValueFiles: []
 
     odf:
-      disabled: false
+      disabled: true
       name: odf
       namespace: default
       path: applications/odf
       extraValueFiles: []
 
     quay:
-      disabled: false
+      disabled: true
       name: quay
       namespace: default
       path: applications/quay
       extraValueFiles: []
 
     loki:
-      disabled: false
+      disabled: true
       name: loki
       namespace: default
       path: applications/loki
@@ -238,10 +238,11 @@ clusterGroup:
       name: logging
       namespace: default
       path: applications/logging
-      extraValueFiles: []
+      extraValueFiles: 
+        - hub-app-values/looging-clf.yaml
 
     monitoring:
-      disabled: false
+      disabled: true
       name: monitoring
       namespace: default
       path: applications/monitoring
