@@ -104,7 +104,7 @@ clusterGroup:
       channel: "stable"
       source: redhat-operators
       sourceNamespace: openshift-marketplace
-      installPlanApproval: Automatic #Manual
+
 
 # Update Source Operator
     openshift-update-service:
@@ -114,7 +114,7 @@ clusterGroup:
       channel: "v1"
       source: redhat-operators
       sourceNamespace: openshift-marketplace
-      installPlanApproval: Automatic #Manual
+
       
 # NMstate Operator    
     kubernetes-nmstate-operator:
@@ -124,7 +124,7 @@ clusterGroup:
       channel: "stable"
       source: redhat-operators
       sourceNamespace: openshift-marketplace
-      installPlanApproval: Automatic #Manual
+
 
 # LSO Operator
     local-storage-operator:
@@ -134,7 +134,7 @@ clusterGroup:
       channel: "stable" 
       source: redhat-operators
       sourceNamespace: openshift-marketplace
-      installPlanApproval: Automatic #Manual
+
 
 # Cluster Observability Operator. Needed mainly for Logging UI
     cluster-observability-operator:
@@ -144,7 +144,7 @@ clusterGroup:
       channel: "stable"
       source: redhat-operators
       sourceNamespace: openshift-marketplace 
-      installPlanApproval: Automatic #Manual
+
 
 # All sub-ODF subscriptions for ODF operator to get installed
     odf-operator:
@@ -154,8 +154,7 @@ clusterGroup:
       channel: "stable-4.20"
       source: redhat-operators
       sourceNamespace: openshift-marketplace
-      installPlanApproval: Automatic #Manual
-      #csv: odf-operator.v4.20.15-rhodf
+      csv: odf-operator.v4.20.15-rhodf
          
 # Loki Operator      
     loki-operator:
@@ -174,8 +173,8 @@ clusterGroup:
       channel: "stable-6.6"
       source: redhat-operators
       sourceNamespace: openshift-marketplace
-#      csv: cluster-logging.v6.4.6
-      installPlanApproval: Automatic #Manual
+      csv: cluster-logging.v6.4.6
+
 
 # RHACM Operator
     advanced-cluster-management:
@@ -185,7 +184,7 @@ clusterGroup:
       channel: "release-2.17"
       source: redhat-operators
       sourceNamespace: openshift-marketplace     
-      installPlanApproval: Automatic #Manual
+
 
 # Quay Operator
     quay-operator:
@@ -195,7 +194,7 @@ clusterGroup:
       source: redhat-operators
       channel: "stable-3.17"
       sourceNamespace: openshift-marketplace     
-      installPlanApproval: Automatic #Manual
+
 #######################  ArgoCD Applications  #####################################
   applications: 
    
