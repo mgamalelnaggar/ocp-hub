@@ -29,3 +29,6 @@ subjects:
   - apiGroup: policy.open-cluster-management.io
     kind: Policy
     name: policy-master-kubeletconfig
+  - apiGroup: policy.open-cluster-management.io
+    kind: Policy
+    name:  policy-core-pass.yaml
