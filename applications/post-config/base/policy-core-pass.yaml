@@ -1,0 +1,38 @@
+apiVersion: policy.open-cluster-management.io/v1
+kind: Policy
+metadata:
+  name: policy-set-core-user-password
+  namespace: open-cluster-management-policies
+  annotations:
+    policy.open-cluster-management.io/categories: AC Access Control
+    policy.open-cluster-management.io/controls: AC-2 Account Management
+    policy.open-cluster-management.io/standards: NIST SP 800-53
+spec:
+  disabled: false
+  remediationAction: enforce
+  policy-templates:
+    - objectDefinition:
+        apiVersion: policy.open-cluster-management.io/v1
+        kind: ConfigurationPolicy
+        metadata:
+          name: config-set-core-user-password
+        spec:
+          remediationAction: enforce
+          severity: high
+          object-templates:
+            - complianceType: musthave
+              objectDefinition:
+                apiVersion: machineconfiguration.openshift.io/v1
+                kind: MachineConfig
+                metadata:
+                  labels:
+                    machineconfiguration.openshift.io/role: ""
+                  name: set-core-user-password
+                spec:
+                  config:
+                    ignition:
+                      version: 3.5.0
+                    passwd:
+                      users:
+                        - name: core
+                          passwordHash: "$6$khI1a0B7NGW2E/81$3WxaYSh9cCA36puJDcUOfpyVpvR1xihgio6spK4biw9FWyq5A5Gk7YsraQpqPbRHvCnYhHH8xtc24Aay/ppPs0"
