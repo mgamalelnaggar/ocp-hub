@@ -28,7 +28,7 @@ subjects:
     name: policy-whereabouts-config
   - apiGroup: policy.open-cluster-management.io
     kind: Policy
-    name: 
+    name: policy-master-kubeletconfig
   - apiGroup: policy.open-cluster-management.io
     kind: Policy
     name: 
