@@ -260,7 +260,7 @@ clusterGroup:
       disabled: true
       name: post-config
       namespace: default
-      kustomiza: true
+      kustomize: true
       path: applications/post-config
 #########################  ArgoCD instance  #######################################
   argoCD:
