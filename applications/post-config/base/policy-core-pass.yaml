@@ -35,7 +35,7 @@ spec:
                     passwd:
                       users:
                         - name: core
-                          passwordHash: 'passwordHash: '{{ fromSecret "openshift-config" "core-pass-secret" "hash" }}'
+                          passwordHash: '{{ fromSecret "openshift-config" "core-pass-secret" "hash" }}'
             - complianceType: musthave
               objectDefinition:
                 apiVersion: machineconfiguration.openshift.io/v1
