@@ -4,6 +4,7 @@ clusterGroup:
   sharedValueFiles: []
 
   extraObjects: 
+    disabled: false
     apiVersion: argoproj.io/v1beta1
     kind: ArgoCD
     metadata:
