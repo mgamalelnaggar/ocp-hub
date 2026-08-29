@@ -1,3 +1,4 @@
+{{- if .Values.acm.disconnected }}
 apiVersion: hive.openshift.io/v1
 kind: ClusterImageSet
 metadata:
@@ -7,3 +8,4 @@ metadata:
   name: {{ .Values.acm.clusterimagesetname }}
 spec:
   releaseImage: {{ .Values.acm.releaseimage }}
+{{- end }}
