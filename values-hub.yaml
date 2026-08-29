@@ -257,6 +257,11 @@ clusterGroup:
       path: applications/post-config
       annotations:
         argocd.argoproj.io/sync-wave: "50"
+      ignoreDifferences:
+        - group: policy.open-cluster-management.io
+          kind: Policy
+          jsonPointers:
+            - /status        
 #########################  ArgoCD instance  #######################################
   argoCD:
     initContainers: []
@@ -310,12 +315,6 @@ clusterGroup:
         kinds:
         - TaskRun
         - PipelineRun
-      - apiGroups:
-        - policy.open-cluster-management.io
-        kinds:
-        - Policy
-        clusters:
-        - "*"      
         
 #############################################################################
 
