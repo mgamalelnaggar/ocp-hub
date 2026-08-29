@@ -13,14 +13,14 @@ spec:
         emptyDir: {}
     initContainers: 
       - name: kustomize-plugin
-        image: "registry.redhat.io/openshift4/{{ .Values.acm.ztp.kustomizeimage }}"
+        image: "registry.redhat.io/openshift4/ztp-site-generate-rhel9:v4.21"
         command: ["/exportkustomize.sh"]
         args: ["/.config"]
         volumeMounts:
           - name: kustomize
             mountPath: /.config
       - name: policy-generator-install
-        image: "registry.redhat.io/rhacm2/{{ .Values.acm.ztp.PGimage }}"
+        image: "registry.redhat.io/rhacm2/multicluster-operators-subscription-rhel9:v2.17"
         command: ["/bin/bash"]
         args:
           - "-c"
