@@ -95,6 +95,7 @@ clusterGroup:
       channel: "stable"
       source: redhat-operators
       sourceNamespace: openshift-marketplace
+      csv: update-service-operator.v5.0.3
 
 
 # Update Source Operator
@@ -189,12 +190,13 @@ clusterGroup:
 # Web terminal Operator
     web-terminal-operator:
       disabled: false
-      name: web-terminal-operator
+      name: web-terminal
       namespace: openshift-operators
       source: redhat-operators
       channel: "fast"
       sourceNamespace: openshift-marketplace
-      csv: web-terminal-operator.v1.16.1
+      csv: web-terminal.v1.16.1
+      
 #######################  ArgoCD Applications  #####################################
   applications: 
    
