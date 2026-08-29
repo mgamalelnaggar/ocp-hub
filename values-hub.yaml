@@ -310,6 +310,12 @@ clusterGroup:
         kinds:
         - TaskRun
         - PipelineRun
+      - apiGroups:
+        - policy.open-cluster-management.io
+        kinds:
+        - Policy
+        clusters:
+        - "*"      
         
 #############################################################################
 
