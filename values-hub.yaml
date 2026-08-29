@@ -288,24 +288,7 @@ clusterGroup:
             - .      
 #########################  ArgoCD instance  #######################################
   argoCD:
-  # Below lines for RHACM ZTP preparation
-    initContainers: 
-      - name: ztp-site-generate
-        image: "registry.redhat.io/openshift4/ztp-site-generate-rhel8:v4.21"
-        command: ["/exportkustomize.sh"]
-        args: ["/.config"]
-        volumeMounts:
-          - name: kustomize
-            mountPath: /.config
-      - name: policy-generator-install
-        image: "registry.redhat.io/rhacm2/multicluster-operators-subscription-rhel9:v2.17"
-        command: ["/bin/bash"]
-        args:
-          - "-c"
-          - "mkdir -p /.config/kustomize/plugin/policy.open-cluster-management.io/v1/policygenerator && cp /policy-generator/PolicyGenerator-not-fips-compliant /.config/kustomize/plugin/policy.open-cluster-management.io/v1/policygenerator/PolicyGenerator"
-        volumeMounts:
-          - name: kustomize
-            mountPath: /.config
+    initContainers: []
     env: []
     rbac: 
       defaultPolicy: role:readonly
@@ -316,12 +299,7 @@ clusterGroup:
         g, admin, role:admin
         g, ocpadmin, role:admin
         #g, <username>, role:admin
-
-    # Below lines for RHACM ZTP preparation
-    volumes: 
-      - name: kustomize
-        emptyDir: {}
-        
+       
     volumeMounts: []
     configManagementPlugins: []
     # resource tracking can be set to annotation, label, or annotation+label
