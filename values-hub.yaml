@@ -254,6 +254,8 @@ clusterGroup:
       namespace: default
       kustomize: true
       path: applications/post-config
+      annotations:
+        argocd.argoproj.io/sync-wave: "50"
 #########################  ArgoCD instance  #######################################
   argoCD:
     initContainers: []
