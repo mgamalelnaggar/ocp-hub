@@ -14,7 +14,7 @@ metadata:
   name: ztp-argocd-plugins-installer
   namespace: hub-ztp-policies
 spec:
-  disabled: true
+  disabled: false
   policy-templates:
     - objectDefinition:
         apiVersion: policy.open-cluster-management.io/v1
@@ -39,8 +39,8 @@ spec:
                         cpu: "16"
                         memory: 32Gi
                       requests:
-                        cpu: "1"
-                        memory: 2Gi
+                        cpu: 250m
+                        memory: 1Gi
                   kustomizeBuildOptions: "--enable-alpha-plugins"
                   # This is an optional workaround to override the health check for Policies.
                   # With this configuration, ArgoCD will not report the Application as unhealthy if the Policy is NonCompliant.
@@ -52,13 +52,26 @@ spec:
                         return hs
                       group: policy.open-cluster-management.io
                       kind: Policy
+                  rbac:
+                    defaultPolicy: ""
+                    policy: |
+                      g, system:cluster-admins, role:admin
+                    scopes: '[groups]'
+                  redis:
+                    resources:
+                      limits:
+                        cpu: 500m
+                        memory: 256Mi
+                      requests:
+                        cpu: 250m
+                        memory: 128Mi
                   repo:
                     resources:
                       limits:
                         cpu: "8"
                         memory: "16Gi"
                       requests:
-                        cpu: "1"
+                        cpu: 250m
                         memory: "2Gi"
                     volumes:
                       - name: "kustomize"
