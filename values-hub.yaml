@@ -3,15 +3,8 @@ clusterGroup:
   targetCluster: in-cluster
   sharedValueFiles: []
 
-  extraObjects: 
-    disabled: false
-    apiVersion: argoproj.io/v1beta1
-    kind: ArgoCD
-    metadata:
-      annotations:
-        argocd.argoproj.io/compare-options: IgnoreExtraneous
-      name: ztp-argocd
-      namespace: openshift-gitops
+  extraObjects: {}
+
     #### Apply configuration to disable default operator hub.
     #### Used in disconnected mode ONLY
     
