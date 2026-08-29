@@ -1,0 +1,47 @@
+apiVersion: policy.open-cluster-management.io/v1
+kind: Policy
+metadata:
+  name: policy-whereabouts-config
+  namespace: open-cluster-management-policies
+spec:
+  remediationAction: enforce
+  disabled: false
+  policy-templates:
+    - objectDefinition:
+        apiVersion: policy.open-cluster-management.io/v1
+        kind: ConfigurationPolicy
+        metadata:
+          name: config-whereabouts-network
+        spec:
+          remediationAction: enforce
+          severity: medium
+          object-templates:
+            - complianceType: musthave
+              objectDefinition:
+                apiVersion: operator.openshift.io/v1
+                kind: Network
+                metadata:
+                  name: cluster
+                spec:
+                  additionalNetworks:
+                    - name: whereabouts-shim
+                      namespace: default
+                      rawCNIConfig: |-
+                        {
+                          "name": "whereabouts-shim",
+                          "cniVersion": "0.3.1",
+                          "type": "bridge",
+                          "ipam": {
+                            "type": "whereabouts"
+                          }
+                        }
+                      type: Raw
+            - complianceType: musthave
+              objectDefinition:
+                apiVersion: v1
+                kind: ConfigMap
+                metadata:
+                  name: whereabouts-config
+                  namespace: openshift-multus
+                data:
+                  reconciler_cron_expression: '*/15 * * * *'
