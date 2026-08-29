@@ -274,7 +274,12 @@ clusterGroup:
           namespace: local-cluster
           jqPathExpressions:
             - .
-
+    ztp:
+      disabled: false
+      name: ztp
+      namespace: default
+      kustomize: true
+      path: applications/ztp
 #########################  ArgoCD instance  #######################################
   argoCD:
     initContainers: []
