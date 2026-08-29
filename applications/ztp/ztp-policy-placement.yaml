@@ -1,0 +1,35 @@
+---
+apiVersion: cluster.open-cluster-management.io/v1beta1
+kind: Placement
+metadata:
+  name: ztp-argo-plugins-pl
+  namespace: hub-ztp-policies
+  annotations:
+    argocd.argoproj.io/sync-wave: "15"
+    argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
+spec:
+  predicates:
+    - requiredClusterSelector:
+        labelSelector:
+          matchExpressions:
+            - key: name
+              operator: In
+              values:
+                - local-cluster
+---
+apiVersion: policy.open-cluster-management.io/v1
+kind: PlacementBinding
+metadata:
+  name: ztp-argo-plugins-binding
+  namespace: hub-ztp-policies
+  annotations:
+    argocd.argoproj.io/sync-wave: "15"
+    argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
+placementRef:
+  name: ztp-argo-plugins-pl
+  apiGroup: cluster.open-cluster-management.io
+  kind: Placement
+subjects:
+  - name: ztp-argocd-plugins-installer
+    apiGroup: policy.open-cluster-management.io
+    kind: Policy
