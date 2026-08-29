@@ -2,10 +2,6 @@ acm:
   # In disconnected mode ONLY
   disconnected: false
   catalogsource: "redhat-operators"
-  
-  
-
-
   observability:
     enabled: false
     instansesize: default
