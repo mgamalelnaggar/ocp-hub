@@ -16,4 +16,10 @@ subjects:
     name: policy-htpasswd-idp
   - apiGroup: policy.open-cluster-management.io
     kind: Policy
+    name: policy-ingress-replicas
+  - apiGroup: policy.open-cluster-management.io
+    kind: Policy
     name: 
+    - apiGroup: policy.open-cluster-management.io
+    kind: Policy
+    name:   
