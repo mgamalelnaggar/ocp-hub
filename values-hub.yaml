@@ -265,8 +265,8 @@ clusterGroup:
           jqPathExpressions:
             - .
     ztp:
-      disabled: true
-      name: ztp
+      disabled: false
+      name: ztp-enabelment
       kustomize: true
       path: applications/ztp
 #########################  ArgoCD instance  #######################################
