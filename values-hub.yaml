@@ -288,6 +288,7 @@ clusterGroup:
             - .      
 #########################  ArgoCD instance  #######################################
   argoCD:
+  # Below lines for RHACM ZTP preparation
     initContainers: 
       - name: ztp-site-generate
         image: "registry.redhat.io/openshift4/ztp-site-generate-rhel8:v4.21"
@@ -315,8 +316,12 @@ clusterGroup:
         g, admin, role:admin
         g, ocpadmin, role:admin
         #g, <username>, role:admin
-    
-    volumes: []
+
+    # Below lines for RHACM ZTP preparation
+    volumes: 
+      - name: kustomize
+        emptyDir: {}
+        
     volumeMounts: []
     configManagementPlugins: []
     # resource tracking can be set to annotation, label, or annotation+label
