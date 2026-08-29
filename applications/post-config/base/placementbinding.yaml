@@ -32,6 +32,4 @@ subjects:
   - apiGroup: policy.open-cluster-management.io
     kind: Policy
     name:  policy-set-core-user-password
-  - apiGroup: policy.open-cluster-management.io
-    kind: Policy
-    name: policy-oauth-ldap
+
