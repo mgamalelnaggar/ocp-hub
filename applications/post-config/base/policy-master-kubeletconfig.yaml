@@ -1,3 +1,7 @@
+# This policy should be kept inform. Applying kubeletconfig triggeres node reboot
+# If you need to enforce it, do the action from RHACM, and then the policy will revert back to inform after applying the change.
+# This to control nodes reboots and avoid any unexpected disruptions
+
 apiVersion: policy.open-cluster-management.io/v1
 kind: Policy
 metadata:
