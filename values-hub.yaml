@@ -250,6 +250,12 @@ clusterGroup:
       path: applications/acm
       extraValueFiles: 
       - /hub-app-values/values-acm.yaml
+
+    ztp:
+      disabled: false
+      name: ztp-enabelment
+      kustomize: true
+      path: applications/ztp
     
     post-config:
       disabled: false
@@ -264,11 +270,7 @@ clusterGroup:
           namespace: local-cluster
           jqPathExpressions:
             - .
-    ztp:
-      disabled: false
-      name: ztp-enabelment
-      kustomize: true
-      path: applications/ztp
+
 #########################  ArgoCD instance  #######################################
   argoCD:
     initContainers: []
