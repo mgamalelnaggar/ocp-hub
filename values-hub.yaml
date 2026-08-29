@@ -261,7 +261,7 @@ clusterGroup:
       disabled: false
       name: post-config
       kustomize: true
-      path: applications/post-config
+      path: applications/post-config/overlays/hub01
       annotations:
         argocd.argoproj.io/sync-wave: "50"
       ignoreDifferences:
