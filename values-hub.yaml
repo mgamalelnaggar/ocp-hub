@@ -260,8 +260,11 @@ clusterGroup:
       ignoreDifferences:
         - group: policy.open-cluster-management.io
           kind: Policy
+          namespace: local-cluster
           jsonPointers:
-            - /status        
+            - /status
+            - /metadata/labels
+            - metadata/annotations
 #########################  ArgoCD instance  #######################################
   argoCD:
     initContainers: []
