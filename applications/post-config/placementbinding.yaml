@@ -19,7 +19,7 @@ subjects:
     name: policy-ingress-replicas
   - apiGroup: policy.open-cluster-management.io
     kind: Policy
-    name: 
+    name: policy-console-plugins
     - apiGroup: policy.open-cluster-management.io
     kind: Policy
     name:   
