@@ -10,7 +10,7 @@ metadata:
 {{- end }}
 spec:
 # All below values are the default values
-  instanceSize: {{ .Values.acm.observability.instansesize | default default}}
+  instanceSize: {{ .Values.acm.observability.instansesize | default "default" }}
   enableDownsampling: true
   imagePullPolicy: Always
   imagePullSecret: multiclusterhub-operator-pull-secret
@@ -30,10 +30,10 @@ spec:
     ruleStorageSize: 30Gi
   advanced:
     retentionConfig:
-      blockDuration: 2h
-      deleteDelay: 48h
-      retentionInLocal: {{ .Values.acm.observability.retentionInLocal | default 24h }}
-      retentionResolutionRaw: {{ .Values.acm.observability.retentionResolutionRaw | default 30d }}
-      retentionResolution5m: {{ .Values.acm.observability.retentionResolution5m | default 180d }}
-      retentionResolution1h: {{ .Values.acm.observability.retentionResolution1h | default 365d }}
+      blockDuration: "2h"
+      deleteDelay: "48h"
+      retentionInLocal: {{ .Values.acm.observability.retentionInLocal | default "24h" }}
+      retentionResolutionRaw: {{ .Values.acm.observability.retentionResolutionRaw | default "30d" }}
+      retentionResolution5m: {{ .Values.acm.observability.retentionResolution5m | default "180d" }}
+      retentionResolution1h: {{ .Values.acm.observability.retentionResolution1h | default "365d" }}
 {{- end }}
