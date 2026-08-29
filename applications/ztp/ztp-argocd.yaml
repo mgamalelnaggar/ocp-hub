@@ -5,11 +5,11 @@ metadata:
   namespace: openshift-gitops
 spec:
   kustomizeBuildOptions: "--enable-alpha-plugins"
-  repo:
-    volumes:
-      - name: kustomize
-        emptyDir: {}
-    initContainers:
+  repo: {}
+#    volumes:
+#      - name: kustomize
+#        emptyDir: {}
+    initContainers: []
 #      - name: ztp-site-generate
 #        image: "registry.redhat.io/openshift4/ztp-site-generate-rhel8:v4.21"
 #        command: ["/exportkustomize.sh"]
