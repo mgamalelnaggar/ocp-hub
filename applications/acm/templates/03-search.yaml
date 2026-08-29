@@ -11,4 +11,4 @@ metadata:
 spec:
   dbStorage:
     size: 10Gi
-    storageClassName: ocs-storagecluster-ceph-rbd  
+    #storageClassName: ocs-storagecluster-ceph-rbd  
