@@ -248,7 +248,7 @@ clusterGroup:
       extraValueFiles: []
     
     post-config:
-      disabled: true
+      disabled: false
       name: post-config
       namespace: default
       kustomize: true
