@@ -299,7 +299,7 @@ clusterGroup:
         g, admin, role:admin
         g, ocpadmin, role:admin
         #g, <username>, role:admin
-       
+    volumes: []   
     volumeMounts: []
     configManagementPlugins: []
     # resource tracking can be set to annotation, label, or annotation+label
