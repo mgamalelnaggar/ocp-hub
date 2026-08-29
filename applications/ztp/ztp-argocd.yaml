@@ -1,10 +1,10 @@
-apiVersion: argoproj.io/v1beta1
-kind: ArgoCD
-metadata:
-  annotations:
-    argocd.argoproj.io/compare-options: IgnoreExtraneous
-  name: ztp-argocd
-  namespace: openshift-gitops
+#apiVersion: argoproj.io/v1beta1
+#kind: ArgoCD
+#metadata:
+#  annotations:
+#    argocd.argoproj.io/compare-options: IgnoreExtraneous
+#  name: ztp-argocd
+#  namespace: openshift-gitops
 #spec:
 #  kustomizeBuildOptions: "--enable-alpha-plugins"
 #  repo: 
