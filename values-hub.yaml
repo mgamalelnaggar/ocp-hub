@@ -3,15 +3,6 @@ clusterGroup:
   targetCluster: in-cluster
   sharedValueFiles: []
 
-  ##### Used in disconnected mode ONLY
-  #disconnected: false
-  #indeximages: 
-  #  - name: redhat-operators-disconnected
-  #    image: <registry.example.com:8443>/openshift-marketplace/redhat-operators-disconnected:<version>
-  #  - name: community-operators-disconnected
-  #    image: <registry.example.com:8443>/openshift-marketplace/community-operators-disconnected:<version>
-
-
   extraObjects: {}
     #### Apply configuration to disable default operator hub.
     #### Used in disconnected mode ONLY
