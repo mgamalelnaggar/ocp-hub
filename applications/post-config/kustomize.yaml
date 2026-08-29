@@ -5,7 +5,7 @@ resources:
   - namespace.yaml
   - placement-local-hub.yaml
   - placementbinding.yaml
-  - policy-ocp-etcd-backup.yaml
+  #- policy-ocp-etcd-backup.yaml
   - policy-htpasswd-idp.yaml
   - policy-ingress-replicas.yaml
   - policy-console-plugins.yaml
