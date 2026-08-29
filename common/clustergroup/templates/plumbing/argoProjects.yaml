@@ -39,6 +39,9 @@ spec:
     kind: '*'
   sourceRepos:
   - '*'
+  namespaceResourceAllowlist:
+  - group: '*'
+    kind: '*'  
 status: {}
 ---
 {{- end }} {{- /* end range */ -}}
