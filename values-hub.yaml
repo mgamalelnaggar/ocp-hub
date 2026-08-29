@@ -288,6 +288,7 @@ clusterGroup:
             - .      
 #########################  ArgoCD instance  #######################################
   argoCD:
+    initContainers: []
     env: []
     rbac: 
       defaultPolicy: role:readonly
