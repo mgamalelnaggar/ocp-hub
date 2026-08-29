@@ -57,6 +57,3 @@ spec:
       - configOverrides: {}
         enabled: false
         name: cnv-mtv-integrations  
-      - configOverrides: {}	
-        enabled: true	
-        name: cluster-permission
