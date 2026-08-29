@@ -27,4 +27,4 @@ spec:
           - "mkdir -p /.config/kustomize/plugin/policy.open-cluster-management.io/v1/policygenerator && cp /policy-generator/PolicyGenerator-not-fips-compliant /.config/kustomize/plugin/policy.open-cluster-management.io/v1/policygenerator/PolicyGenerator"
         volumeMounts:
           - name: kustomize
-           mountPath: /.config
+            mountPath: /.config
