@@ -25,7 +25,7 @@ subjects:
     name: policy-etcd-encryption
   - apiGroup: policy.open-cluster-management.io
     kind: Policy
-    name: 
+    name: policy-whereabouts-config
   - apiGroup: policy.open-cluster-management.io
     kind: Policy
     name: 
