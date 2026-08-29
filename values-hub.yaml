@@ -202,21 +202,18 @@ clusterGroup:
     nmstate:
       disabled: true
       name: nmstate
-      namespace: default
       path: applications/nmstate
       extraValueFiles: []
 
     lso:
       disabled: true
       name: lso
-      namespace: default
       path: applications/lso
       extraValueFiles: []
 
     odf:
       disabled: true
       name: odf
-      namespace: default
       path: applications/odf
       extraValueFiles: 
         - /hub-app-values/values-odf-multus.yaml
@@ -224,21 +221,18 @@ clusterGroup:
     quay:
       disabled: true
       name: quay
-      namespace: default
       path: applications/quay
       extraValueFiles: []
 
     loki:
       disabled: true
       name: loki
-      namespace: default
       path: applications/loki
       extraValueFiles: []
 
     logging:
       disabled: false
       name: logging
-      namespace: default
       path: applications/logging
       extraValueFiles: 
         - /hub-app-values/values-logging-clf.yaml
@@ -246,7 +240,6 @@ clusterGroup:
     monitoring:
       disabled: true
       name: monitoring
-      namespace: default
       path: applications/monitoring
       extraValueFiles: []
 
@@ -254,7 +247,6 @@ clusterGroup:
     acm:
       disabled: false
       name: acm
-      namespace: default
       path: applications/acm
       extraValueFiles: 
       - /hub-app-values/values-acm.yaml
@@ -262,7 +254,6 @@ clusterGroup:
     post-config:
       disabled: false
       name: post-config
-      namespace: default
       kustomize: true
       path: applications/post-config
       annotations:
@@ -276,7 +267,6 @@ clusterGroup:
     ztp:
       disabled: true
       name: ztp
-      namespace: default
       kustomize: true
       path: applications/ztp
 #########################  ArgoCD instance  #######################################
