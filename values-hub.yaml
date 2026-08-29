@@ -255,13 +255,13 @@ clusterGroup:
       namespace: default
       path: applications/acm
       extraValueFiles: []
+    
     post-config:
       disabled: true
       name: post-config
       namespace: default
+      kustomiza: true
       path: applications/post-config
-      extraValueFiles: 
-        - /hub-app-values/values-post-config.yaml
 #########################  ArgoCD instance  #######################################
   argoCD:
     initContainers: []
