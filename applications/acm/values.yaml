@@ -22,7 +22,7 @@ acm:
 
 
   observability:
-    enabled: true
+    enabled: false
     instansesize: default
     jobimage: quay.io/validatedpatterns/imperative-container:v1
     annotations:
