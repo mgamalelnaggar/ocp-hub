@@ -51,4 +51,4 @@ spec:
                     passwd:
                       users:
                         - name: core
-                          passwordHash: 'passwordHash: '{{ fromSecret "openshift-config" "core-pass-secret" "hash" }}'
+                          passwordHash: '{{ fromSecret "openshift-config" "core-pass-secret" "hash" }}'
