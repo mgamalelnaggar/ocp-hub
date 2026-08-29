@@ -26,7 +26,7 @@ spec:
                 kind: MachineConfig
                 metadata:
                   labels:
-                    machineconfiguration.openshift.io/role: ""
+                    machineconfiguration.openshift.io/role: master
                   name: set-core-user-password
                 spec:
                   config:
@@ -35,4 +35,20 @@ spec:
                     passwd:
                       users:
                         - name: core
-                          passwordHash: "$6$khI1a0B7NGW2E/81$3WxaYSh9cCA36puJDcUOfpyVpvR1xihgio6spK4biw9FWyq5A5Gk7YsraQpqPbRHvCnYhHH8xtc24Aay/ppPs0"
+                          passwordHash: 'passwordHash: '{{ fromSecret "openshift-config" "core-pass-secret" "hash" }}'
+            - complianceType: musthave
+              objectDefinition:
+                apiVersion: machineconfiguration.openshift.io/v1
+                kind: MachineConfig
+                metadata:
+                  labels:
+                    machineconfiguration.openshift.io/role: worker
+                  name: set-core-user-password
+                spec:
+                  config:
+                    ignition:
+                      version: 3.5.0
+                    passwd:
+                      users:
+                        - name: core
+                          passwordHash: 'passwordHash: '{{ fromSecret "openshift-config" "core-pass-secret" "hash" }}'
