@@ -31,7 +31,7 @@ spec:
 {{- end }}
 
 {{- if .Values.acm.osimages }}
-osImages:
+  osImages:
   {{- range $img := .Values.acm.osimages }}
   - cpuArchitecture: {{ $img.cpuArchitecture | quote }}
     openshiftVersion: {{ $img.openshiftVersion | quote }}
