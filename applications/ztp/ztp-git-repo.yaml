@@ -13,7 +13,7 @@ metadata:
 # For HTTPS repo access, configure: url, insecure, password, username, forceHttpBasicAuth
 # More examples: https://argo-cd.readthedocs.io/en/stable/operator-manual/argocd-repositories-yaml/
 stringData:
-  insecure: "false"
+  insecure: "true"
   sshPrivateKey: |
     -----BEGIN OPENSSH PRIVATE KEY-----
     INSERT PRIVATE KEY
