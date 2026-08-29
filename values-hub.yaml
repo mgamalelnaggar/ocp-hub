@@ -288,7 +288,6 @@ clusterGroup:
             - .      
 #########################  ArgoCD instance  #######################################
   argoCD:
-    kustomizeBuildOptions: "--enable-alpha-plugins"
     initContainers:
     - name: ztp-site-generate
       image: "registry.redhat.io/openshift4/ztp-site-generate-rhel8:v4.21"
