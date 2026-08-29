@@ -47,4 +47,4 @@ spec:
                         ca:
                           name: ca-config-map
                         insecure: false
-                        url: " ldaps://HQ.internal.eg.vodafone.com:636/DC=internal,DC=eg,DC=vodafone,DC=com?sAMAccountName?scope?filter"
+                        url: "ldaps://HQ.internal.eg.vodafone.com:636/DC=internal,DC=eg,DC=vodafone,DC=com?sAMAccountName?scope?filter"
