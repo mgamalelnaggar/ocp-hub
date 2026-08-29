@@ -338,7 +338,13 @@ clusterGroup:
         kinds:
         - TaskRun
         - PipelineRun
-        
+      - group: policy.open-cluster-management.io
+        kind: Policy
+        check: |
+          hs = {}
+          hs.status = "Healthy"
+          hs.message = "ACM Policy health check overridden"
+          return hs       
 #############################################################################
 
   imperative:
