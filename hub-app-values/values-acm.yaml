@@ -1,1 +1,17 @@
+acm:
+  # Quay-enterprise details
+  quayregistryurl:
+  quaycabundle:
 
+  clusterimagesetname: openshift-v4.20.30-mirror
+  releaseimage: <quayregistryurl>/redhat/openshift/release-images@sha256:...
+  
+  # To update AgentService
+  osimages:
+    - cpuArchitecture: "x86_64"
+      openshiftVersion: "4.20"
+      # URLs for iso and rootfs files for Baremetal CWL deployments
+      rootFSUrl: "https://mirror.openshift.com/pub/openshift-v4/dependencies/rhcos/4.20/rhcos-4.20.0-x86_64-live-rootfs.x86_64.img"
+      url: "https://mirror.openshift.com/pub/openshift-v4/dependencies/rhcos/4.20/rhcos-4.20.0-x86_64-live-iso.x86_64.iso"
+      version: "9.6.20250530-0"
+  # Add new entries for new versions
