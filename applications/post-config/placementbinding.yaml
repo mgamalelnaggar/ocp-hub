@@ -20,6 +20,18 @@ subjects:
   - apiGroup: policy.open-cluster-management.io
     kind: Policy
     name: policy-console-plugins
-    - apiGroup: policy.open-cluster-management.io
+  - apiGroup: policy.open-cluster-management.io
     kind: Policy
-    name:   
+    name: policy-etcd-encryption
+  - apiGroup: policy.open-cluster-management.io
+    kind: Policy
+    name: 
+  - apiGroup: policy.open-cluster-management.io
+    kind: Policy
+    name: 
+  - apiGroup: policy.open-cluster-management.io
+    kind: Policy
+    name: 
+  - apiGroup: policy.open-cluster-management.io
+    kind: Policy
+    name: 
