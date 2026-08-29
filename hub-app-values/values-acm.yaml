@@ -15,8 +15,3 @@ acm:
       url: "https://mirror.openshift.com/pub/openshift-v4/dependencies/rhcos/4.20/rhcos-4.20.0-x86_64-live-iso.x86_64.iso"
       version: "9.6.20250530-0"
   # Add new entries for new version
-
-
-  ztp:
-    kustomizeimage:
-    PGimage:
