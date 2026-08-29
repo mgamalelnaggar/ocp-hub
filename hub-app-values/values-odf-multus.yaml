@@ -1,1 +1,14 @@
-
+odf:
+  network:
+  multus: false
+  odfpublic:
+    master:
+    ipam:
+      range: []
+      exclude: []
+    noderange: 
+  odfcluster:
+    master:
+    ipam:
+      range: []
+      exclude: []
