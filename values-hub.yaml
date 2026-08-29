@@ -208,7 +208,8 @@ clusterGroup:
       name: odf
       namespace: default
       path: applications/odf
-      extraValueFiles: []
+      extraValueFiles: 
+        - /hub-app-values/values-odf-multus.yaml
 
     quay:
       disabled: true
