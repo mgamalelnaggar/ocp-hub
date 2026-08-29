@@ -275,7 +275,7 @@ clusterGroup:
           jqPathExpressions:
             - .
     ztp:
-      disabled: true
+      disabled: false
       name: ztp
       namespace: default
       kustomize: true
