@@ -1,0 +1,120 @@
+apiVersion: policy.open-cluster-management.io/v1
+kind: Policy
+metadata:
+  name: policy-ocp-etcd-backup
+  namespace: open-cluster-management-policies
+spec:
+  remediationAction: enforce
+  disabled: false
+  policy-templates:
+    - objectDefinition:
+        apiVersion: policy.open-cluster-management.io/v1
+        kind: ConfigurationPolicy
+        metadata:
+          name: config-ocp-etcd-backup
+        spec:
+          remediationAction: enforce
+          severity: high
+          object-templates:
+            - complianceType: musthave
+              objectDefinition:
+                apiVersion: v1
+                kind: Namespace
+                metadata:
+                  name: ocp-etcd-backup
+                  annotations:
+                    openshift.io/node-selector: ""
+            - complianceType: musthave
+              objectDefinition:
+                apiVersion: v1
+                kind: ServiceAccount
+                metadata:
+                  name: openshift-backup
+                  namespace: ocp-etcd-backup
+                  labels:
+                    app: openshift-backup
+            - complianceType: musthave
+              objectDefinition:
+                apiVersion: rbac.authorization.k8s.io/v1
+                kind: ClusterRole
+                metadata:
+                  name: cluster-etcd-backup
+                rules:
+                  - apiGroups: [""]
+                    resources: ["nodes"]
+                    verbs: ["get", "list"]
+                  - apiGroups: [""]
+                    resources: ["pods", "pods/log", "pods/attach"]
+                    verbs: ["get", "list", "create", "delete", "watch"]
+                  - apiGroups: [""]
+                    resources: ["namespaces"]
+                    verbs: ["get", "list", "create"]
+            - complianceType: musthave
+              objectDefinition:
+                apiVersion: rbac.authorization.k8s.io/v1
+                kind: ClusterRoleBinding
+                metadata:
+                  name: openshift-backup
+                  labels:
+                    app: openshift-backup
+                subjects:
+                  - kind: ServiceAccount
+                    name: openshift-backup
+                    namespace: ocp-etcd-backup
+                roleRef:
+                  apiGroup: rbac.authorization.k8s.io
+                  kind: ClusterRole
+                  name: cluster-etcd-backup
+            - complianceType: musthave
+              objectDefinition:
+                apiVersion: rbac.authorization.k8s.io/v1
+                kind: RoleBinding
+                metadata:
+                  name: system:openshift:scc:privileged
+                  namespace: ocp-etcd-backup
+                roleRef:
+                  apiGroup: rbac.authorization.k8s.io
+                  kind: ClusterRole
+                  name: system:openshift:scc:privileged
+                subjects:
+                  - kind: ServiceAccount
+                    name: openshift-backup
+                    namespace: ocp-etcd-backup
+            - complianceType: musthave
+              objectDefinition:
+                apiVersion: batch/v1
+                kind: CronJob
+                metadata:
+                  name: openshift-backup
+                  namespace: ocp-etcd-backup
+                  labels:
+                    app: openshift-backup
+                spec:
+                  schedule: "00 22 * * *"
+                  concurrencyPolicy: Forbid
+                  successfulJobsHistoryLimit: 5
+                  failedJobsHistoryLimit: 5
+                  jobTemplate:
+                    metadata:
+                      labels:
+                        app: openshift-backup
+                    spec:
+                      backoffLimit: 2
+                      template:
+                        metadata:
+                          labels:
+                            app: openshift-backup
+                        spec:
+                          containers:
+                            - name: backup
+                              image: "registry.redhat.io/openshift4/ose-cli:latest"
+                              command:
+                                - "/bin/bash"
+                                - "-c"
+                                - "oc get no -l node-role.kubernetes.io/master --no-headers -o name | head -n 1 | xargs -I {} -- oc debug {} --to-namespace=ocp-etcd-backup -- bash -c 'chroot /host rm -rf /home/core/backup && chroot /host rm -rf /home/core/local-backup && chroot /host mkdir /home/core/local-backup && chroot /host mkdir /home/core/backup && chroot /host sudo -E /usr/local/bin/cluster-backup.sh /home/core/local-backup/ && chroot /host sudo -E mount -t nfs {{ fromConfigMap "ocp-etcd-backup" "site-config" "nfs_ip" }}:{{ fromConfigMap "ocp-etcd-backup" "site-config" "nfs_path" }} /home/core/backup && chroot /host ls /home/core/local-backup | xargs -t -I{} chroot /host mv /home/core/local-backup/{} /home/core/backup/{{ fromClusterClaim "name" }}-{}'"
+                          restartPolicy: "Never"
+                          terminationGracePeriodSeconds: 30
+                          activeDeadlineSeconds: 500
+                          dnsPolicy: "ClusterFirst"
+                          serviceAccountName: "openshift-backup"
+                          serviceAccount: "openshift-backup"
