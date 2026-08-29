@@ -280,12 +280,6 @@ clusterGroup:
       namespace: default
       kustomize: true
       path: applications/ztp
-      ignoreDifferences:
-        - group: policy.open-cluster-management.io
-          kind: Policy
-          namespace: local-cluster
-          jqPathExpressions:
-            - .      
 #########################  ArgoCD instance  #######################################
   argoCD:
     initContainers: []
