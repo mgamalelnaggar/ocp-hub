@@ -27,7 +27,7 @@ spec:
                 metadata:
                   labels:
                     machineconfiguration.openshift.io/role: master
-                  name: set-core-user-password
+                  name: set-core-user-password-master
                 spec:
                   config:
                     ignition:
@@ -43,7 +43,7 @@ spec:
                 metadata:
                   labels:
                     machineconfiguration.openshift.io/role: worker
-                  name: set-core-user-password
+                  name: set-core-user-password-worker
                 spec:
                   config:
                     ignition:
