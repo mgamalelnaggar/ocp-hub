@@ -31,4 +31,4 @@ subjects:
     name: policy-master-kubeletconfig
   - apiGroup: policy.open-cluster-management.io
     kind: Policy
-    name:  policy-core-pass.yaml
+    name:  policy-set-core-user-password
