@@ -12,7 +12,7 @@ metadata:
     argocd.argoproj.io/sync-wave: "15"
     argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
   name: ztp-argocd-plugins-installer
-  namespace: hub-policies
+  namespace: ztp-hub-policies
 spec:
   disabled: false
   policy-templates:
