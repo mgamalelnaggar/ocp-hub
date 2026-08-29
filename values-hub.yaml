@@ -282,7 +282,7 @@ clusterGroup:
     volumeMounts: []
     configManagementPlugins: []
     # resource tracking can be set to annotation, label, or annotation+label
-    resourceTrackingMethod: label
+    resourceTrackingMethod: annotation
     resourceHealthChecks:
     # [REF] https://argo-cd.readthedocs.io/en/stable/operator-manual/health/
     
