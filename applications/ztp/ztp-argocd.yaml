@@ -3,7 +3,7 @@ kind: ArgoCD
 metadata:
   annotations:
     argocd.argoproj.io/compare-options: IgnoreExtraneous
-  name: openshift-gitops
+  name: ztp-argocd
   namespace: openshift-gitops
 #spec:
 #  kustomizeBuildOptions: "--enable-alpha-plugins"
