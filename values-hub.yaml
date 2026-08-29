@@ -194,7 +194,7 @@ clusterGroup:
       source: redhat-operators
       channel: "fast"
       sourceNamespace: openshift-marketplace
-      csv: web-terminal.v1.16.1
+      csv: web-terminal-operator.v1.16.1
 #######################  ArgoCD Applications  #####################################
   applications: 
    
