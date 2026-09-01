@@ -1,0 +1,13 @@
+---
+apiVersion: apps.open-cluster-management.io/v1
+kind: Placement
+metadata:
+  annotations:
+    argocd.argoproj.io/sync-wave: "-10"
+    argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
+  name: acm-hub
+  namespace: open-cluster-management-policies
+spec:
+  clusterSelector:
+    matchLabels:
+      local-cluster: "true"
