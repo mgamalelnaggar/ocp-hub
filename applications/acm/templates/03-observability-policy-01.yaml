@@ -1,4 +1,5 @@
 {{- if .Values.acm.observability.enabled }}
+---      
 apiVersion: policy.open-cluster-management.io/v1
 kind: Policy
 metadata:
@@ -42,6 +43,14 @@ spec:
                   generateBucketName: rhacm-observability-bucket-odf
                   objectBucketName: obc-rhacm-observability-bucket-odf
                   storageClassName: openshift-storage.noobaa.io
-            - complianceType: musthave
-              objectDefinition:
+---
+apiVersion: apps.open-cluster-management.io/v1
+kind: PlacementRule
+metadata:
+  name: placement-local-hub
+  namespace: open-cluster-management-policies
+spec:
+  clusterSelector:
+    matchLabels:
+      local-cluster: "true"
 {{- end }}
