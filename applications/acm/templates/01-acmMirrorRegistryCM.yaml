@@ -11,7 +11,8 @@ metadata:
     app: assisted-service
 data:
   # Add the mirror registry SSL certificate chain up to the CA itself.
-  ca-bundle.crt: {{ .Values.acm.quaycabundle }}
+  ca-bundle.crt: |
+{{ .Values.acm.quaycabundle | indent 4 }}
   
   # The registries.conf field has been populated using the registries.conf file found in "/etc/containers/registries.conf" on each node.
   # Replace <registry.example.com:8443> with the mirror registry's address.
