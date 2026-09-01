@@ -7,8 +7,6 @@ metadata:
   namespace: open-cluster-management-observability
   annotations:
     argocd.argoproj.io/sync-wave: "8"
-    argocd.argoproj.io/hook: Sync
-    argocd.argoproj.io/hook-delete-policy: BeforeHookCreation
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
@@ -16,8 +14,6 @@ metadata:
   name: thanos-tmp-cluster-role
   annotations:
     argocd.argoproj.io/sync-wave: "8"  
-    argocd.argoproj.io/hook: Sync
-    argocd.argoproj.io/hook-delete-policy: BeforeHookCreation
 rules:
   - apiGroups: ["*"]
     resources: ["*"]
@@ -29,8 +25,6 @@ metadata:
   name: thanos-tmp-cluster-rolebinding
   annotations:
     argocd.argoproj.io/sync-wave: "8"  
-    argocd.argoproj.io/hook: Sync
-    argocd.argoproj.io/hook-delete-policy: BeforeHookCreation
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
