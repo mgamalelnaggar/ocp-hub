@@ -47,19 +47,6 @@ spec:
                   objectBucketName: obc-rhacm-observability-bucket-odf
                   storageClassName: openshift-storage.noobaa.io
 ---
-apiVersion: apps.open-cluster-management.io/v1
-kind: Placement
-metadata:
-  annotations:
-    argocd.argoproj.io/sync-wave: "5"
-    argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
-  name: acm-obs-hub
-  namespace: open-cluster-management-policies
-spec:
-  clusterSelector:
-    matchLabels:
-      local-cluster: "true"
----
 apiVersion: policy.open-cluster-management.io/v1
 kind: PlacementBinding
 metadata:
