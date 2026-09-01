@@ -45,12 +45,29 @@ spec:
                   storageClassName: openshift-storage.noobaa.io
 ---
 apiVersion: apps.open-cluster-management.io/v1
-kind: PlacementRule
+kind: Placement
 metadata:
-  name: placement-local-hub
+  name: acm-obs-hub
   namespace: open-cluster-management-policies
 spec:
   clusterSelector:
     matchLabels:
       local-cluster: "true"
+---
+apiVersion: policy.open-cluster-management.io/v1
+kind: PlacementBinding
+metadata:
+  name: binding-policy-ocp-etcd-backup
+  namespace: open-cluster-management-policies
+placementRef:
+  apiGroup: apps.open-cluster-management.io
+  kind: Placement
+  name: acm-obs-hub
+subjects:
+  - apiGroup: policy.open-cluster-management.io
+    kind: Policy
+    name: policy-enable-rhacm-observability
+  - apiGroup: policy.open-cluster-management.io
+    kind: Policy
+    name: 
 {{- end }}
