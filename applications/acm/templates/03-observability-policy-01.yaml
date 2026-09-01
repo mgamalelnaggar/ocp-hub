@@ -58,7 +58,7 @@ metadata:
 placementRef:
   apiGroup: apps.open-cluster-management.io
   kind: Placement
-  name: acm-obs-hub
+  name: acm-hub
 subjects:
   - apiGroup: policy.open-cluster-management.io
     kind: Policy
