@@ -1,0 +1,47 @@
+{{- if .Values.acm.observability.enabled }}
+apiVersion: policy.open-cluster-management.io/v1
+kind: Policy
+metadata:
+  name: policy-enable-rhacm-observability
+  namespace: open-cluster-management-policies
+spec:
+  disabled: false
+  remediationAction: enforce
+  policy-templates:
+    - objectDefinition:
+        apiVersion: policy.open-cluster-management.io/v1
+        kind: ConfigurationPolicy
+        metadata:
+          name: enable-rhacm-observability
+        spec:
+          remediationAction: enforce
+          severity: high
+          object-templates:
+            - complianceType: musthave
+              objectDefinition:
+                apiVersion: v1
+                kind: Secret
+                metadata:
+                  name: multiclusterhub-operator-pull-secret
+                  namespace: open-cluster-management-observability
+                type: kubernetes.io/dockerconfigjson
+                data:
+                  .dockerconfigjson: '{{ fromSecret "openshift-config" "pull-secret" ".dockerconfigjson" }}'
+            - complianceType: musthave
+              objectDefinition:
+                apiVersion: objectbucket.io/v1alpha1
+                kind: ObjectBucketClaim
+                metadata:
+                  name: rhacm-observability-bucket-odf
+                  namespace: open-cluster-management-observability
+                  labels:
+                    app: noobaa
+                    bucket-provisioner: openshift-storage.noobaa.io-obc
+                    noobaa-domain: openshift-storage.noobaa.io
+                spec:
+                  generateBucketName: rhacm-observability-bucket-odf
+                  objectBucketName: obc-rhacm-observability-bucket-odf
+                  storageClassName: openshift-storage.noobaa.io
+            - complianceType: musthave
+              objectDefinition:
+{{- end }}
