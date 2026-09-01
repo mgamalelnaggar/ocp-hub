@@ -1,7 +1,7 @@
 acm:
   # Quay-enterprise details
   quayregistryurl:
-  quaycabundle:
+  quaycabundle: |
 
   clusterimagesetname: openshift-v4.20.30-mirror
   releaseimage: <quayregistryurl>/redhat/openshift/release-images@sha256:...
