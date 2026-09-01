@@ -78,5 +78,5 @@ subjects:
     name: policy-enable-rhacm-observability
   - apiGroup: policy.open-cluster-management.io
     kind: Policy
-    name: 
+    name: obs-thanos-secret
 {{- end }}
