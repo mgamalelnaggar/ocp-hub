@@ -5,7 +5,7 @@ metadata:
   namespace: open-cluster-management-policies
 placementRef:
   apiGroup: apps.open-cluster-management.io
-  kind: PlacementRule
+  kind: Placement
   name: placement-local-hub
 subjects:
   - apiGroup: policy.open-cluster-management.io
@@ -13,7 +13,7 @@ subjects:
     name: policy-ocp-etcd-backup
   - apiGroup: policy.open-cluster-management.io
     kind: Policy
-    name: policy-htpasswd-idp
+    name: policy-identity-providers
   - apiGroup: policy.open-cluster-management.io
     kind: Policy
     name: policy-ingress-replicas
