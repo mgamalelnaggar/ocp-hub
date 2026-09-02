@@ -12,3 +12,14 @@ configMapGenerator:
     literals:
       - nfs_ip=192.168.20.100
       - nfs_path=/mnt/backups/ocp/
+  - name: enable-ldap
+    namespace: default
+    options:
+      disableNameSuffixHash: true
+    literals:
+      - ldap=enabled
+      - bindDN=""
+      - bind-secret=<base 64 encode of the bind password>
+      - secure=true
+      - ldap-ca=|
+      - url=ldap/ldaps://<>
