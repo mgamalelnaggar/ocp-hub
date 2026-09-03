@@ -4,7 +4,7 @@ metadata:
   annotations:
     argocd.argoproj.io/sync-wave: "5"
   name: {{ .Values.clusterGroup.name }}-keycloack
-  namespace: {{ .Values.keycloak.namespace }}
+  namespace: keycloak
 spec:
   instances: 1
   db:
