@@ -16,6 +16,9 @@ subjects:
     name: policy-identity-providers
   - apiGroup: policy.open-cluster-management.io
     kind: Policy
+    name: policy-ldap-sync.yaml
+  - apiGroup: policy.open-cluster-management.io
+    kind: Policy
     name: policy-ingress-replicas
   - apiGroup: policy.open-cluster-management.io
     kind: Policy
