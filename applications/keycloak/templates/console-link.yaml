@@ -9,6 +9,6 @@ spec:
   applicationMenu:
     section: Red Hat applications
     imageURL: 'https://upload.wikimedia.org/wikipedia/commons/3/3a/OpenShift-LogoType.svg'
-  href: 'https://sso.{{ .Values.global.hubClusterDomain }}'
+  href: 'https://{{ .Values.keycloak.namespace }}.{{ .Values.global.hubClusterDomain }}'
   location: ApplicationMenu
   text: 'Red Hat Build of Keycloak'
