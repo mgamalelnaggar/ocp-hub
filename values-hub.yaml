@@ -80,6 +80,10 @@ clusterGroup:
     # RHACM observability
     - open-cluster-management-observability:
         disabled: false
+
+    # KeyCloak
+    - keycloak:
+        disabled: false
 #######################################################################
   operatorgroupExcludes:
     - openshift-operators
