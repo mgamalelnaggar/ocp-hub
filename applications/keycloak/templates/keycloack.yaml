@@ -1,6 +1,8 @@
 apiVersion: k8s.keycloak.org/v2beta1
 kind: Keycloak
 metadata:
+  annotations:
+    argocd.argoproj.io/sync-wave: "5"
   name: {{ .Values.global.hubClusterDomain }}-keycloack
   namespace: {{ .Values.keycloak.namespace }}
 spec:
@@ -14,9 +16,9 @@ spec:
     passwordSecret:
       name: keycloak-db-secret
       key: password
+  ingress:
+    className: openshift-default    
   http:
     tlsSecret: keycloak-tls-secret
   hostname:
-    hostname: xxxxxxxxx
-  proxy:
-    headers: xforwarded # double check your reverse proxy sets and overwrites the X-Forwarded-* headers
+    hostname: {{ .Values.keycloak.hostname }}
