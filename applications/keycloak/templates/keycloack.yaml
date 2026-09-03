@@ -16,8 +16,24 @@ spec:
     passwordSecret:
       name: keycloak-pgsql-user
       key: password
+  hostname:
+    hostname: sso.{{ .Values.global.hubClusterDomain }}
+    strict: false
+    strictBackchannel: false
+  http:
+    httpEnabled: false
+    tlsSecret: keycloak-tls
+  ingress:
+    enabled: false
+  instances: 1
+  transaction:
+    xaEnabled: true
+  
   ingress:
     className: openshift-default
     tlsSecret: keycloak-tls-secret
   http:
     httpEnabled: true
+  additionalOptions:
+    - name: enable-recovery
+      value: 'true'
