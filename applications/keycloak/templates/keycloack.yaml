@@ -3,7 +3,7 @@ kind: Keycloak
 metadata:
   annotations:
     argocd.argoproj.io/sync-wave: "5"
-  name: {{ .Values.global.hubClusterDomain }}-keycloack
+  name: {{ .Values.clusterGroup.name }}-keycloack
   namespace: {{ .Values.keycloak.namespace }}
 spec:
   instances: 1
@@ -21,4 +21,3 @@ spec:
     tlsSecret: keycloak-tls-secret
   http:
     httpEnabled: true
-
