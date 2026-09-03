@@ -3,7 +3,7 @@ kind: Secret
 metadata:
   annotations:
     argocd.argoproj.io/sync-wave: "1"
-  name: keycloak-db-secret
+  name: keycloak-pgsql-user
   namespace: keycloack
 type: Opaque
 data:
