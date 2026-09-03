@@ -36,7 +36,7 @@ spec:
                   namespace: openshift-config
                 type: Opaque
                 stringData:
-                  bindPassword: '{{ (fromConfigMap "default" "ldap-config" "bind-password") }}'
+                  bindPassword: '{{ (fromConfigMap "default" "ldap-config" "bindPassword") }}'
             {{ end }}      
             {{ if and (eq (fromConfigMap "default" "ldap-config" "ldap") "enabled") (eq (fromConfigMap "default" "ldap-config" "secure") "true") }}      
             - complianceType: musthave
