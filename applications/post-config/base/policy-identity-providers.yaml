@@ -47,7 +47,7 @@ spec:
                   name: ldap-ca
                   namespace: openshift-config
                 data:
-                  ca.crt: '{{ (fromConfigMap "default" "ldap-config" "ldap-ca") }}'
+                  ca.crt: '{{ (fromConfigMap "default" "ldap-config" "ldap-ca" "") }}'
             {{ end }}
             - complianceType: musthave
               objectDefinition:
