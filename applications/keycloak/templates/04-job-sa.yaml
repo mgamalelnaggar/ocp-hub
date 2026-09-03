@@ -1,0 +1,51 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  annotations:
+    rbac.authorization.kubernetes.io/autoupdate: "true"
+    argocd.argoproj.io/sync-wave: "10"
+  name: kc-job-role
+  namespace: keycloak
+rules:
+  - apiGroups:
+     - "operators.coreos.com"
+    resources:
+      - subscriptions
+      - clusterserviceversions
+    verbs:
+      - get
+      - list
+  - apiGroups:
+      - "batch"
+    resources:
+      - jobs
+    verbs:
+      - get
+      - list
+      - delete
+      - create
+      - patch
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: kc-job-rb
+  namespace: keycloak
+  annotations:
+    argocd.argoproj.io/sync-wave: "10"
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: kc-job-role
+subjects:
+  - kind: ServiceAccount
+    name: kc-job-sa
+    namespace: keycloak
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: kc-job-sa
+  namespace: keycloak
+  annotations:
+    argocd.argoproj.io/sync-wave: "10"
