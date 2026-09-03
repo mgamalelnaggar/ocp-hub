@@ -26,7 +26,7 @@ spec:
                 type: Opaque
                 data:
                   htpasswd: b2NwYWRtaW46JDJ5JDA1JFIzUnA0dC41eExGMHJ5U1VtZ0NyYy5zbGRiM2tnVzA5elQyQkQ2N3hKWUY1NVFKVlJaQjhlCg==
-            {{ if eq (fromConfigMap "default" "ldap-config" "ldap") "enabled" }}
+            {{ if and (eq (fromConfigMap "default" "ldap-config" "ldap") "enabled") (ne (fromConfigMap "default" "ldap-config" "bindPassword") "") }}
             - complianceType: musthave
               objectDefinition:
                 apiVersion: v1
@@ -37,7 +37,8 @@ spec:
                 type: Opaque
                 stringData:
                   bindPassword: '{{ (fromConfigMap "default" "ldap-config" "bind-password") }}'
-            {{ if eq (fromConfigMap "default" "ldap-config" "secure") "true" }}      
+            {{ end }}      
+            {{ if and (eq (fromConfigMap "default" "ldap-config" "ldap") "enabled") (eq (fromConfigMap "default" "ldap-config" "secure") "true") }}      
             - complianceType: musthave
               objectDefinition:
                 apiVersion: v1     
@@ -47,7 +48,6 @@ spec:
                   namespace: openshift-config
                 data:
                   ca.crt: '{{ (fromConfigMap "default" "ldap-config" "ldap-ca") }}'
-            {{ end }}
             {{ end }}
             - complianceType: musthave
               objectDefinition:
@@ -78,8 +78,10 @@ spec:
                           preferredUsername:
                             - uid
                         bindDN: '{{ (fromConfigMap "default" "ldap-config" "bindDN") }}'
+                        {{ if ne (fromConfigMap "default" "ldap-config" "bindPassword") "" }}
                         bindPassword:
                           name: ldap-provider-secret
+                        {{ end }}  
                         {{ if eq (fromConfigMap "default" "ldap-config" "secure") "true" }}
                         ca:
                           name: ldap-ca
