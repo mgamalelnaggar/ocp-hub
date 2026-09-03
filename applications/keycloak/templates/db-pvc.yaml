@@ -1,1 +1,12 @@
-
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: db-claim-pvc
+  namespace: {{ .Values.keycloak.namespace }}
+spec:
+  accessModes:
+    - ReadWriteOnce 
+  resources:
+    requests:
+      storage: 10Gi 
+  storageClassName: ocs-storagecluster-ceph-rbd
