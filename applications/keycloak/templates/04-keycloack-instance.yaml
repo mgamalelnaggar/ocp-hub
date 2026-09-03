@@ -18,13 +18,13 @@ spec:
       key: password
   hostname:
     hostname: sso-{{ .Values.clusterGroup.name }}.{{ .Values.global.hubClusterDomain }}
-    strict: false
-    strictBackchannel: false
   http:
-    httpEnabled: false
     tlsSecret: keycloak-tls
   ingress:
-    enabled: false
+    className: openshift-default
   instances: 1
-  transaction:
-    xaEnabled: true
+  proxy:
+    headers: xforwarded
+  additionalOptions:
+    - name: http-relative-path
+      value: /auth  
