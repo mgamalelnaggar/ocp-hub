@@ -2,7 +2,7 @@ apiVersion: console.openshift.io/v1
 kind: ConsoleLink
 metadata:
   annotations:
-    
+    argocd.argoproj.io/sync-wave: "8"
   name: keycloak-link
   namespace: keycloak
 spec:
