@@ -26,7 +26,7 @@ spec:
                 type: Opaque
                 data:
                   htpasswd: b2NwYWRtaW46JDJ5JDA1JFIzUnA0dC41eExGMHJ5U1VtZ0NyYy5zbGRiM2tnVzA5elQyQkQ2N3hKWUY1NVFKVlJaQjhlCg==
-            {{ if eq (fromConfigMap "default" "enable-ldap" "ldap") "enabled" }}
+            {{ if eq (fromConfigMap "default" "ldap-config" "ldap") "enabled" }}
             - complianceType: musthave
               objectDefinition:
                 apiVersion: v1
@@ -36,17 +36,17 @@ spec:
                   namespace: openshift-config
                 type: Opaque
                 stringData:
-                  bindPassword: '{{ (fromConfigMap "default" "enable-ldap" "bind-password") }}'
-            {{ if eq (fromConfigMap "default" "enable-ldap" "secure") "true" }}      
+                  bindPassword: '{{ (fromConfigMap "default" "ldap-config" "bind-password") }}'
+            {{ if eq (fromConfigMap "default" "ldap-config" "secure") "true" }}      
             - complianceType: musthave
               objectDefinition:
                 apiVersion: v1     
                 kind: ConfigMap
                 metadata:
-                  name: ldap-ca-cm
+                  name: ldap-ca
                   namespace: openshift-config
                 data:
-                  ca.crt: '{{ (fromConfigMap "default" "enable-ldap" "ldap-ca") }}'
+                  ca.crt: '{{ (fromConfigMap "default" "ldap-config" "ldap-ca") }}'
             {{ end }}
             {{ end }}
             - complianceType: musthave
@@ -63,7 +63,7 @@ spec:
                       htpasswd:
                         fileData:
                           name: htpasswd-secret
-                     {{ if eq (fromConfigMap "default" "enable-ldap" "ldap") "enabled" }}  
+                     {{ if eq (fromConfigMap "default" "ldap-config" "ldap") "enabled" }}  
                     - name: ldapidp
                       mappingMethod: claim
                       type: LDAP
@@ -77,15 +77,15 @@ spec:
                             - cn
                           preferredUsername:
                             - uid
-                        bindDN: '{{ (fromConfigMap "default" "enable-ldap" "bindDN") }}'
+                        bindDN: '{{ (fromConfigMap "default" "ldap-config" "bindDN") }}'
                         bindPassword:
                           name: ldap-provider-secret
-                        {{ if eq (fromConfigMap "default" "enable-ldap" "secure") "true" }}
+                        {{ if eq (fromConfigMap "default" "ldap-config" "secure") "true" }}
                         ca:
-                          name: ldap-ca-cm
+                          name: ldap-ca
                         {{ end }}
-                        insecure: {{ if eq (fromConfigMap "default" "enable-ldap" "secure") "true" }}false{{else}}true{{ end }}
-                        url: '{{ (fromConfigMap "default" "enable-ldap" "url") }}'
+                        insecure: {{ if eq (fromConfigMap "default" "ldap-config" "secure") "true" }}false{{else}}true{{ end }}
+                        url: '{{ (fromConfigMap "default" "ldap-config" "url") }}'
                      {{ end }}
             - complianceType: musthave
               objectDefinition:
