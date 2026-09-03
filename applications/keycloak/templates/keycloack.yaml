@@ -17,8 +17,9 @@ spec:
       name: keycloak-db-secret
       key: password
   ingress:
-    className: openshift-default    
-  http:
+    className: openshift-default
     tlsSecret: keycloak-tls-secret
+  http:
+    httpEnabled: true
   hostname:
     hostname: {{ .Values.keycloak.hostname }}
