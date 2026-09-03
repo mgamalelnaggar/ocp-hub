@@ -19,7 +19,7 @@ configMapGenerator:
     literals:
       - ldap=enabled
       - bindDN=""
-      - bind-password=
+      - bindpassword=
       - secure=true
       - ldap-ca=|
       - url=ldap/ldaps://<>
