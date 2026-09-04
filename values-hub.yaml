@@ -106,7 +106,7 @@ clusterGroup:
       channel: "stable"
       source: redhat-operators
       sourceNamespace: openshift-marketplace
-      csv: update-service-operator.v5.0.3
+      
 
 
 # Update Source Operator
@@ -117,6 +117,7 @@ clusterGroup:
       channel: "v1"
       source: redhat-operators
       sourceNamespace: openshift-marketplace
+      csv: update-service-operator.v5.0.3
 
       
 # NMstate Operator    
