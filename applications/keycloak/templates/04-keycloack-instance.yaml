@@ -19,10 +19,9 @@ spec:
   hostname:
     hostname: sso.{{ .Values.global.hubClusterDomain }}
   http:
-    tlsSecret: keycloak-tls
+    httpEnabled: true
   ingress:
     className: openshift-default
-  instances: 1
   proxy:
     headers: xforwarded
   additionalOptions:
