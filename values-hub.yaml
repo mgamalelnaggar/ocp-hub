@@ -32,7 +32,7 @@ clusterGroup:
     
     # OpenShift Data Foundation. Standard scoped operators
     - openshift-storage: 
-        disabled: false
+        disabled: true
         labels:
           openshift.io/cluster-monitoring: "true"
     
@@ -83,13 +83,13 @@ clusterGroup:
 
     # Keycloak
     - keycloak:
-        disabled: false
+        disabled: true
         labels:
           openshift.io/cluster-monitoring: "true"
 
     # cert-manager
     - cert-manager-operator:
-        disabled: false
+        disabled: true
         labels:
           openshift.io/cluster-monitoring: "true" 
 #######################################################################
@@ -121,7 +121,7 @@ clusterGroup:
       
 # NMstate Operator    
     kubernetes-nmstate-operator:
-      disabled: true
+      disabled: false
       name: kubernetes-nmstate-operator
       namespace: openshift-nmstate
       channel: "stable"
@@ -130,7 +130,7 @@ clusterGroup:
 
 # LSO Operator
     local-storage-operator:
-      disabled: true
+      disabled: false
       name: local-storage-operator
       namespace: openshift-local-storage
       channel: "stable" 
@@ -190,7 +190,7 @@ clusterGroup:
 
 # Quay Operator
     quay-operator:
-      disabled: true
+      disabled: false
       name: quay-operator
       namespace: openshift-operators
       source: redhat-operators
@@ -218,7 +218,7 @@ clusterGroup:
 
 # cert-manager Operator
     openshift-cert-manager-operator:
-      disabled: false
+      disabled: true
       name: openshift-cert-manager-operator
       namespace: cert-manager-operator
       source: redhat-operators
@@ -245,7 +245,7 @@ clusterGroup:
       extraValueFiles: []
 
     odf:
-      disabled: false
+      disabled: true
       name: odf
       annotations:
         argocd.argoproj.io/sync-wave: "3"
@@ -287,7 +287,7 @@ clusterGroup:
       extraValueFiles: []
 
     keycloak:
-      disabled: false
+      disabled: true
       name: keycloak
       annotations:
         argocd.argoproj.io/sync-wave: "4"
