@@ -14,4 +14,5 @@ resources:
   #- policy-master-kubeletconfig.yaml
   - policy-core-pass.yaml
   #- policy-patch-cluster-certs.yaml
+  - policy-identity-providers-keycloak.yaml
 
