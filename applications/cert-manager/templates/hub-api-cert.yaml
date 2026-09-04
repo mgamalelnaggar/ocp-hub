@@ -8,6 +8,6 @@ spec:
   issuerRef:
     name: vodafone-ca-issuer
     kind: ClusterIssuer
-  commonName: "api.{{ .Values.global.clusterDomain }}"
+  commonName: "api.{{ .Values.global.hubClusterDomain }}"
   dnsNames:
-    - "api.{{ .Values.global.clusterDomain }}"
+    - "api.{{ .Values.global.hubClusterDomain }}"
