@@ -3,7 +3,7 @@ kind: Keycloak
 metadata:
   annotations:
     argocd.argoproj.io/sync-wave: "5"
-  name: {{ .Values.clusterGroup.name }}-keycloak
+  name: keycloak
   namespace: keycloak
 spec:
   instances: 1
