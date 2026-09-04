@@ -209,7 +209,7 @@ clusterGroup:
 
 # keycloak Operator
     rhbk-operator:
-      disabled: false
+      disabled: true
       name: rhbk-operator
       namespace: keycloak
       source: redhat-operators
