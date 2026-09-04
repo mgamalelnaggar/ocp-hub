@@ -229,66 +229,85 @@ clusterGroup:
   applications: 
    
     nmstate:
-      disabled: true
+      disabled: false
       name: nmstate
+      annotations:
+        argocd.argoproj.io/sync-wave: "1"
       path: applications/nmstate
       extraValueFiles: []
 
     lso:
-      disabled: true
+      disabled: false
       name: lso
+      annotations:
+        argocd.argoproj.io/sync-wave: "2"
       path: applications/lso
       extraValueFiles: []
 
     odf:
-      disabled: true
+      disabled: false
       name: odf
+      annotations:
+        argocd.argoproj.io/sync-wave: "3"
       path: applications/odf
       extraValueFiles: 
         - /hub-app-values/values-odf-multus.yaml
 
     quay:
-      disabled: true
+      disabled: false
       name: quay
+      annotations:
+        argocd.argoproj.io/sync-wave: "4"
       path: applications/quay
       extraValueFiles: []
 
     loki:
-      disabled: true
+      disabled: false
       name: loki
+      annotations:
+        argocd.argoproj.io/sync-wave: "4"
       path: applications/loki
       extraValueFiles: []
 
     logging:
       disabled: false
       name: logging
+      annotations:
+        argocd.argoproj.io/sync-wave: "4"
       path: applications/logging
       extraValueFiles: 
         - /hub-app-values/values-logging-clf.yaml
 
     monitoring:
-      disabled: true
+      disabled: false
       name: monitoring
+      annotations:
+        argocd.argoproj.io/sync-wave: "1"
       path: applications/monitoring
       extraValueFiles: []
 
     keycloak:
-      disabled: true
+      disabled: false
       name: keycloak
+      annotations:
+        argocd.argoproj.io/sync-wave: "4"
       path: applications/keycloak
       extraValueFiles: []
 
     cert-manager:
-      disabled: true
+      disabled: false
       name: cert-manager
+      annotations:
+        argocd.argoproj.io/sync-wave: "4"
       path: applications/cert-manager
       extraValueFiles: 
       - /hub-app-values/values-cert.yaml
       
-# Enable acm after all above applications get created. Specially ODF and Quay.
     acm:
       disabled: false
       name: acm
+      annotations:
+        argocd.argoproj.io/sync-wave: "5"
       path: applications/acm
       extraValueFiles: 
       - /hub-app-values/values-acm.yaml
@@ -296,6 +315,8 @@ clusterGroup:
     ztp:
       disabled: false
       name: ztp-enabelment
+      annotations:
+        argocd.argoproj.io/sync-wave: "6"
       kustomize: true
       path: applications/ztp
     
@@ -305,7 +326,7 @@ clusterGroup:
       kustomize: true
       path: applications/post-config/overlays/hub01
       annotations:
-        argocd.argoproj.io/sync-wave: "50"
+        argocd.argoproj.io/sync-wave: "7"
       ignoreDifferences:
         - group: policy.open-cluster-management.io
           kind: Policy
