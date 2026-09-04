@@ -14,7 +14,7 @@ spec:
       - enabled: true
         clientAuthenticatorType: client-secret
         redirectUris:
-          - '*'
+          - "https://oauth-openshift.{{ .Values.global.clusterDomain }}/oauth2callback/sso"
         frontchannelLogout: false
         serviceAccountsEnabled: true
         clientId: idp-4-ocp
