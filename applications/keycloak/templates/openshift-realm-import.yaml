@@ -1,0 +1,47 @@
+apiVersion: k8s.keycloak.org/v2alpha1
+kind: KeycloakRealmImport
+metadata:
+  name: sso
+  namespace: keycloak
+spec:
+  keycloakCRName: keycloak
+  realm:
+    enabled: true
+    duplicateEmailsAllowed: false
+    clients:
+      - enabled: true
+        clientAuthenticatorType: client-secret
+        redirectUris:
+          - '*'
+        frontchannelLogout: false
+        serviceAccountsEnabled: true
+        clientId: idp-4-ocp
+        secret: BPaQhhtGkINlw19i
+        publicClient: false
+        standardFlowEnabled: true
+        protocol: openid-connect
+        directAccessGrantsEnabled: true
+    users:
+      - credentials:
+          - temporary: false
+            type: password
+            value: redhat123
+        email: admin@domain.com
+        emailVerified: true
+        enabled: true
+        firstName: Admin
+        realmRoles:
+          - admin
+        username: admin
+    sslRequired: external
+    realm: sso
+    registrationAllowed: false
+    groups:
+      - name: admins
+      - name: users
+    id: sso
+    loginWithEmailAllowed: false
+    roles:
+      realm:
+        - description: Administrator role
+          name: admin
