@@ -107,8 +107,6 @@ clusterGroup:
       source: redhat-operators
       sourceNamespace: openshift-marketplace
       
-
-
 # Update Source Operator
     openshift-update-service:
       disabled: false
