@@ -81,9 +81,17 @@ clusterGroup:
     - open-cluster-management-observability:
         disabled: false
 
-    # KeyCloak
+    # Keycloak
     - keycloak:
         disabled: false
+        labels:
+          openshift.io/cluster-monitoring: "true"
+
+    # cert-manager
+    - cert-manager-operator:
+        disabled: false
+        labels:
+          openshift.io/cluster-monitoring: "true" 
 #######################################################################
   operatorgroupExcludes:
     - openshift-operators
@@ -119,7 +127,6 @@ clusterGroup:
       channel: "stable"
       source: redhat-operators
       sourceNamespace: openshift-marketplace
-
 
 # LSO Operator
     local-storage-operator:
@@ -199,6 +206,24 @@ clusterGroup:
       channel: "fast"
       sourceNamespace: openshift-marketplace
       csv: web-terminal.v1.16.1
+
+# keycloak Operator
+    rhbk-operator:
+      disabled: false
+      name: rhbk-operator
+      namespace: keycloak
+      source: redhat-operators
+      channel: "stable-v26.0"
+      sourceNamespace: openshift-marketplace
+
+# cert-manager Operator
+    openshift-cert-manager-operator:
+      disabled: false
+      name: openshift-cert-manager-operator
+      namespace: cert-manager-operator
+      source: redhat-operators
+      channel: "stable-v1"
+      sourceNamespace: openshift-marketplace      
       
 #######################  ArgoCD Applications  #####################################
   applications: 
@@ -247,6 +272,19 @@ clusterGroup:
       path: applications/monitoring
       extraValueFiles: []
 
+    keycloak:
+      disabled: true
+      name: keycloak
+      path: applications/keycloak
+      extraValueFiles: []
+
+    cert-manager:
+      disabled: true
+      name: cert-manager
+      path: applications/cert-manager
+      extraValueFiles: 
+      - /hub-app-values/values-cert.yaml
+      
 # Enable acm after all above applications get created. Specially ODF and Quay.
     acm:
       disabled: false
