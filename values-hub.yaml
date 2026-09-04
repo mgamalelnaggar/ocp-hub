@@ -204,7 +204,7 @@ clusterGroup:
       source: redhat-operators
       channel: "fast"
       sourceNamespace: openshift-marketplace
-      csv: web-terminal.v1.16.1
+      #csv: web-terminal.v1.16.1
 
 # keycloak Operator
     rhbk-operator:
