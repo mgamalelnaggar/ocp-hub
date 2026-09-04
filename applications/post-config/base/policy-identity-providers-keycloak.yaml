@@ -40,5 +40,5 @@ spec:
                           - preferred_username
                         clientID: idp-4-ocp
                         clientSecret:
-                          name: keycloak-client-secret
+                          name: sso-client-secret
                         issuer: https://sso.apps.xxxx/realms/sso
