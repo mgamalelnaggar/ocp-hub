@@ -8,9 +8,7 @@ metadata:
 spec:
   applicationMenu:
     section: Red Hat applications
-    #imageURL: 'https://sso.{{ .Values.global.hubClusterDomain }}/resources/welcome/keycloak/img/keycloak-logo.svg'
-    #imageURL: 'https://sso.{{ .Values.global.hubClusterDomain }}/resources/*/admin/keycloak.v2/icon.svg'
-    imageURL: 'https://sso.{{ .Values.global.hubClusterDomain }}/resources/sso/login/keycloak/img/keycloak-logo.svg'
+    imageURL: 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDI0IDEwMjQiIHdpZHRoPSIyNTYiIGhlaWdodD0iMjU2Ij48cGF0aCBmaWxsPSIjNDA5QkRCIiBkPSJNNzg2LjIgMzk1LjVoLTgwLjZjLTEuNSAwLTMtLjgtMy43LTIuMWwtNjQuNy0xMTIuMmMtLjgtMS4zLTIuMi0yLjEtMy44LTIuMWgtMjY0Yy0xLjUgMC0zIC44LTMuNyAyLjFsLTY3LjMgMTE2LjQtNjQuOCAxMTIuMmMtLjcgMS4zLS43IDIuOSAwIDQuM2w2NC44IDExMi4yIDY3LjIgMTE2LjVjLjcgMS4zIDIuMiAyLjIgMy43IDIuMWgyNjQuMWMxLjUgMCAzLS44IDMuOC0yLjFMNzAyIDYzMC42Yy43LTEuMyAyLjItMi4yIDMuNy0yLjFoODAuNmMyLjcgMCA0LjgtMi4yIDQuOC00LjhWNDAwLjRjLS4xLTIuNy0yLjMtNC45LTQuOS00Ljl6TTQ3Ny41IDczNS4xYy0xMjIuOSAwLTIyMi45LTEwMC0yMjIuOS0yMjIuOXMxMDAtMjIyLjkgMjIyLjktMjIyLjkgMjIyLjkgMTAwIDIyMi45IDIyMi45LTEwMCAyMjIuOS0yMjIuOSAyMjIuOXoiLz48cGF0aCBmaWxsPSIjMUEyNTJDIiBkPSJNNDc3LjUgMzUyLjVjLTg4LjEgMC0xNTkuNyA3MS42LTE1OS43IDE1OS43czcxLjYgMTU5LjcgMTU5LjcgMTU5LjcgMTU5LjctNzEuNiAxNTkuNy0xNTkuNy03MS42LTE1OS43LTE1OS43LTE1OS43em0wIDI1Ni40Yy01My40IDAtOTYuNy00My4zLTk2LjctOTYuN3MQzLjMtOTYuNyA5Ni43LTk2Ljc5Ni43IDQzLjMgOTYuNyA5Ni43LTQzLjMgOTYuNy05Ni43IDk2Ljd6Ii8+PC9zdmc+'
   href: 'https://sso.{{ .Values.global.hubClusterDomain }}'
   location: ApplicationMenu
   text: 'Red Hat Build of Keycloak'
