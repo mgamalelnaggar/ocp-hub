@@ -1,6 +1,8 @@
 kind: ClusterRoleBinding
 apiVersion: rbac.authorization.k8s.io/v1
 metadata:
+  annotations:
+    argocd.argoproj.io/sync-wave: "10"
   name: 'keycloak-sso-user:ocpadmin:cluster-admin'
 subjects:
   - kind: User
