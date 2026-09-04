@@ -38,6 +38,6 @@ spec:
                 spec:
                   namedCertificates:
                     - names:
-                        - '{{ (fromConfigMap "default" "cluster-config" "api-domain" "") }}'
+                        - '{{ hub (lookup "config.openshift.io/v1" "Infrastructure" "" "cluster").status.apiServerURL | trimPrefix "https://" | trimSuffix ":6443" hub }}'
                       servingCertificate:
                         name: hub-api-cert
