@@ -4,7 +4,7 @@ metadata:
   annotations:
     argocd.argoproj.io/sync-wave: "1"
   name: keycloak-pgsql-user
-  namespace: keycloack
+  namespace: keycloak
 type: Opaque
 stringData:
   username: "dbuser"
