@@ -1,3 +1,4 @@
+{{- if .Values.acm.observability.enabled }}
 ---
 apiVersion: apps.open-cluster-management.io/v1
 kind: PlacementRule
@@ -11,3 +12,4 @@ spec:
   clusterSelector:
     matchLabels:
       local-cluster: "true"
+{{- end }}
