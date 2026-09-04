@@ -40,4 +40,4 @@ subjects:
 #    name: policy-patch-cluster-certs
   - apiGroup: policy.open-cluster-management.io
     kind: Policy
-    name: policy-identity-providers-keycloak
+    name: policy-idp-keycloak
