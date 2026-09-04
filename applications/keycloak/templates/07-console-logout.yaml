@@ -6,4 +6,4 @@ metadata:
   name: cluster
 spec:
   authentication:
-    logoutRedirect: https://sso.{{ .Values.global.hubClusterDomain }}/realms/openshift-oauth/protocol/openid-connect/logout?client_id=idp-4-ocp&post_logout_redirect_uri=https://console-openshift-console.{{ .Values.global.hubClusterDomain }}
+    logoutRedirect: https://sso.{{ .Values.global.hubClusterDomain }}/realms/sso/protocol/openid-connect/logout?client_id=idp-4-ocp&post_logout_redirect_uri=https://console-openshift-console.{{ .Values.global.hubClusterDomain }}
