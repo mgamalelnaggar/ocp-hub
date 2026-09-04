@@ -28,13 +28,13 @@ spec:
           - temporary: false
             type: password
             value: redhat123
-        email: admin@domain.com
-        emailVerified: true
+        email: ocpadmin@domain.com
+        emailVerified: false
         enabled: true
-        firstName: Admin
+        firstName: OCPAdmin
         realmRoles:
           - admin
-        username: admin
+        username: ocpadmin
     sslRequired: external
     realm: sso
     registrationAllowed: false
@@ -46,4 +46,4 @@ spec:
     roles:
       realm:
         - description: Administrator role
-          name: admin
+          name: ocpadmin
