@@ -1,0 +1,43 @@
+apiVersion: policy.open-cluster-management.io/v1
+kind: Policy
+metadata:
+  name: policy-patch-cluster-certs
+  namespace: open-cluster-management-policies
+spec:
+  remediationAction: enforce
+  disabled: false
+  policy-templates:
+    - objectDefinition:
+        apiVersion: policy.open-cluster-management.io/v1
+        kind: ConfigurationPolicy
+        metadata:
+          name: patch-ingress-and-api-certs
+        spec:
+          remediationAction: enforce
+          severity: high
+          object-templates:
+            # 1. Patch IngressController
+            - complianceType: musthave
+              objectDefinition:
+                apiVersion: operator.openshift.io/v1
+                kind: IngressController
+                metadata:
+                  name: default
+                  namespace: openshift-ingress-operator
+                spec:
+                  defaultCertificate:
+                    name: custom-ingress-cert-secret
+
+            # 2. Patch APIServer
+            - complianceType: musthave
+              objectDefinition:
+                apiVersion: config.openshift.io/v1
+                kind: APIServer
+                metadata:
+                  name: cluster
+                spec:
+                  namedCertificates:
+                    - names:
+                        - '{{ (fromConfigMap "default" "cluster-config" "api-domain" "") }}'
+                      servingCertificate:
+                        name: custom-api-cert-secret
