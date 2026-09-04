@@ -3,7 +3,7 @@ kind: Keycloak
 metadata:
   annotations:
     argocd.argoproj.io/sync-wave: "5"
-  name: {{ .Values.clusterGroup.name }}-keycloack
+  name: {{ .Values.clusterGroup.name }}-keycloak
   namespace: keycloak
 spec:
   instances: 1
@@ -24,6 +24,3 @@ spec:
     className: openshift-default
   proxy:
     headers: xforwarded
-  additionalOptions:
-    - name: http-relative-path
-      value: /auth  
