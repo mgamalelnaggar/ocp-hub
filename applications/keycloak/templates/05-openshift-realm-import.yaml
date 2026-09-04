@@ -29,7 +29,7 @@ spec:
             type: password
             value: redhat123
         email: ocpadmin1@domain.com
-        emailVerified: false
+        emailVerified: true
         enabled: true
         firstName: OCPAdmin1
         realmRoles:
@@ -42,7 +42,7 @@ spec:
       - name: admins
       - name: users
     id: sso
-    loginWithEmailAllowed: false
+    loginWithEmailAllowed: true
     roles:
       realm:
         - description: Administrator role
