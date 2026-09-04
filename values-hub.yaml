@@ -295,7 +295,7 @@ clusterGroup:
       extraValueFiles: []
 
     cert-manager:
-      disabled: false
+      disabled: true
       name: cert-manager
       annotations:
         argocd.argoproj.io/sync-wave: "4"
