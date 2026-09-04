@@ -46,4 +46,4 @@ spec:
     roles:
       realm:
         - description: Administrator role
-          name: ocpadmin
+          name: admin
