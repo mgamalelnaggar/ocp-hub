@@ -1,0 +1,13 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: hub-ingress-cert
+  namespace: openshift-ingress
+spec:
+  secretName: hub-ingress-cert-secret
+  issuerRef:
+    name: vodafone-ca-issuer
+    kind: ClusterIssuer
+  commonName: "*.apps.{{ .Values.global.clusterDomain }}"
+  dnsNames:
+    - "*.apps.{{ .Values.global.clusterDomain }}"
