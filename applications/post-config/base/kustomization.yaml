@@ -11,6 +11,6 @@ resources:
   - policy-console-plugins.yaml
   - policy-etcd-encryption.yaml
   - policy-whereabouts-config.yaml
-  - policy-master-kubeletconfig.yaml
+  #- policy-master-kubeletconfig.yaml
   - policy-core-pass.yaml
 
