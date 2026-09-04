@@ -13,4 +13,5 @@ resources:
   - policy-whereabouts-config.yaml
   #- policy-master-kubeletconfig.yaml
   - policy-core-pass.yaml
+  #- policy-patch-cluster-certs.yaml
 
