@@ -11,30 +11,33 @@ subjects:
   - apiGroup: policy.open-cluster-management.io
     kind: Policy
     name: policy-ocp-etcd-backup
-  - apiGroup: policy.open-cluster-management.io
-    kind: Policy
-    name: policy-identity-providers
-  - apiGroup: policy.open-cluster-management.io
-    kind: Policy
-    name: policy-ldap-sync.yaml
-  - apiGroup: policy.open-cluster-management.io
-    kind: Policy
-    name: policy-ingress-replicas
-  - apiGroup: policy.open-cluster-management.io
-    kind: Policy
-    name: policy-console-plugins
-  - apiGroup: policy.open-cluster-management.io
-    kind: Policy
-    name: policy-etcd-encryption
-  - apiGroup: policy.open-cluster-management.io
-    kind: Policy
-    name: policy-whereabouts-config
+#  - apiGroup: policy.open-cluster-management.io
+#    kind: Policy
+#    name: policy-identity-providers
+#  - apiGroup: policy.open-cluster-management.io
+#   kind: Policy
+#    name: policy-ldap-sync.yaml
+#  - apiGroup: policy.open-cluster-management.io
+#    kind: Policy
+#    name: policy-ingress-replicas
+#  - apiGroup: policy.open-cluster-management.io
+#    kind: Policy
+#    name: policy-console-plugins
+#  - apiGroup: policy.open-cluster-management.io
+#    kind: Policy
+#    name: policy-etcd-encryption
+#  - apiGroup: policy.open-cluster-management.io
+#    kind: Policy
+#    name: policy-whereabouts-config
 #  - apiGroup: policy.open-cluster-management.io
 #    kind: Policy
 #    name: policy-master-kubeletconfig
-  - apiGroup: policy.open-cluster-management.io
-    kind: Policy
-    name:  policy-set-core-user-password
+#  - apiGroup: policy.open-cluster-management.io
+#    kind: Policy
+#    name:  policy-set-core-user-password
 #  - apiGroup: policy.open-cluster-management.io
 #    kind: Policy
 #    name: policy-patch-cluster-certs
+  - apiGroup: policy.open-cluster-management.io
+    kind: Policy
+    name:policy-identity-providers-keycloak
