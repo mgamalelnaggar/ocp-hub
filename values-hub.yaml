@@ -83,7 +83,7 @@ clusterGroup:
 
     # Keycloak
     - keycloak:
-        disabled: true
+        disabled: false
         labels:
           openshift.io/cluster-monitoring: "true"
 
@@ -208,7 +208,7 @@ clusterGroup:
 
 # keycloak Operator
     rhbk-operator:
-      disabled: true
+      disabled: false
       name: rhbk-operator
       namespace: keycloak
       source: redhat-operators
@@ -228,7 +228,7 @@ clusterGroup:
   applications: 
    
     nmstate:
-      disabled: false
+      disabled: true
       name: nmstate
       annotations:
         argocd.argoproj.io/sync-wave: "1"
@@ -236,7 +236,7 @@ clusterGroup:
       extraValueFiles: []
 
     lso:
-      disabled: false
+      disabled: true
       name: lso
       annotations:
         argocd.argoproj.io/sync-wave: "2"
@@ -286,7 +286,7 @@ clusterGroup:
       extraValueFiles: []
 
     keycloak:
-      disabled: true
+      disabled: false
       name: keycloak
       annotations:
         argocd.argoproj.io/sync-wave: "4"
@@ -299,8 +299,7 @@ clusterGroup:
       annotations:
         argocd.argoproj.io/sync-wave: "4"
       path: applications/cert-manager
-      extraValueFiles: 
-      - /hub-app-values/values-cert.yaml
+      extraValueFiles: []
       
     acm:
       disabled: false
@@ -312,7 +311,7 @@ clusterGroup:
       - /hub-app-values/values-acm.yaml
 
     ztp:
-      disabled: false
+      disabled: true
       name: ztp-enabelment
       annotations:
         argocd.argoproj.io/sync-wave: "6"
