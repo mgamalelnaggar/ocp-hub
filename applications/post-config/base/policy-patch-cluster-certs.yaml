@@ -26,7 +26,7 @@ spec:
                   namespace: openshift-ingress-operator
                 spec:
                   defaultCertificate:
-                    name: custom-ingress-cert-secret
+                    name: hub-ingress-cert
 
             # 2. Patch APIServer
             - complianceType: musthave
