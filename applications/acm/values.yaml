@@ -3,7 +3,7 @@ acm:
   disconnected: false
   catalogsource: "redhat-operators"
   observability:
-    enabled: false
+    enabled: true
     instansesize: default
     jobimage: quay.io/validatedpatterns/imperative-container:v1
     annotations:
