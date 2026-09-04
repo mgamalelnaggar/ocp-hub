@@ -17,7 +17,7 @@ spec:
       name: keycloak-pgsql-user
       key: password
   hostname:
-    hostname: sso-{{ .Values.clusterGroup.name }}.{{ .Values.global.hubClusterDomain }}
+    hostname: sso.{{ .Values.global.hubClusterDomain }}
   http:
     tlsSecret: keycloak-tls
   ingress:
