@@ -212,7 +212,7 @@ clusterGroup:
       name: rhbk-operator
       namespace: keycloak
       source: redhat-operators
-      channel: "stable-v26.0"
+      channel: "stable-v26.6"
       sourceNamespace: openshift-marketplace
 
 # cert-manager Operator
