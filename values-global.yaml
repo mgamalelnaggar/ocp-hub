@@ -2,8 +2,8 @@ global:
   singleArgoCD: false
   repoURL: https://github.com/mgamalelnaggar/ocp-hub.git
   pattern: hub
-  localClusterDomain: cluster-g65b2.dyn.redhatworkshops.io
-  hubClusterDomain: cluster-g65b2.dyn.redhatworkshops.io
+  localClusterDomain: cluster-8cgxv.8cgxv.sandbox5322.opentlc.com
+  hubClusterDomain: cluster-8cgxv.8cgxv.sandbox5322.opentlc.com
   vpArgoNamespace: openshift-gitops
   secretLoader:
     disabled: True
