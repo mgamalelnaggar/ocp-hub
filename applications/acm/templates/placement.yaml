@@ -1,6 +1,6 @@
 ---
 apiVersion: apps.open-cluster-management.io/v1
-kind: Placement
+kind: PlacementRule
 metadata:
   annotations:
     argocd.argoproj.io/sync-wave: "-10"
