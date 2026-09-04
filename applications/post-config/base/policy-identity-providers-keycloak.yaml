@@ -38,7 +38,7 @@ spec:
                           - name
                           preferredUsername:
                           - preferred_username
-                        clientID: '{{hub fromConfigMap "ztp-core-policy" "core-data" (printf "%s-rhbk-client-id" .ManagedClusterName) hub}}'
+                        clientID: xxxx
                         clientSecret:
                           name: keycloak-client-secret
-                        issuer: https://sso.apps.cluster-7xvp8.dyn.redhatworkshops.io/realms/sso
+                        issuer: https://sso.apps.xxxx/realms/sso
