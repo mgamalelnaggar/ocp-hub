@@ -1,0 +1,13 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: hub-api-cert
+  namespace: openshift-config
+spec:
+  secretName: hub-api-cert-secret
+  issuerRef:
+    name: vodafone-ca-issuer
+    kind: ClusterIssuer
+  commonName: "api.{{ .Values.global.clusterDomain }}"
+  dnsNames:
+    - "api.{{ .Values.global.clusterDomain }}"
