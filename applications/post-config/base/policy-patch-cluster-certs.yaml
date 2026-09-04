@@ -40,4 +40,4 @@ spec:
                     - names:
                         - '{{ (fromConfigMap "default" "cluster-config" "api-domain" "") }}'
                       servingCertificate:
-                        name: custom-api-cert-secret
+                        name: hub-api-cert
