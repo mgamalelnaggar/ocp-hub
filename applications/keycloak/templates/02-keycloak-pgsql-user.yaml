@@ -6,6 +6,6 @@ metadata:
   name: keycloak-pgsql-user
   namespace: keycloack
 type: Opaque
-data:
-  username: "ZGJ1c2Vy"
+stringData:
+  username: "dbuser"
   password: "Hb8AtsZihw3c1VhYFg6R"
