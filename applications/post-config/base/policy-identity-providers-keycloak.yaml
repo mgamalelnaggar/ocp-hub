@@ -41,4 +41,4 @@ spec:
                         clientID: idp-4-ocp
                         clientSecret:
                           name: sso-client-secret
-                        issuer: https://sso.apps.{{ (lookup "config.openshift.io/v1" "Ingress" "" "cluster").spec.domain }}/realms/sso
+                        issuer: 'https://sso.{{ (lookup "config.openshift.io/v1" "Ingress" "" "cluster").spec.domain }}/realms/sso'
