@@ -15,6 +15,8 @@ spec:
         clientAuthenticatorType: client-secret
         redirectUris:
           - "https://oauth-openshift.{{ .Values.global.hubClusterDomain }}/oauth2callback/sso"
+          - "https://console-openshift-console.{{ .Values.global.hubClusterDomain }}"
+          - "https://console-openshift-console.{{ .Values.global.hubClusterDomain }}/*"
         frontchannelLogout: false
         serviceAccountsEnabled: true
         clientId: idp-4-ocp
