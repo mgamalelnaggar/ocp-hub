@@ -8,7 +8,7 @@ metadata:
 spec:
   applicationMenu:
     section: Red Hat applications
-    imageURL: 'https://upload.wikimedia.org/wikipedia/commons/3/3a/OpenShift-LogoType.svg'
+    #imageURL: 'https://sso.{{ .Values.global.hubClusterDomain }}/resources/welcome/keycloak/img/keycloak-logo.svg'
   href: 'https://sso.{{ .Values.global.hubClusterDomain }}'
   location: ApplicationMenu
   text: 'Red Hat Build of Keycloak'
