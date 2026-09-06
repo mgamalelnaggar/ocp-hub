@@ -49,41 +49,41 @@ spec:
       realm:
         - description: Administrator role
           name: admin
-    components:
-      org.keycloak.storage.UserStorageProvider:
-        - name: "ldap"
-          providerId: "ldap"
-          providerType: "org.keycloak.storage.UserStorageProvider"
-          config:
-            pagination: ["true"]
-            fullSyncPeriod: ["20"]
-            connectionTrace: ["false"]
-            startTls: ["false"]
-            connectionPooling: ["true"]
-            usersDn: ["dc=example,dc=com"]
-            cachePolicy: ["DEFAULT"]
-            useKerberosForPasswordAuthentication: ["false"]
-            importEnabled: ["true"]
-            enabled: ["true"]
-            bindCredential: ["password"]
-            usernameLDAPAttribute: ["uid"]
-            changedSyncPeriod: ["-1"]
-            bindDn: ["cn=read-only-admin,dc=example,dc=com"]
-            vendor: ["other"]
-            uuidLDAPAttribute: ["entryUUID"]
-            connectionUrl: ["ldap://ldap.forumsys.com"]
-            allowKerberosAuthentication: ["false"]
-            syncRegistrations: ["false"]
-            authType: ["simple"]
-            krbPrincipalAttribute: ["krb5PrincipalName"]
-            customUserSearchFilter: ["(uid=*)"]
-            searchScope: ["2"]
-            useTruststoreSpi: ["always"]
-            usePasswordModifyExtendedOp: ["false"]
-            trustEmail: ["false"]
-            userObjectClasses: ["inetOrgPerson, organizationalPerson"]
-            removeInvalidUsersEnabled: ["false"]
-            rdnLDAPAttribute: ["uid"]
-            editMode: ["READ_ONLY"]
-            validatePasswordPolicy: ["false"]
-            enableLdapPasswordPolicy: ["false"]
+#    components:
+#      org.keycloak.storage.UserStorageProvider:
+#        - name: "ldap"
+#          providerId: "ldap"
+#          providerType: "org.keycloak.storage.UserStorageProvider"
+#          config:
+#            pagination: ["true"]
+#            fullSyncPeriod: ["20"]
+#            connectionTrace: ["false"]
+#            startTls: ["false"]
+#            connectionPooling: ["true"]
+#            usersDn: ["dc=example,dc=com"]
+#           cachePolicy: ["DEFAULT"]
+#           useKerberosForPasswordAuthentication: ["false"]
+#            importEnabled: ["true"]
+#           enabled: ["true"]
+#           bindCredential: ["password"]
+#           usernameLDAPAttribute: ["uid"]
+#            changedSyncPeriod: ["-1"]
+#            bindDn: ["cn=read-only-admin,dc=example,dc=com"]
+#            vendor: ["other"]
+#            uuidLDAPAttribute: ["entryUUID"]
+#            connectionUrl: ["ldap://ldap.forumsys.com"]
+#           allowKerberosAuthentication: ["false"]
+#           syncRegistrations: ["false"]
+#            authType: ["simple"]
+#           krbPrincipalAttribute: ["krb5PrincipalName"]
+#           customUserSearchFilter: ["(uid=*)"]
+#           searchScope: ["2"]
+#           useTruststoreSpi: ["always"]
+#           usePasswordModifyExtendedOp: ["false"]
+#           trustEmail: ["false"]
+#           userObjectClasses: ["inetOrgPerson, organizationalPerson"]
+#           removeInvalidUsersEnabled: ["false"]
+#           rdnLDAPAttribute: ["uid"]
+#           editMode: ["READ_ONLY"]
+#           validatePasswordPolicy: ["false"]
+#           enableLdapPasswordPolicy: ["false"]
