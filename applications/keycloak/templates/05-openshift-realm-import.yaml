@@ -27,9 +27,9 @@ spec:
         directAccessGrantsEnabled: true
     users:
       - credentials:
-          - temporary: false
+          - temporary: true
             type: password
-            value: redhat123
+            value: redhat@123
         email: admin@domain.com
         emailVerified: true
         enabled: true
